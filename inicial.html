@@ -55,7 +55,7 @@
 
             <li class="nav-item">
                 <div id="escudonome">
-                    <img src="./img/def/icon.png" alt="logo">
+                    <img src="./img/def/BOLA CHEIA (1).png" alt="logo">
                 </div>
             </li>
 
@@ -246,8 +246,8 @@
                             aria-labelledby="addModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="addModalLabel">Novo jogador</h5>
+                                    <div class="modal-header">    
+                                        <img src="./img/def/icon.png" alt="">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -258,14 +258,14 @@
                                             <div class="form-group">
                                                 <strong><label for="addnome">Nome do atleta</label></strong>
                                                 <input type="text" class="form-control" id="addnome"
-                                                    placeholder="Nome do atleta">
+                                                    placeholder="Nome do atleta" required>
                                             </div>
                                             <div id="timenum">
-                                                <div class="form-group" id="timeselect">
+                                                <div class="form-group" id="time">
                                                     <strong><label for="time">Time</label></strong>
-                                                    <select class="form-control">
-                                                        <option>Internazionale</option>
-                                                        <option>Milan</option>
+                                                    <select class="form-control" id="timeselect">
+                                                        <option value="inter">Internazionale</option>
+                                                        <option value="milan">Milan</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group" id="numinput">
@@ -275,14 +275,13 @@
                                                 </div>
                                                 <div class="form-group" id="dataing">
                                                     <strong><label for="ingresso">Ingresso</label></strong>
-                                                    <input type="date" class="form-control" id="ingresso">
+                                                    <input type="date" class="form-control" id="ingresso" required>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
-                                            changes</button>
+                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="salvarJogadores()">Adicionar</button>
                                     </div>
                                 </div>
                             </div>
@@ -356,7 +355,7 @@
                                                 <th scope="col">Total</th>
                                                 <th scope="col">#</th>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="visaogeralresultados">
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>Lucas</td>

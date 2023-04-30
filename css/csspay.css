@@ -398,12 +398,15 @@
 }
 
 /*Modal*/
+.modal-header img{
+    width: 50px;
+}
 /*Alinhando time, número e data*/
 .modal-body #timenum{
     display: flex;
     justify-content: space-between;
 }
-.modal-body #timenum #timeselect{
+.modal-body #timenum #time{
     width: 40%;
 }
 .modal-body #timenum #numinput{

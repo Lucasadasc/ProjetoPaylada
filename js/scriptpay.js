@@ -22,15 +22,17 @@ function salvarJogadores() {
     var diadoingresso = Number(datadeingresso.substring(8, 10))
     var mesdoingresso = Number(datadeingresso.substring(5, 7))
 
-    gerarPagamentos(id, diadoingresso, mesdoingresso)
+    gerarAnalise(id, diadoingresso, mesdoingresso)
+
     jogadores.push(jogador)
 
     console.log(jogadores)
 
-    lista.innerHTML = gerarTabela()
+
+    lista.innerHTML += inserirTab(nome, numero, time, "pendente", "pago", "pago" )
 }
 
-function gerarPagamentos(id, diaingresso, mesingresso) {
+function gerarAnalise(id, diaingresso, mesingresso) {
     var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
 
     var data = new Date();
@@ -187,32 +189,33 @@ function gerarPagamentos(id, diaingresso, mesingresso) {
 
 }
 
-function gerarTabela() {
-    return `
+function inserirTab(nome, numero, time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status){
+    var fixo = `
     <tr>
         <th scope="row">1</th>
-            <td>Lucas</td>
-            <td>10</td>
-                <td>Inter</td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fa-solid fa-circle-check"></i></td>
-                <td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>
-                <td>Ativo</td>
-                <td>R$300</td>
-                <td>
-                    <a href="./jogador.html">
-                        <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
-                    </a>
-                </td>
-    </tr>
-    `;
+        <td>${nome}</td>
+        <td>${numero}</td>
+        <td>${time}</td>`
+
+    var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
+    var paganual;
+    valorespag.forEach(function(statuspag) {
+        if(statuspag=='pago'){
+            paganual += `<td><i class="fa-solid fa-circle-check"></i></td>`
+        }else if(pagjan =='pendente'){
+            paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
+        }else{
+            
+        }
+    });
+    var fixob = `
+    <td>${status}</td>
+    <td>R$300</td>`
+    var ampliar = `
+    <td>
+        <a href="./jogador.html">
+            <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+        </a>
+    </td>`
+    return fixo + paganual  + fixob + ampliar
 }

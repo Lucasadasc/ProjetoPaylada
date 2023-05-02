@@ -5,8 +5,6 @@ var gerencia = [40, "10", "02", "11"]
 var jogadores = [];
 var pagamentos = [];
 
-
-
 function salvarJogadores() {
 
     const lista = document.querySelector("#visaogeralresultados");
@@ -28,7 +26,7 @@ function salvarJogadores() {
 
     console.log(jogadores)
 
-
+    
     lista.innerHTML += inserirTab(id, nome, numero, time)
 }
 
@@ -192,23 +190,27 @@ function gerarAnalise(id, diaingresso, mesingresso) {
 
 function inserirTab(id, nome, numero, time) {
     var status //situação do jogador 
-    var paganual //valor total pago no ano
+
     var fixo = `
-    <tr>
-        <th scope="row">1</th>
+    <tr align="center">
+        <td>
+            <a href="./jogador.html">
+                <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+            </a>
+        </td>
         <td>${nome}</td>
         <td>${numero}</td>
         <td>${time}</td>`
     
     //pegando o status do pagemento do jogador pelo id e substituindo no html
-    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez
+    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, totalpag
     pagamentos.forEach(function (idpagamento) {
         if(id==idpagamento[0]){
-            console.log(idpagamento[0])
-            console.log(idpagamento[2])
-            pagjan = String(idpagamento[2])
+            status = idpagamento[15]
+            totalpag = idpagamento[14]
+
+            pagjan = idpagamento[2]
             pagfev = idpagamento[3]
-            console.log(pagfev)
             pagmar = idpagamento[4]
             pagabr = idpagamento[5]
             pagmai = idpagamento[6]
@@ -224,23 +226,21 @@ function inserirTab(id, nome, numero, time) {
     var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
     
     //gerando o html com base na situação de pagamento do mês
+    var paganual = ''; //variavél que vai guardar o trecho de html compativel a situção de pagemento em cada mes
     valorespag.forEach(function (statuspag) {
+        console.log(statuspag)
         if (statuspag == 'pago') {
-            paganual += `<td><i class="fa-solid fa-circle-check"></i></td>`
+            paganual += `<td><i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
         } else if (statuspag == 'pendente') {
             paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
         } else if(statuspag == 'isento'){
-            paganual += `<td><i class="fa-solid fa-hyphen"></i></td>`
+            paganual += `<td><i class="fa-solid fa-circle-minus"></i></td>`
+        } else{
+            paganual += `<td><i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i></td>`
         }
     });
-    var fixob = `
-    <td>${status}</td>
-    <td>R$300</td>`
-    var ampliar = `
-    <td>
-        <a href="./jogador.html">
-            <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
-        </a>
-    </td>`
-    return fixo + paganual + fixob + ampliar
+    var fixob =`<td>${status}</td>
+                <td>R$${totalpag}</td></tr>`
+    return fixo + paganual + fixob
+    //return fixo + paganual + fixob + ampliar
 }

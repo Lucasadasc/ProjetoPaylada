@@ -183,13 +183,14 @@ function gerarAnalise(id, diaingresso, mesingresso) {
         }
 
     }
-    var pagamento = [id, anoatual, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status]
+    var totalpag = 0
+    var pagamento = [id, anoatual, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, totalpag, status]
     pagamentos.push(pagamento)
     console.log(pagamentos)
 
 }
 
-function inserirTab(nome, numero, time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status){
+function inserirTab(id, nome, numero, time){
     var fixo = `
     <tr>
         <th scope="row">1</th>

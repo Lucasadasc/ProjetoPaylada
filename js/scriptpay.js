@@ -29,7 +29,7 @@ function salvarJogadores() {
     console.log(jogadores)
 
 
-    lista.innerHTML += inserirTab(nome, numero, time, "pendente", "pago", "pago" )
+    lista.innerHTML += inserirTab(id, nome, numero, time)
 }
 
 function gerarAnalise(id, diaingresso, mesingresso) {
@@ -190,23 +190,47 @@ function gerarAnalise(id, diaingresso, mesingresso) {
 
 }
 
-function inserirTab(id, nome, numero, time){
+function inserirTab(id, nome, numero, time) {
+    var status //situação do jogador 
+    var paganual //valor total pago no ano
     var fixo = `
     <tr>
         <th scope="row">1</th>
         <td>${nome}</td>
         <td>${numero}</td>
         <td>${time}</td>`
-
+    
+    //pegando o status do pagemento do jogador pelo id e substituindo no html
+    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez
+    pagamentos.forEach(function (idpagamento) {
+        if(id==idpagamento[0]){
+            console.log(idpagamento[0])
+            console.log(idpagamento[2])
+            pagjan = String(idpagamento[2])
+            pagfev = idpagamento[3]
+            console.log(pagfev)
+            pagmar = idpagamento[4]
+            pagabr = idpagamento[5]
+            pagmai = idpagamento[6]
+            pagjun = idpagamento[7]
+            pagjul = idpagamento[8]
+            pagago = idpagamento[9]
+            pagset = idpagamento[10]
+            pagout = idpagamento[11]
+            pagnov = idpagamento[12]
+            pagdez = idpagamento[13]
+        }
+    });
     var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
-    var paganual;
-    valorespag.forEach(function(statuspag) {
-        if(statuspag=='pago'){
+    
+    //gerando o html com base na situação de pagamento do mês
+    valorespag.forEach(function (statuspag) {
+        if (statuspag == 'pago') {
             paganual += `<td><i class="fa-solid fa-circle-check"></i></td>`
-        }else if(pagjan =='pendente'){
+        } else if (statuspag == 'pendente') {
             paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
-        }else{
-            
+        } else if(statuspag == 'isento'){
+            paganual += `<td><i class="fa-solid fa-hyphen"></i></td>`
         }
     });
     var fixob = `
@@ -218,5 +242,5 @@ function inserirTab(id, nome, numero, time){
             <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
         </a>
     </td>`
-    return fixo + paganual  + fixob + ampliar
+    return fixo + paganual + fixob + ampliar
 }

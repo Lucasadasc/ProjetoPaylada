@@ -1,6 +1,6 @@
 //Dados
 
-//[valor, dia máx de pagamento, mês do inicio, mês de termino]
+//[valor, dia máx de pagamento, mês do inicio, mês de termino, time a, time b]
 var gerencia = [40, "10", "02", "11"]
 var jogadores = [];
 var pagamentos = [];
@@ -26,7 +26,7 @@ function salvarJogadores() {
 
     console.log(jogadores)
 
-    
+
     lista.innerHTML += inserirTab(id, nome, numero, time)
 }
 
@@ -201,13 +201,12 @@ function inserirTab(id, nome, numero, time) {
         <td>${nome}</td>
         <td>${numero}</td>
         <td>${time}</td>`
-    
+
     //pegando o status do pagemento do jogador pelo id e substituindo no html
-    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, totalpag
+    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
     pagamentos.forEach(function (idpagamento) {
-        if(id==idpagamento[0]){
+        if (id == idpagamento[0]) {
             status = idpagamento[15]
-            totalpag = idpagamento[14]
 
             pagjan = idpagamento[2]
             pagfev = idpagamento[3]
@@ -224,7 +223,7 @@ function inserirTab(id, nome, numero, time) {
         }
     });
     var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
-    
+
     //gerando o html com base na situação de pagamento do mês
     var paganual = ''; //variavél que vai guardar o trecho de html compativel a situção de pagemento em cada mes
     valorespag.forEach(function (statuspag) {
@@ -233,13 +232,45 @@ function inserirTab(id, nome, numero, time) {
             paganual += `<td><i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
         } else if (statuspag == 'pendente') {
             paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
-        } else if(statuspag == 'isento'){
+        } else if (statuspag == 'isento') {
             paganual += `<td><i class="fa-solid fa-circle-minus"></i></td>`
-        } else{
+        } else {
             paganual += `<td><i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i></td>`
         }
     });
-    var fixob =`<td>${status}</td>
-                <td>R$${totalpag}</td></tr>`
+    var fixob = `<td>${status}</td>
+                <td>R$${somaPagamentos(id)}</td></tr>`
     return fixo + paganual + fixob
+}
+function somaPagamentos(id) {
+    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
+    var totalpag = 0 //total de pagamentos inicial
+    pagamentos.forEach(function (idpagamento) {
+        if (id == idpagamento[0]) {
+            status = idpagamento[15]
+            pagjan = idpagamento[2]
+            pagfev = idpagamento[3]
+            pagmar = idpagamento[4]
+            pagabr = idpagamento[5]
+            pagmai = idpagamento[6]
+            pagjun = idpagamento[7]
+            pagjul = idpagamento[8]
+            pagago = idpagamento[9]
+            pagset = idpagamento[10]
+            pagout = idpagamento[11]
+            pagnov = idpagamento[12]
+            pagdez = idpagamento[13]
+        }
+    });
+    var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
+    valorespag.forEach(function (statuspag) {
+        if (statuspag == 'pago') {
+            totalpag += gerencia[0]
+        } else {
+            totalpag += 0
+            console.log(totalpag)
+        }
+    });
+
+    return totalpag
 }

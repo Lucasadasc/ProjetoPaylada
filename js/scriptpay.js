@@ -242,5 +242,4 @@ function inserirTab(id, nome, numero, time) {
     var fixob =`<td>${status}</td>
                 <td>R$${totalpag}</td></tr>`
     return fixo + paganual + fixob
-    //return fixo + paganual + fixob + ampliar
 }

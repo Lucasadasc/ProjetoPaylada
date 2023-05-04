@@ -5,6 +5,14 @@ var gerencia = [40, "10", "02", "11"]
 var jogadores = [];
 var pagamentos = [];
 
+window.onload = function () {
+    totaisCards()
+}
+function totaisCards() {
+    const totaljog = document.querySelector("#totalatletas")
+    var total = String(jogadores.length)
+    totaljog.innerHTML = total
+}
 function salvarJogadores() {
 
     const lista = document.querySelector("#visaogeralresultados");
@@ -23,6 +31,7 @@ function salvarJogadores() {
     gerarAnalise(id, diadoingresso, mesdoingresso)
 
     jogadores.push(jogador)
+    totaisCards()
 
     console.log(jogadores)
 

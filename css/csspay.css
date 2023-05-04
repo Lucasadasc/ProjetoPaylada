@@ -1,3 +1,4 @@
+/*Relacionados a card*/
 .card #itens {
     display: flex;
     align-items: center;
@@ -44,21 +45,6 @@
     background-color: #e2e2e2;
     border-radius: 0px 4px 4px 0px;
 }
-
-#cardaddjogador {
-    cursor: pointer;
-    text-decoration: none;
-}
-#cardgerenciar {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-
-#cabecajog {
-    align-items: right;
-}
-
 .card #dtjghist {
     display: flex;
     justify-content: space-between;
@@ -77,41 +63,21 @@
 .card #dtjghist span {
     font-size: 1.5rem;
 }
-
-#divhistorico img {
-    width: 40px;
+#cardaddjogador {
+    cursor: pointer;
+    text-decoration: none;
 }
-
-#resumojogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#cardgerenciar {
+    cursor: pointer;
+    text-decoration: none;
 }
-
-#resumojogo img {
-    width: 70px;
-    height: 80px;
-}
-
-#resumojogo span {
-    margin-left: 2rem;
-    margin-right: 2rem;
-
-    font-size: 20px;
-}
-
 .card #headerlist {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-@media (min-width: 768px) {
-    #sgeassistcard {
-        flex: 0 0 50.0%;
-        max-width: 50%;
-    }
-
+#cabecajog {
+    align-items: right;
 }
 
 @media (min-width: 768px) {
@@ -121,78 +87,6 @@
     }
 
 }
-
-@media (min-width: 768px) {
-    #divhistorico {
-        flex: 0 0 100.0%;
-        max-width: 100%;
-    }
-
-}
-
-/*desempenho*/
-.card #apvid {
-    display: flex;
-    align-items: center;
-}
-
-.card #apvid p {
-    margin-left: 1rem !important;
-}
-
-/*artilheiro*/
-#artilheiro {
-    background-color: #fffed6;
-}
-
-.card #visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    padding: 1rem;
-}
-
-.card #visual #posenum {
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.card #visual #posenum p#posicao {
-    margin-top: 1rem;
-    font-size: 30px;
-}
-
-.card #visual #posenum p#num {
-    margin-top: 3rem;
-    font-size: 80px;
-    color: #2bc3ff;
-}
-
-.card #visual #fotoenome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.card #visual #fotoenome img {
-    width: 15rem;
-    height: 15rem;
-    ;
-}
-
-.card #visual #fotoenome p {
-    width: 100%;
-    text-align: center;
-    border-radius: 3px;
-    background-color: #bcbcc5;
-}
-
 /*pagejogadoreslist*/
 .card #cabecalho {
     display: flex;
@@ -233,141 +127,6 @@
 
     margin-bottom: 10px;
 }
-
-/*pagejogador*/
-#jogall {
-    display: flex;
-}
-
-#dadosepagamento {
-    display: flex;
-    flex-direction: column;
-    width: 66%;
-}
-
-#dadosepagamento .card #cabecalhoa {
-    display: flex;
-    background-color: #f0f0f0;
-    ;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 3px;
-}
-
-#dadosepagamento .card #cabecalhoa p {
-    width: 33%;
-    text-align: center;
-    align-items: center;
-}
-
-#dadosepagamento .card #atletas {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#dadosepagamento .card #atletas p {
-    width: 33%;
-    text-align: center;
-    align-items: center;
-}
-
-@media (min-width: 768px) {
-    #telajogador {
-        flex: 0 0 100%;
-        max-width: 100%;
-        max-height: 280px;
-    }
-
-    #telapagamento {
-        flex: 0 0 100%;
-        max-width: 100%;
-        max-height: 200px;
-    }
-
-}
-
-#telajogador #pagamento p {
-    justify-content: center;
-    text-align: center;
-}
-
-.card #meses {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#telajogador #meses p {
-    width: 8%;
-    text-align: center;
-    align-items: center;
-}
-
-#novopagamento {
-    display: flex;
-    padding-left: 10px;
-    align-items: center;
-    background-color: #f0f0f0;
-    height: 40px;
-    border-radius: 3px;
-}
-
-#novopagamento #rseinput {
-    margin-left: 5px;
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(228, 227, 227);
-    border: solid;
-    border-radius: 3px;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 2px;
-}
-
-#novopagamento input {
-    background-color: rgb(228, 227, 227);
-    width: 40px;
-    text-align: center;
-    border-radius: 0px 3px 3px 0px;
-    border: none;
-    outline: none;
-}
-
-#novopagamento select {
-    margin-left: 10px;
-    background-color: rgb(228, 227, 227);
-    text-align: center;
-    border-radius: 3px;
-    border: solid;
-    outline: none;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 2px;
-}
-
-#novopagamento a {
-    margin-left: 10px;
-    width: 70px;
-    background-color: rgb(228, 227, 227);
-    text-align: center;
-    border-radius: 3px;
-    border: solid;
-    text-decoration: none;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 2px;
-}
-
-#novopagamento a:hover {
-    background-color: #1cc88a;
-    color: green !important;
-}
-
 .topbar #logomarca span {
     margin-right: 1rem;
     font-size: 1.3rem;
@@ -426,4 +185,182 @@
 }
 .modal-body #timenum #dataing{
     width: 40%;
+}
+/*a parte da unidade 1 vem até aqui*/
+
+/*pagejogador*/
+#jogall {
+    display: flex;
+}
+
+#dadosepagamento {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+}
+
+#dadosepagamento .card #cabecalhoa {
+    display: flex;
+    background-color: #f0f0f0;
+    ;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 3px;
+}
+
+#dadosepagamento .card #cabecalhoa p {
+    width: 33%;
+    text-align: center;
+    align-items: center;
+}
+
+#dadosepagamento .card #atletas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#dadosepagamento .card #atletas p {
+    width: 33%;
+    text-align: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    #telajogador {
+        flex: 0 0 100%;
+        max-width: 100%;
+        max-height: 280px;
+    }
+    #telapagamento {
+        flex: 0 0 100%;
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+}
+#telajogador #pagamento p {
+    justify-content: center;
+    text-align: center;
+}
+
+.card #meses {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#telajogador #meses p {
+    width: 8%;
+    text-align: center;
+    align-items: center;
+}
+#novopagamento {
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    background-color: #f0f0f0;
+    height: 40px;
+    border-radius: 3px;
+}
+#novopagamento #rseinput {
+    margin-left: 5px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(228, 227, 227);
+    border: solid;
+    border-radius: 3px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+}
+#novopagamento input {
+    background-color: rgb(228, 227, 227);
+    width: 40px;
+    text-align: center;
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    outline: none;
+}
+#novopagamento select {
+    margin-left: 10px;
+    background-color: rgb(228, 227, 227);
+    text-align: center;
+    border-radius: 3px;
+    border: solid;
+    outline: none;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+}
+#novopagamento a {
+    margin-left: 10px;
+    width: 70px;
+    background-color: rgb(228, 227, 227);
+    text-align: center;
+    border-radius: 3px;
+    border: solid;
+    text-decoration: none;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+}
+#novopagamento a:hover {
+    background-color: #1cc88a;
+    color: green !important;
+}
+@media (min-width: 768px) {
+    #sgeassistcard {
+        flex: 0 0 50.0%;
+        max-width: 50%;
+    }
+
+}
+/*artilheiro*/
+#artilheiro {
+    background-color: #fffed6;
+}
+.card #visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 1rem;
+}
+.card #visual #posenum {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card #visual #posenum p#posicao {
+    margin-top: 1rem;
+    font-size: 30px;
+}
+.card #visual #posenum p#num {
+    margin-top: 3rem;
+    font-size: 80px;
+    color: #2bc3ff;
+}
+.card #visual #fotoenome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card #visual #fotoenome img {
+    width: 15rem;
+    height: 15rem;
+    ;
+}
+.card #visual #fotoenome p {
+    width: 100%;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #bcbcc5;
 }

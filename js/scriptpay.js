@@ -7,11 +7,237 @@ var pagamentos = [];
 
 window.onload = function () {
     totaisCards()
+    mesesFoco()
 }
 function totaisCards() {
     const totaljog = document.querySelector("#totalatletas")
     var total = String(jogadores.length)
     totaljog.innerHTML = total
+}
+function mesesFoco(){
+    const mesesemfoco = document.querySelector("#mf")
+
+    //pegando a data atual
+    var data = new Date();
+    var mesatual = data.getMonth() + 1
+
+    var meses
+    if(mesatual==1){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Dezembro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Janeiro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Fevereiro</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 2){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Janeiro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Fevereiro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Março</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 3){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Fevereiro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Março</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Abril</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 4){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Março</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Abril</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Maio</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 5){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Abril</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Maio</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Junho</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 6){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Maio</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Junho</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Julho</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 7){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Junho</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Julho</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Agosto</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 8){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Julho</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Agosto</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Setembro/span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 9){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Agosto</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Setembro</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Outubro</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 10){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Setembro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Outubro</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Novembro</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 11){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Outubro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Novembro</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Dezembro</span>
+            </a>
+        </li>
+        `
+    }else if(mesatual == 12){
+        meses = `
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Novembro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Dezembro</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Janeiro</span>
+            </a>
+        </li>
+        `
+    }
+    return mesesemfoco.innerHTML += meses
 }
 function salvarJogadores() {
 
@@ -43,9 +269,6 @@ function gerarAnalise(id, diaingresso, mesingresso) {
     var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
 
     var data = new Date();
-
-    var diaatual = data.getDate()
-    var mesatual = data.getMonth() + 1
     var anoatual = data.getFullYear()
 
     //pegando data máxima pra pagamento e mês de inicio e termino

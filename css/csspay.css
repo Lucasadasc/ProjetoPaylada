@@ -148,13 +148,6 @@
     background-image: linear-gradient(180deg,#1cc88a 10%,#048881 100%) !important;
     background-size: cover !important; /*o !important serve pra sobescrever as definições dp css do template*/
 }
-/* tirando o tamanho do padding do sidebar */
-.sidebar .nav-item .nav-link {
-    text-align: center;
-    padding: 0.5rem 1rem  !important;
-    /* padding: 0.75rem 1rem; */
-    width: 6.5rem;
-}
 .sidebar .nav-item #escudonome {
     margin-top: 1rem;
     margin-bottom: 1rem;

@@ -19,12 +19,12 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    
+
     <!-- Mudanças e adições que fiz no css -->
     <link href="css/csspay.css" rel="stylesheet">
     <!-- CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Estilização do template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -202,7 +202,7 @@
                                 </form>
                             </div>
                         </li>
-                        
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -300,12 +300,12 @@
                             </div>
                         </a>
 
-                        <!-- Modal -->
+                        <!-- Modal de adicionar jogador-->
                         <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
                             aria-labelledby="addModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">    
+                                    <div class="modal-header">
                                         <img src="./img/def/icon.png" alt="">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                                             aria-label="Close">
@@ -340,23 +340,25 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="salvarJogadores()">Adicionar</button>
+                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                                            onclick="salvarJogadores()">Adicionar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div id="textadd"
-                                                class="text-xs text-danger font-weight-bold text-uppercase ">Adicionar
-                                                jogador</div>
+                                                class="text-xs text-info font-weight-bold text-uppercase ">
+                                                Editar pelada
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fa-solid fa-user-plus fa-2x text-gray-300"></i>
+                                            <i class="fa-solid fa-file-pen fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -376,8 +378,9 @@
                         <div class="col-xl-3 col-md-6 mb-4" id="barradeprocura">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
-                                    <h5>Todos os jogadores</h5>
-                                    <table class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
+                                    <h6>Todos os jogadores</h6>
+                                    <table
+                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
                                         <thead>
                                             <tr align="center">
                                                 <th scope="col">#</th>
@@ -400,7 +403,74 @@
                                                 <th scope="col">Total</th>
                                         </thead>
                                         <tbody id="visaogeralresultados">
-                                        <!-- Os dados da tabela estarão aqui -->
+                                            <!-- Os dados da tabela estarão aqui -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tabela de gastos extras -->
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4" id="barradeprocura">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <h6>Receitas e despesas</h6>
+                                    <table
+                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
+                                        <thead>
+                                            <tr align="center">
+                                                <th scope="col">#</th>
+                                                <th scope="col">
+                                                    <a href="./jogador.html">
+                                                        <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+                                                    </a>
+                                                    Jan
+                                                </th>
+                                                <th scope="col">Fev</th>
+                                                <th scope="col">Mar</th>
+                                                <th scope="col">Abr</th>
+                                                <th scope="col">Mai</th>
+                                                <th scope="col">Jun</th>
+                                                <th scope="col">Jul</th>
+                                                <th scope="col">Ago</th>
+                                                <th scope="col">Set</th>
+                                                <th scope="col">Out</th>
+                                                <th scope="col">Nov</th>
+                                                <th scope="col">Dez</th>
+                                                <th scope="col">Total</th>
+                                        </thead>
+                                        <tbody id="visaogeralresultados">
+                                            <tr align="center">
+                                                <td>Despesas</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                            <tr align="center">
+                                                <td>Extras</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
+                                                <td>R$0</td>
                                         </tbody>
                                     </table>
                                 </div>
@@ -408,9 +478,6 @@
                         </div>
                     </div>
                     <!-- /.container-fluid -->
-
-
-
                     <!-- End of Main Content -->
 
                     <!-- Footer -->

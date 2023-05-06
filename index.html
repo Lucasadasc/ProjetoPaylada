@@ -70,7 +70,7 @@
             <div class="sidebar-heading">
                 Em foco
             </div>
-            
+
             <div id="mf">
                 <!-- 
                 Nav Itens com os meses em foco em tal período do ano
@@ -229,8 +229,7 @@
                         </div>
 
                         <!-- Card adicionar jogador -->
-                        <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
-                            data-bs-target="#addModal">
+                        <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal" data-bs-target="#addModal">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -294,7 +293,7 @@
                             </div>
                         </div>
 
-                        <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4">
+                        <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal" data-bs-target="#editarpelada">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -311,6 +310,52 @@
                                 </div>
                             </div>
                         </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="editarpelada" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <img src="./img/def/icon.png" alt="">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <strong><label for="addnome">Nome do atleta</label></strong>
+                                                <input type="text" class="form-control" id="addnome"
+                                                    placeholder="Nome do atleta" required>
+                                            </div>
+                                            <div id="timenum">
+                                                <div class="form-group" id="time">
+                                                    <strong><label for="time">Time</label></strong>
+                                                    <select class="form-control" id="timeselect">
+                                                        <option value="Internazionale">Internazionale</option>
+                                                        <option value="Milan">Milan</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group" id="numinput">
+                                                    <strong><label for="Número">Nº</label></strong>
+                                                    <input type="text" class="form-control" id="numero"
+                                                        placeholder="00">
+                                                </div>
+                                                <div class="form-group" id="dataing">
+                                                    <strong><label for="ingresso">Ingresso</label></strong>
+                                                    <input type="date" class="form-control" id="ingresso" required>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- Filtros tabelas - Usando btn-group do Bootstrap -->
                     <div id="filtros" class="btn-group" role="group">

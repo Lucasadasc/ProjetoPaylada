@@ -27,15 +27,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Dezembro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Janeiro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Fevereiro</span>
             </a>
         </li>
         `
@@ -44,15 +36,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Janeiro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Fevereiro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Março</span>
             </a>
         </li>
         `
@@ -61,15 +45,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Fevereiro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Março</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Abril</span>
             </a>
         </li>
         `
@@ -78,15 +54,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Março</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Abril</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Maio</span>
             </a>
         </li>
         `
@@ -95,32 +63,15 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Abril</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Maio</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Junho</span>
             </a>
         </li>
         `
     }else if(mesatual == 6){
         meses = `
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Maio</span>
-            </a>
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Junho</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Julho</span>
             </a>
         </li>
         `
@@ -129,15 +80,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Junho</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Julho</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Agosto</span>
             </a>
         </li>
         `
@@ -146,17 +89,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Julho</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Agosto</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Setembro/span>
             </a>
         </li>
         `
@@ -165,17 +98,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Agosto</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Setembro</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Outubro</span>
             </a>
         </li>
         `
@@ -203,17 +126,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Outubro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Novembro</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Dezembro</span>
             </a>
         </li>
         `
@@ -222,17 +135,7 @@ function mesesFoco(){
         <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
-                <span>Novembro</span>
-            </a>
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
                 <span>Dezembro</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Janeiro</span>
             </a>
         </li>
         `

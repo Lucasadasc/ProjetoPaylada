@@ -11,7 +11,7 @@
 
     
     <!-- Icone do site - "PL" -->
-    <link rel="icon" type="image/png" href="./img/def/icon.png"/>
+    <link rel="icon" type="image/png" href="./img/def/icon.png  "/>
     
     <title>Paylada</title>
 
@@ -63,7 +63,7 @@
 
             <li class="nav-item">
                 <div id="escudonome">
-                    <img src="./img/def/BOLA CHEIA (1).png" alt="logo">
+                    <img src="./img/def/bolacheia.png" alt="logo">
                 </div>
             </li>
 
@@ -74,16 +74,10 @@
             <div class="sidebar-heading">
                 Em foco
             </div>
-
-            <li class="nav-item" id="mf">                
-                <!-- 
-                    Nav Itens com os meses em foco em tal período do ano
-                -->
-            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa-regular fa-calendar-days"></i>
                     <span>Meses</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -103,6 +97,11 @@
                         <a class="collapse-item" href="">Dezembro</a>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item" id="mf">                
+                <!-- 
+                    Nav Itens com os meses em foco em tal período do ano
+                -->
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -352,34 +351,56 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="">
-                                            <div class="form-group">
-                                                <strong><label for="addnome">Nome do atleta</label></strong>
-                                                <input type="text" class="form-control" id="addnome"
-                                                    placeholder="Nome do atleta" required>
+                                            <div id="editefoto">
+                                                <div id="edicoes">
+                                                    <div class="form-group">
+                                                        <strong><label for="addnome">Nome da pelada</label></strong>
+                                                        <input type="text" class="form-control" id="addnome"
+                                                            placeholder="Nome da pelada" value="Bola Cheia">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <strong><label for="addnome">Times participantes</label></strong>
+                                                        <input type="text" class="form-control" id="addnome"
+                                                            placeholder="Nome da pelada" value="Milan">
+                                                        <input type="text" class="form-control" id="addnome"
+                                                            placeholder="Nome da pelada" value="Inter">
+                                                    </div>
+                                                </div>
+                                                <div id="logopelada">
+                                                    <div id="mudarfoto">
+                                                        <img src="./img/def/bolacheia.png" alt="">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Nova logo</label>
+                                                        </div>
+                                                    </div> 
+                                                </div>
                                             </div>
-                                            <div id="timenum">
-                                                <div class="form-group" id="time">
-                                                    <strong><label for="time">Time</label></strong>
-                                                    <select class="form-control" id="timeselect">
-                                                        <option value="Internazionale">Internazionale</option>
-                                                        <option value="Milan">Milan</option>
-                                                    </select>
+                                            <div id="datas">
+                                                <div id="inicio" class="form-group">
+                                                    <strong><label for="datadeinicio">Inicio</label></strong>
+                                                    <input type="date" class="form-control" id="datadeinicio">
                                                 </div>
-                                                <div class="form-group" id="numinput">
-                                                    <strong><label for="Número">Nº</label></strong>
-                                                    <input type="text" class="form-control" id="numero"
-                                                        placeholder="00">
+                                                <div id="termino" class="form-group">
+                                                    <strong><label for="datadetermino">Término</label></strong>
+                                                    <input type="date" class="form-control" id="datadetermino">
                                                 </div>
-                                                <div class="form-group" id="dataing">
-                                                    <strong><label for="ingresso">Ingresso</label></strong>
-                                                    <input type="date" class="form-control" id="ingresso" required>
+                                            </div>
+                                            <div id="financas">
+                                                <div id="payday" class="form-group">
+                                                    <strong><label for="paydayv">Pagamento máx.</label></strong>
+                                                    <input type="text" class="form-control" id="paydayv" placeholder="Dia máximo do pagamento" value="10">
+                                                </div>
+                                                <div id="valor" class="form-group">
+                                                    <strong><label for="valormensal">Valor mensal (R$)</label></strong>
+                                                    <input type="text" class="form-control" id="valormensal" placeholder="Valor mensal em R$" value="40">
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-primary">Salvar alterações</button>
                                     </div>
                                 </div>
                             </div>

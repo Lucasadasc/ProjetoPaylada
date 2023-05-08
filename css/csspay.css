@@ -165,7 +165,7 @@
 .modal-header img{
     width: 50px;
 }
-/*Alinhando time, número e data*/
+/*Alinhando time, número e data - modal de adicionar*/
 .modal-body #timenum{
     display: flex;
     justify-content: space-between;
@@ -179,6 +179,59 @@
 .modal-body #timenum #dataing{
     width: 40%;
 }
+/*modal de editar pelada*/
+.modal-body #editefoto{
+    display: flex;
+}
+.modal-body #editefoto #edicoes{
+    width: 50%;
+}
+.modal-body #editefoto #logopelada{
+    padding: 5px;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-body #editefoto #logopelada #mudarfoto{
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+.modal-body #editefoto #logopelada #mudarfoto img{
+    width: 100px;
+}
+.modal-body #editefoto #logopelada #mudarfoto input{
+    display: none;
+    width: 100px;
+}
+/*Alinhando inicio, termino, data de pagemento e valor*/
+.modal-body #datas{
+    display: flex;
+    justify-content: space-between;
+}
+.modal-body #datas #termino{
+    width: 49%;
+}
+.modal-body #datas #inicio{
+    width: 49%;
+}
+.modal-body #financas{
+    display: flex;
+    justify-content: space-between;
+}
+.modal-body #financas #payday{
+    width: 49%;
+}
+.modal-body #financas #valor{
+    width: 49%;
+}
+
 /*a parte da unidade 1 vem até aqui*/
 
 /*pagejogador*/

@@ -24,48 +24,41 @@ function mesesFoco(){
     var meses
     if(mesatual==1){
         meses = `
-        <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Janeiro</span>
             </a>
-        </li>
         `
     }else if(mesatual == 2){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Fevereiro</span>
             </a>
-        </li>
         `
     }else if(mesatual == 3){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Março</span>
             </a>
-        </li>
         `
     }else if(mesatual == 4){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Abril</span>
             </a>
-        </li>
         `
     }else if(mesatual == 5){
         meses = `
-        <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Maio</span>
             </a>
-        </li>
         `
     }else if(mesatual == 6){
         meses = `
@@ -73,38 +66,34 @@ function mesesFoco(){
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Junho</span>
             </a>
-        </li>
         `
     }else if(mesatual == 7){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Julho</span>
             </a>
-        </li>
         `
     }else if(mesatual == 8){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Agosto</span>
             </a>
-        </li>
         `
     }else if(mesatual == 9){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Setembro</span>
             </a>
-        </li>
         `
     }else if(mesatual == 10){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Setembro</span>
@@ -113,31 +102,27 @@ function mesesFoco(){
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Outubro</span>
             </a>
-        </li>
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Novembro</span>
             </a>
-        </li>
         `
     }else if(mesatual == 11){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Novembro</span>
             </a>
-        </li>
         `
     }else if(mesatual == 12){
         meses = `
-        <li class="nav-item">
+        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Dezembro</span>
             </a>
-        </li>
         `
     }
     return mesesemfoco.innerHTML += meses

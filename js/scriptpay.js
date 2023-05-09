@@ -1,3 +1,5 @@
+// Vídeo da unidade 1 - https://youtu.be/w8kyZMl2ioE 
+
 //Dados
 
 //[valor, dia máx de pagamento, mês do inicio, mês de termino, time a, time b]

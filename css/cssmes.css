@@ -1,0 +1,22 @@
+#navmeses{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#navmeses #vismes{
+    position: relative;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    height: 50px !important;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+}
+#navmeses #vismes #alignmes{
+    align-items: center;
+    justify-content: center;
+}

@@ -118,7 +118,6 @@ function mesesFoco(){
         `
     }else if(mesatual == 12){
         meses = `
-        
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Dezembro</span>

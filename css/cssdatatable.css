@@ -1,0 +1,12 @@
+#tabgeral_filter{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+#tabgeral_length{
+    display: flex;
+    align-items: center;
+}
+#tabgeral_length label{
+    display: flex;
+}

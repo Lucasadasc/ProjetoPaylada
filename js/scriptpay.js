@@ -1,13 +1,26 @@
+// Vídeo da unidade 1 - https://youtu.be/w8kyZMl2ioE 
+
 //Dados
 
 //[valor, dia máx de pagamento, mês do inicio, mês de termino, time a, time b]
 var gerencia = [40, "10", "02", "11"]
-var jogadores = [];
+var jogadores = [[1, "Douglas","Inter", "9", "2023-05-02"],
+                 [2, "Lucas","Inter", "9", "2023-05-02"],
+                 [3, "Manelgol","Milan", "9", "2023-05-05"],
+                ];
 var pagamentos = [];
 
 window.onload = function () {
     totaisCards()
     mesesFoco()
+
+    const lista = document.querySelector("#visaogeralresultados");
+    gerarAnalise(1,10,2)
+    lista.innerHTML += inserirTab(1, "Douglas", "9", "INTER")
+    gerarAnalise(2,10,2)
+    lista.innerHTML += inserirTab(2, "Lucas", "10", "INTER")
+    gerarAnalise(3,11,6)
+    lista.innerHTML += inserirTab(3, "Manelgol", "9", "Milan")
 }
 function totaisCards() {
     const totaljog = document.querySelector("#totalatletas")

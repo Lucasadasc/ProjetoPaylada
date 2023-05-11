@@ -1,3 +1,4 @@
+<!-- Vídeo da unidade 1 - https://youtu.be/w8kyZMl2ioE -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +10,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    
+
     <!-- Icone do site - "PL" -->
-    <link rel="icon" type="image/png" href="./img/def/icon.png  "/>
-    
+    <link rel="icon" type="image/png" href="./img/def/icon.png  " />
+
     <title>Paylada</title>
 
     <!-- Fontes do template-->
@@ -98,7 +99,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item" id="mf">                
+            <li class="nav-item" id="mf">
                 <!-- 
                     Nav Itens com os meses em foco em tal período do ano
                 -->
@@ -256,7 +257,8 @@
                         </div>
 
                         <!-- Card adicionar jogador -->
-                        <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
+                            data-bs-target="#addModal">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -320,7 +322,8 @@
                             </div>
                         </div>
 
-                        <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal" data-bs-target="#editarpelada">
+                        <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
+                            data-bs-target="#editarpelada">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -359,7 +362,8 @@
                                                             placeholder="Nome da pelada" value="Bola Cheia">
                                                     </div>
                                                     <div class="form-group">
-                                                        <strong><label for="addnome">Times participantes</label></strong>
+                                                        <strong><label for="addnome">Times
+                                                                participantes</label></strong>
                                                         <input type="text" class="form-control" id="addnome"
                                                             placeholder="Nome da pelada" value="Milan">
                                                         <input type="text" class="form-control" id="addnome"
@@ -370,10 +374,12 @@
                                                     <div id="mudarfoto">
                                                         <img src="./img/def/bolacheia.png" alt="">
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
-                                                            <label class="custom-file-label" for="customFile">Nova logo</label>
+                                                            <input type="file" class="custom-file-input"
+                                                                id="customFile">
+                                                            <label class="custom-file-label" for="customFile">Nova
+                                                                logo</label>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div id="datas">
@@ -389,30 +395,25 @@
                                             <div id="financas">
                                                 <div id="payday" class="form-group">
                                                     <strong><label for="paydayv">Pagamento máx.</label></strong>
-                                                    <input type="text" class="form-control" id="paydayv" placeholder="Dia máximo do pagamento" value="10">
+                                                    <input type="text" class="form-control" id="paydayv"
+                                                        placeholder="Dia máximo do pagamento" value="10">
                                                 </div>
                                                 <div id="valor" class="form-group">
                                                     <strong><label for="valormensal">Valor mensal (R$)</label></strong>
-                                                    <input type="text" class="form-control" id="valormensal" placeholder="Valor mensal em R$" value="40">
+                                                    <input type="text" class="form-control" id="valormensal"
+                                                        placeholder="Valor mensal em R$" value="40">
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Fechar</button>
                                         <button type="button" class="btn btn-primary">Salvar alterações</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Filtros tabelas - Usando btn-group do Bootstrap -->
-                    <div id="filtros" class="btn-group" role="group">
-                        <a type="button" class="btn btn-secondary">Todos</a>
-                        <a type="button" class="btn btn-secondary">Pagos</a>
-                        <a type="button" class="btn btn-secondary">Inadinplentes</a>
-                        <a type="button" class="btn btn-secondary">Time A</a>
-                        <a type="button" class="btn btn-secondary">Time A</a>
                     </div>
                     <!-- Tabela de jogadores -->
                     <div class="row">
@@ -420,7 +421,7 @@
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <h6>Todos os jogadores</h6>
-                                    <table
+                                    <table id="tabgeral"
                                         class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
                                         <thead>
                                             <tr align="center">
@@ -434,7 +435,7 @@
                                                     </a>
                                                 </th>
                                                 <th scope="col">
-                                                    <a href="">
+                                                    <a href="./paginas/fev.html">
                                                         Fev
                                                     </a>
                                                 </th>
@@ -505,7 +506,7 @@
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <h6>Receitas e despesas</h6>
-                                    <table
+                                    <table id="tabgeral"
                                         class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
                                         <thead>
                                             <tr align="center">
@@ -516,7 +517,7 @@
                                                     </a>
                                                 </th>
                                                 <th scope="col">
-                                                    <a href="">
+                                                    <a href="./paginas/fev.html">
                                                         Fev
                                                     </a>
                                                 </th>
@@ -633,26 +634,29 @@
                 <i class="fas fa-angle-up"></i>
             </a>
 
+            <!-- Importando Data Tables-->
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
+            <script>
+                $(document).ready(function () {
+                    $('#tabgeral').DataTable();
+                });
+            </script>
 
             <script src="vendor/jquery/jquery.min.js"></script>
             <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
             <!-- Core plugin JavaScript-->
             <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
             <!-- Custom scripts for all pages-->
             <script src="js/sb-admin-2.min.js"></script>
-
             <!-- Page level plugins -->
             <script src="vendor/chart.js/Chart.min.js"></script>
             <script src="vendor/datatables/jquery.dataTables.min.js"></script>
             <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
             <!-- Page level custom scripts -->
             <script src="js/demo/chart-pie-demo.js"></script>
             <script src="js/demo/datatables-demo.js"></script>
-
         </div>
 </body>
 

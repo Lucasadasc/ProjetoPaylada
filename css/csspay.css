@@ -233,7 +233,13 @@
 }
 
 /*a parte da unidade 1 vem até aqui*/
-
+/*Tabela*/
+/*table th{
+    font-size: 15px;
+}
+table td{
+    font-size: 15px;
+}*/
 /*pagejogador*/
 #jogall {
     display: flex;

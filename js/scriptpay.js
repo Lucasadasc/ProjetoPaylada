@@ -4,9 +4,10 @@
 
 //[valor, dia máx de pagamento, mês do inicio, mês de termino, time a, time b]
 var gerencia = [40, "10", "02", "11"]
-var jogadores = [[1, "Douglas","Inter", "9", "2023-05-02"],
-                 [2, "Lucas","Inter", "9", "2023-05-02"],
-                 [3, "Manelgol","Milan", "9", "2023-05-05"],
+var jogadores =[[1, "Douglas","Inter", "9", "2023-05-02"],
+                [2, "Lucas","Inter", "9", "2023-05-02"],
+                [3, "Manelgol","Milan", "9", "2023-05-05"],
+                [4, "Johnatas","Inter", "7", "2023-05-05"],
                 ];
 var pagamentos = [];
 
@@ -16,11 +17,13 @@ window.onload = function () {
 
     const lista = document.querySelector("#visaogeralresultados");
     gerarAnalise(1,10,2)
-    lista.innerHTML += inserirTab(1, "Douglas", "9", "INTER")
+    lista.innerHTML += inserirTab(1, "Douglas", "9", "Internazionale")
     gerarAnalise(2,10,2)
-    lista.innerHTML += inserirTab(2, "Lucas", "10", "INTER")
+    lista.innerHTML += inserirTab(2, "Lucas", "10", "Internazionale")
     gerarAnalise(3,11,6)
     lista.innerHTML += inserirTab(3, "Manelgol", "9", "Milan")
+    gerarAnalise(4,6,6)
+    lista.innerHTML += inserirTab(4, "Johnatas", "7", "Internazionale")
 }
 function totaisCards() {
     const totaljog = document.querySelector("#totalatletas")
@@ -178,7 +181,7 @@ function gerarAnalise(id, diaingresso, mesingresso) {
 
     if (mesingresso < mesinicio || mesingresso > mestermino) {
 
-    } else {
+    }else{
         if (mesingresso == 1) {
             if (diaingresso > pagmaximo) {
                 pagjan = "alerta"
@@ -197,7 +200,6 @@ function gerarAnalise(id, diaingresso, mesingresso) {
 
                 pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
             } else {
-
                 pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
                 status = "apto"
             }
@@ -317,7 +319,6 @@ function gerarAnalise(id, diaingresso, mesingresso) {
     var pagamento = [id, anoatual, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, totalpag, status]
     pagamentos.push(pagamento)
     console.log(pagamentos)
-
 }
 
 function inserirTab(id, nome, numero, time) {

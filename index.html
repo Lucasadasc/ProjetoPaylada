@@ -37,9 +37,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <!-- Meu JS -->
-    <script src="./js/scriptpay.js"></script>
-    <script src="./js/payladareq.js"></script>
 </head>
 
 <body id="page-top">
@@ -516,106 +513,107 @@
                                 <div class="card-body">
                                     <h6>Receitas e despesas</h6>
                                     <div class="table-responsive">
-                                    <table id="tabgeral" class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
-                                        <thead>
-                                            <tr align="center">
-                                                <th scope="col">#</th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Jan
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="./paginas/fev.html">
-                                                        Fev
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Mar
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Abr
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Mai
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Jun
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Jul
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Ago
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Set
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Out
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Nov
-                                                    </a>
-                                                </th>
-                                                <th scope="col">
-                                                    <a href="">
-                                                        Dez
-                                                    </a>
-                                                </th>
-                                                <th scope="col">Total</th>
-                                        </thead>
-                                        <tbody id="visaogeralresultados">
-                                            <tr align="center">
-                                                <td>Despesas</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                            <tr align="center">
-                                                <td>Extras</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                                <td>R$0</td>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <table id="tabgeral"
+                                            class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
+                                            <thead>
+                                                <tr align="center">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Jan
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="./paginas/fev.html">
+                                                            Fev
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Mar
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Abr
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Mai
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Jun
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Jul
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Ago
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Set
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Out
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Nov
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <a href="">
+                                                            Dez
+                                                        </a>
+                                                    </th>
+                                                    <th scope="col">Total</th>
+                                            </thead>
+                                            <tbody id="visaogeralresultados">
+                                                <tr align="center">
+                                                    <td>Despesas</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                <tr align="center">
+                                                    <td>Extras</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                                    <td>R$0</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -644,7 +642,9 @@
                 <i class="fas fa-angle-up"></i>
             </a>
 
-            
+            <!-- Meu JS -->
+            <script src="./js/scriptpay.js"></script>
+            <script src="./js/payladareq.js"></script>
             <!-- Importando Data Tables JS-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]

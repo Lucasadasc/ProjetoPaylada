@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+    #viewjogador {
+        flex: 0 0 80.0%;
+        max-width: 80%;
+        margin: auto;
+    }
+
+}
+#camisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+#camisa img{
+    width: 300px;
+}
+#camisa #person{
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#camisa #person p#numero{
+    font-size: 90px;
+}

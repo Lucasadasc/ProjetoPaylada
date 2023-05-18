@@ -11,7 +11,7 @@
 
 
     <!-- Icone do site - "PL" -->
-    <link rel="icon" type="image/png" href="./img/def/icon.png  " />
+    <link rel="icon" type="image/png" href="../img/def/icon.png  " />
 
     <title>Paylada</title>
 
@@ -21,8 +21,7 @@
         rel="stylesheet">
     <!-- Mudanças e adições que fiz no css -->
     <link href="../css/csspay.css" rel="stylesheet">
-    <!-- CSS que coloquei nas datatables -->
-    <link rel="stylesheet" href="css/cssdatatable.css">
+    <link rel="stylesheet" href="../css/cssjogador.css">
     <!-- CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -61,7 +60,7 @@
 
             <li class="nav-item">
                 <div id="escudonome">
-                    <img src="./img/def/bolacheia.png" alt="logo">
+                    <img src="../img/def/bolacheia.png" alt="logo">
                 </div>
             </li>
 
@@ -148,7 +147,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <div id="logomarca">
-                            <img src="./img/def/logo.png" alt="">
+                            <img src="../img/def/logo.png" alt="">
                         </div>
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -212,33 +211,39 @@
                 <!-- Fim do Topbar -->
 
                 <!-- Entrando no Page Content -->
-                <p id="loading">Carregando...</p>
+                <div id="carregando">
+                    <p id="loading" style="color: #1cc88a;">
+                        Carregando... 
+                        <i class="fa-regular fa-futbol fa-spin" style="color: #1cc88a;"></i>
+                    </p>
+                </div>
+                
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4" id="barradeprocura">
+                        <div class="col-xl-3 col-md-6 mb-4" id="viewjogador">
                             <div class="card border-left-success shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-success">NOME DO ATLETA</h6>
                                 </div>
                                 <div class="card-body">
                                     <div id="editefoto">
-                                        <div id="edicoes">
+                                        <div id="infojogador">
                                             <div>
-                                                <strong><label for="situacao">Situação</label></strong>
+                                                <strong><label for="situacao" class="text-primary">Situação</label></strong>
                                                 <strong><p id="situacao" class="text-success">Ativo</p></strong>
-                                                <strong><label for="timejog">Time</label></strong>
+                                                <strong><label for="timejog" class="text-primary">Time</label></strong>
                                                 <strong><p id="timejog" class="text-gray-600">Internazionale</p></strong>
+                                                <strong><label for="numjog" class="text-primary">Número</label></strong>
+                                                <strong><p id="numjog" class="text-gray-600">10</p></strong>
+                                                <strong><label for="dataing" class="text-primary">Data de ingresso</label></strong>
+                                                <strong><p id="dataing" class="text-gray-600">Internazionale</p></strong>
                                             </div>
                                         </div>
-                                        <div id="logopelada">
-                                            <div id="mudarfoto">
-                                                <img src="../img/def/bolacheia.png" alt="">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Nova
-                                                        logo</label>
-                                                </div>
+                                        <div id="camisa">
+                                            <img src="../img/def/camisabase.png" alt="">
+                                            <div id="person">
+                                                <p>Nome</p>
+                                                <p id="numero">7</p>
                                             </div>
                                         </div>
                                     </div>
@@ -283,19 +288,19 @@
                 });
             </script>
 
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../vendor/jquery/jquery.min.js"></script>
+            <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
             <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
             <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+            <script src="../js/sb-admin-2.min.js"></script>
             <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
-            <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-            <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+            <script src="../vendor/chart.js/Chart.min.js"></script>
+            <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
             <!-- Page level custom scripts -->
-            <script src="js/demo/chart-pie-demo.js"></script>
-            <script src="js/demo/datatables-demo.js"></script>
+            <script src="../js/demo/chart-pie-demo.js"></script>
+            <script src="../js/demo/datatables-demo.js"></script>
         </div>
 </body>
 

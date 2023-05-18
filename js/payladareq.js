@@ -1,6 +1,8 @@
 const url = "http://127.0.0.1:8000/paylada/"
 
+//carregamento
 const loading = document.querySelector("#loading")
+
 const conteudo = document.querySelector("#container-fluid")
 const lista = document.querySelector("#visaogeralresultados");
 
@@ -26,7 +28,7 @@ function addTabela(id, nome, numero, time) {
     var fixo = `
     <tr align="center">
         <td>
-            <a href="./jogador.html/${id}/">
+            <a href="./paginas/jogador.html">
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </a>
         </td>

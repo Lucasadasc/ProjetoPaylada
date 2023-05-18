@@ -18,6 +18,8 @@ async function getAllJogadores(){ //async - vou usar await para esperar as requi
         lista.innerHTML += addTabela(jogador.id, jogador.nome, jogador.numero, jogador.time)
     })
 }
+
+//Adicionando linha referente a um jogador na tabela
 function addTabela(id, nome, numero, time) {
     var status //situação do jogador 
 

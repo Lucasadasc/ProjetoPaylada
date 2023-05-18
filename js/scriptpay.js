@@ -327,7 +327,7 @@ function inserirTab(id, nome, numero, time) {
     var fixo = `
     <tr align="center">
         <td>
-            <a href="./jogador.html">
+            <a href="./jogador.html?id+${id}">
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </a>
         </td>

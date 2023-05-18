@@ -8,7 +8,7 @@ var jogadores =[[1, "Douglas","Inter", "9", "2023-05-02"],
                 [2, "Lucas","Inter", "9", "2023-05-02"],
                 [3, "Manelgol","Milan", "9", "2023-05-05"],
                 [4, "Johnatas","Inter", "7", "2023-05-05"],
-                ];
+               ];
 var pagamentos = [];
 
 window.onload = function () {
@@ -327,7 +327,7 @@ function inserirTab(id, nome, numero, time) {
     var fixo = `
     <tr align="center">
         <td>
-            <a href="./jogador.html?id+${id}">
+            <a href="./jogador.html/${id}">
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </a>
         </td>

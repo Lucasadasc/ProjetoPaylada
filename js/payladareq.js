@@ -26,11 +26,11 @@ function addTabela(id, nome, numero, time) {
     var fixo = `
     <tr align="center">
         <td>
-            <a href="./jogador.html">
+            <a href="./jogador.html/${id}/">
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </a>
         </td>
-        <td>${nome}</td>
+        <td style= "white-space: nowrap;">${nome}</td>
         <td>${numero}</td>
         <td>${time}</td>`
 

@@ -213,44 +213,131 @@
                 <!-- Entrando no Page Content -->
                 <div id="carregando">
                     <p id="loading" style="color: #1cc88a;">
-                        Carregando... 
+                        Carregando...
                         <i class="fa-regular fa-futbol fa-spin" style="color: #1cc88a;"></i>
                     </p>
                 </div>
-                
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-3 col-md-6 mb-4" id="viewjogador">
                             <div class="card border-left-success shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-success">NOME DO ATLETA</h6>
-                                </div>
                                 <div class="card-body">
-                                    <div id="editefoto">
-                                        <div id="infojogador">
-                                            <div>
-                                                <strong><label for="situacao" class="text-primary">Situação</label></strong>
-                                                <strong><p id="situacao" class="text-success">Ativo</p></strong>
-                                                <strong><label for="timejog" class="text-primary">Time</label></strong>
-                                                <strong><p id="timejog" class="text-gray-600">Internazionale</p></strong>
-                                                <strong><label for="numjog" class="text-primary">Número</label></strong>
-                                                <strong><p id="numjog" class="text-gray-600">10</p></strong>
-                                                <strong><label for="dataing" class="text-primary">Data de ingresso</label></strong>
-                                                <strong><p id="dataing" class="text-gray-600">Internazionale</p></strong>
-                                            </div>
+                                    <div id="camisa">
+                                        <img src="../img/def/camisabase.png" alt="">
+                                        <div id="person">
+                                            <p>Nome</p>
+                                            <p id="numero">7</p>
                                         </div>
-                                        <div id="camisa">
-                                            <img src="../img/def/camisabase.png" alt="">
-                                            <div id="person">
-                                                <p>Nome</p>
-                                                <p id="numero">7</p>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer py-3" style="display: flex;">
+                                    <i class="fa-solid fa-people-group" style="margin-right: 5px;"></i>
+                                    <h6 class="m-0 font-weight-bold text-gray">Internazionale</h6>
+                                </div>
+                                <div class="card-footer py-3" style="display: flex;">
+                                    <i class="fa-regular fa-calendar-days" style="margin-right: 5px;"></i>
+                                    <h6 class="m-0 font-weight-bold text-gray">01/01/2023</h6>
+                                </div>
+                                <div class="card-footer py-3" style="display: flex;">
+                                    <i class="fa-solid fa-check" style="margin-right: 5px; color: #1cc88a;"></i>
+                                    <h6 class="m-0 font-weight-bold text-success">Ativo</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4" id="viewpagamentos">
+                            <div class="card border-left-success shadow mb-4">
+                                <strong><div class="card-header">Pagamentos</div></strong>
+                                <div class="card-body">
+                                    <p>O jogador se encontra xxxx a jogar</p>
+                                    <table id="tabgeral"
+                                        class="table table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
+                                        <thead>
+                                            <tr align="center">
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Jan
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="./paginas/fev.html">
+                                                        Fev
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Mar
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Abr
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Mai
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Jun
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Jul
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Ago
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Set
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Out
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Nov
+                                                    </a>
+                                                </th>
+                                                <th scope="col">
+                                                    <a href="">
+                                                        Dez
+                                                    </a>
+                                                </th>
+                                                <th scope="col">Total</th>
+                                        </thead>
+                                        <tbody id="payjogador">
+                                            <!--Pagemento do jogador-->
+                                        </tbody>
+                                    </table>
+                                    <div id="setsjog">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Outras opções
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a class="dropdown-item" href="#">Editar jogador</a></li>
+                                              <li><a class="dropdown-item" href="#">Excluir jogador</a></li>
+                                              <li><a class="dropdown-item" href="#">Inativar jogador</a></li>
+                                            </ul>
                                         </div>
+                                          
+                                        <button class="btn btn-success">Salvar alterações</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <!-- /.container-fluid -->
                     <!-- End of Main Content -->
@@ -279,14 +366,6 @@
             <!-- Meu JS -->
             <script src="../js/scriptpay.js"></script>
             <script src="../js/payladareq.js"></script>
-            <!-- Importando Data Tables JS-->
-            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
-            <script>
-                $(document).ready(function () {
-                    $('#tabgeral').DataTable();
-                });
-            </script>
 
             <script src="../vendor/jquery/jquery.min.js"></script>
             <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

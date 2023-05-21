@@ -12,11 +12,55 @@
     margin-right: 10px;
 
     height: 50px !important;
-    width: 70%;
+    width: 80%;
     align-items: center;
     justify-content: center;
 }
 #navmeses #vismes #alignmes{
     align-items: center;
     justify-content: center;
+}
+/*Receitas extras e despesas*/
+@media (min-width: 768px) {
+    #cardreceitas{
+        flex: 0 0 50.0%;
+        max-width: 50%;
+    }
+}
+#cardreceitas #addcard{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#cardreceitas #addcard .add-titulo{
+    width: 40%;
+}
+#cardreceitas #addcard .add-data{
+    width: 37%;
+}
+#cardreceitas #addcard .add-valor{
+    width: 20%;
+}
+#cardreceitas button.add{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #cardreceita{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+#cardreceita{
+    margin-top: 14px;
+}
+#cardreceita #card-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

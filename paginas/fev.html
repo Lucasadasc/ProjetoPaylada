@@ -235,9 +235,11 @@
                     <!-- Tabela de jogadores -->
                     <div class="row">
                         <div class="col-xl-3 col-md-6 mb-4" id="barradeprocura">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-success shadow mb-4">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-success">Todos os jogadores</h6>
+                                </div>
                                 <div class="card-body">
-                                    <h6>Todos os jogadores</h6>
                                     <table
                                         class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
                                         <thead>
@@ -255,6 +257,101 @@
                                             <!-- Os dados da tabela estarão aqui -->
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Despesas e receitas -->
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4" id="cardreceitas">
+                            <div class="card border-left-success shadow mb-4">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-success">Receitas extras</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="addcard">
+                                        <div class="form-group add-titulo" id="form-titulo">
+                                            <strong><label for="addnome">Título</label></strong>
+                                            <input type="text" class="form-control" id="addnome"
+                                                placeholder="Ex.: Patrocinio">
+                                        </div>
+                                        <div class="form-group add-data" id="form-data">
+                                            <strong><label for="addvalor">Data</label></strong>
+                                            <input type="date" class="form-control" id="datareceita">
+                                        </div>
+                                        <div class="form-group add-valor" id="form-valor">
+                                            <strong><label for="addvalor">Valor(R$)</label></strong>
+                                            <input type="text" class="form-control" id="addnome"
+                                                placeholder="00">
+                                        </div>
+                                    </div>
+                                    <div id="btadd">
+                                        <button type="button" class="btn btn-success add">Adicionar +</button>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header cent">
+                                                <h6 class="m-0 font-weight-bold text-success">EM Clean</h6>
+                                                <button type="button" class="btn btn-danger">X</button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="card-info">
+                                                    <strong><p>Data</p></strong>
+                                                    <strong><p>Valor</p></strong>
+                                                </div>
+                                                <div id="card-info">
+                                                    <p>01/01/2023</p>
+                                                    <p>R$400</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4" id="cardreceitas">
+                            <div class="card border-left-danger shadow mb-4">
+                                <div class="card-header" >
+                                    <h6 class="m-0 font-weight-bold text-danger">Despesas</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="addcard">
+                                        <div class="form-group add-titulo" id="form-titulo">
+                                            <strong><label for="addnome">Título</label></strong>
+                                            <input type="text" class="form-control" id="addnome"
+                                                placeholder="Ex.: Água">
+                                        </div>
+                                        <div class="form-group add-data" id="form-data">
+                                            <strong><label for="addvalor">Data</label></strong>
+                                            <input type="date" class="form-control" id="datareceita">
+                                        </div>
+                                        <div class="form-group add-valor" id="form-valor">
+                                            <strong><label for="addvalor">Valor(R$)</label></strong>
+                                            <input type="text" class="form-control" id="addnome"
+                                                placeholder="00">
+                                        </div>
+                                    </div>
+                                    <div id="btadd">
+                                        <button type="button" class="btn btn-danger add">Adicionar +</button>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header cent">
+                                                <h6 class="m-0 font-weight-bold text-danger">Água</h6>
+                                                <button type="button" class="btn btn-danger">X</button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="card-info">
+                                                    <strong><p>Data</p></strong>
+                                                    <strong><p>Valor</p></strong>
+                                                </div>
+                                                <div id="card-info">
+                                                    <p>01/01/2023</p>
+                                                    <p>R$20</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

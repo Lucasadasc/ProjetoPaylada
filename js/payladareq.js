@@ -2,9 +2,16 @@ const url = "http://127.0.0.1:8000/paylada/"
 
 //carregamento
 const loading = document.querySelector("#loading")
+const conteudo = document.querySelector("#conteudo")
 
-const conteudo = document.querySelector("#container-fluid")
+//lista de jogadores
 const lista = document.querySelector("#visaogeralresultados");
+
+//pagina do jogador
+
+//pegando id da url
+const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
+const jogadorId = urlsearchParams.get("id")
 
 //Pegando todos os jogadores
 async function getAllJogadores(){ //async - vou usar await para esperar as requisições
@@ -15,6 +22,7 @@ async function getAllJogadores(){ //async - vou usar await para esperar as requi
     console.log(jogadores)
 
     loading.classList.add("hide")
+    conteudo.classList.remove("hide")
 
     jogadores.map((jogador)=>{
         lista.innerHTML += addTabela(jogador.id, jogador.nome, jogador.numero, jogador.time)
@@ -28,7 +36,7 @@ function addTabela(id, nome, numero, time) {
     var fixo = `
     <tr align="center">
         <td>
-            <a href="./paginas/jogador.html">
+            <a href="./paginas/jogador.html?id=${id}">
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </a>
         </td>
@@ -76,4 +84,38 @@ function addTabela(id, nome, numero, time) {
                 <td>R$${somaPagamentos(id)}</td></tr>`
     return fixo + paganual + fixob
 }
-getAllJogadores()
+
+//Pegando jogador especifico
+async function getJogador(id){
+    const responseJog = await fetch(`${url}jog/${id}`)
+    const responsePag = await fetch(`${url}pag/`)
+
+    const jogador = await responseJog.json()
+    const pagamentos = await responsePag.json()
+
+    const nome = document.querySelector("#nomejog")
+    const time  = document.querySelector("#time")
+    const numero  = document.querySelector("#numero")
+    const ingresso  = document.querySelector("#ingresso")
+
+    const status = document.querySelector("#status")
+    pagamentos.map((pagamento)=>{
+        if(pagamento.id_jogador==jogador.id){
+            status.innerHTML = "O peladeiro está " + pagamento.status + " a jogar"
+        }
+    })
+    
+
+    nome.innerHTML = jogador.nome
+    time.innerHTML = jogador.time
+    numero.innerHTML = jogador.numero
+    ingresso.innerHTML = jogador.datadeingresso
+
+    loading.classList.add("hide")
+    conteudo.classList.remove("hide")
+}
+if(!jogadorId){
+    getAllJogadores()
+}else{
+    getJogador(jogadorId)
+}

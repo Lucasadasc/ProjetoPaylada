@@ -14,8 +14,8 @@ const urlsearchParams = new URLSearchParams(window.location.search) //me entrega
 const jogadorId = urlsearchParams.get("id")
 
 //Pegando todos os jogadores
-async function getAllJogadores(){ //async - vou usar await para esperar as requisições
-    const response = await fetch(url+'jog/')
+async function getAllJogadores() { //async - vou usar await para esperar as requisições
+    const response = await fetch(url + 'jog/')
 
     const jogadores = await response.json()
 
@@ -24,7 +24,7 @@ async function getAllJogadores(){ //async - vou usar await para esperar as requi
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 
-    jogadores.map((jogador)=>{
+    jogadores.map((jogador) => {
         lista.innerHTML += addTabela(jogador.id, jogador.nome, jogador.numero, jogador.time)
     })
 }
@@ -44,26 +44,7 @@ function addTabela(id, nome, numero, time) {
         <td>${numero}</td>
         <td>${time}</td>`
 
-    //pegando o status do pagemento do jogador pelo id e substituindo no html
-    var pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
-    pagamentos.forEach(function (idpagamento) {
-        if (id == idpagamento[0]) {
-            status = idpagamento[15]
-
-            pagjan = idpagamento[2]
-            pagfev = idpagamento[3]
-            pagmar = idpagamento[4]
-            pagabr = idpagamento[5]
-            pagmai = idpagamento[6]
-            pagjun = idpagamento[7]
-            pagjul = idpagamento[8]
-            pagago = idpagamento[9]
-            pagset = idpagamento[10]
-            pagout = idpagamento[11]
-            pagnov = idpagamento[12]
-            pagdez = idpagamento[13]
-        }
-    });
+    //pegando o status do pagamento do jogador pelo id e substituindo no html
     var valorespag = [pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez]
 
     //gerando o html com base na situação de pagamento do mês
@@ -86,7 +67,7 @@ function addTabela(id, nome, numero, time) {
 }
 
 //Pegando jogador especifico
-async function getJogador(id){
+async function getJogador(id) {
     const responseJog = await fetch(`${url}jog/${id}`)
     const responsePag = await fetch(`${url}pag/`)
 
@@ -94,18 +75,16 @@ async function getJogador(id){
     const pagamentos = await responsePag.json()
 
     const nome = document.querySelector("#nomejog")
-    const time  = document.querySelector("#time")
-    const numero  = document.querySelector("#numero")
-    const ingresso  = document.querySelector("#ingresso")
+    const time = document.querySelector("#time")
+    const numero = document.querySelector("#numero")
+    const ingresso = document.querySelector("#ingresso")
 
     const status = document.querySelector("#status")
-    pagamentos.map((pagamento)=>{
-        if(pagamento.id_jogador==jogador.id){
+    pagamentos.map((pagamento) => {
+        if (pagamento.id_jogador == jogador.id) {
             status.innerHTML = "O peladeiro está " + pagamento.status + " a jogar"
         }
     })
-    
-
     nome.innerHTML = jogador.nome
     time.innerHTML = jogador.time
     numero.innerHTML = jogador.numero
@@ -114,8 +93,34 @@ async function getJogador(id){
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 }
-if(!jogadorId){
+
+//relacionando jogador com pagamento
+async function getPagJog(id, ano, pagina) {
+    const responsePag = await fetch(`${url}pag/`)
+    const pagamentos = await responsePag.json()
+
+    pagamentos.map((pagamento) => {
+        if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
+            let pags = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
+                        pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
+                        pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
+            pags.forEach(function () {
+                if (statuspag == 'pago') {
+                    paganual += `<td><i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                } else if (statuspag == 'pendente') {
+                    paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
+                } else if (statuspag == 'isento') {
+                    paganual += `<td><i class="fa-solid fa-circle-minus"></i></td>`
+                } else {
+                    paganual += `<td><i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i></td>`
+                }
+            });
+        }
+    })
+    return paglista
+}
+if (!jogadorId) {
     getAllJogadores()
-}else{
+} else {
     getJogador(jogadorId)
 }

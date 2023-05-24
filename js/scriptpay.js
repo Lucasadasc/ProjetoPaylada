@@ -15,7 +15,7 @@ window.onload = function () {
     totaisCards()
     mesesFoco()
 
-    const lista = document.querySelector("#visaogeralresultados");
+    const lista = document.querySelector("#geralpagamentos");
     gerarAnalise(1,10,2)
     lista.innerHTML += inserirTab(1, "Douglas", "9", "Internazionale")
     gerarAnalise(2,10,2)

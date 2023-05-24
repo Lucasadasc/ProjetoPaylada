@@ -5,9 +5,10 @@ const loading = document.querySelector("#loading")
 const conteudo = document.querySelector("#conteudo")
 
 //lista de jogadores
-const lista = document.querySelector("#visaogeralresultados");
+const lista = document.querySelector("#geralpagamentos");
 
 //pagina do jogador
+const jogpay = document.querySelector("#jogadorpay");
 
 //pegando id da url
 const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
@@ -25,7 +26,7 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     conteudo.classList.remove("hide")
 
     jogadores.map((jogador) => {
-        lista.innerHTML += addTabela(jogador.id, jogador.nome, jogador.numero, jogador.time)
+        getPagJog(jogador.id, 2023)
     })
 }
 
@@ -95,18 +96,47 @@ async function getJogador(id) {
 }
 
 //relacionando jogador com pagamento
-async function getPagJog(id, ano, pagina) {
+async function getPagJog(id, ano) {
+    const responseJog = await fetch(`${url}jog/${id}`)
+    const jogador = await responseJog.json()
+    
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
 
+    const responsePelada = await fetch(`${url}pelada/`)
+    const peladas = await responsePelada.json()
+
+    var fixo = `
+    <tr align="center">
+        <td>
+            <a href="./paginas/jogador.html?id=${id}">
+                <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+            </a>
+        </td>
+        <td style= "white-space: nowrap;">${jogador.nome}</td>
+        <td>${jogador.numero}</td>
+        <td>${jogador.time}</td>`
+
+    //gerando o html com base na situação de pagamento do mês
+    var paganual = '' //variavél que vai guardar o trecho de html compativel a situção de pagemento em cada mes
+    var status;
+    var somapags = 0;
+    var valormensal;
+    peladas.map((pelada)=>{
+        if(pelada.id == jogador.id_pelada){
+            valormensal = Number(pelada.valorpagamento)
+        }
+    })
     pagamentos.map((pagamento) => {
+        status = pagamento.status
         if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
             let pags = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
                         pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
                         pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
-            pags.forEach(function () {
+            pags.forEach(function (statuspag) {
                 if (statuspag == 'pago') {
                     paganual += `<td><i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                    somapags += valormensal
                 } else if (statuspag == 'pendente') {
                     paganual += `<td><i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i></td>`
                 } else if (statuspag == 'isento') {
@@ -115,12 +145,21 @@ async function getPagJog(id, ano, pagina) {
                     paganual += `<td><i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i></td>`
                 }
             });
+            pagamento.totalpag = somapags
         }
     })
-    return paglista
+
+    var fixob = `<td>${status}</td>
+                <td>R$</td></tr>`
+    if (!jogadorId) {
+        lista.innerHTML+= (fixo+paganual+fixob)
+    } else {
+        jogpay.innerHTML+=`<tr align="center">`+paganual+`<td>R$${somapags}</td></tr>`
+    }
 }
 if (!jogadorId) {
     getAllJogadores()
 } else {
     getJogador(jogadorId)
+    getPagJog(jogadorId, 2023)
 }

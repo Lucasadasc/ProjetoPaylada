@@ -164,6 +164,22 @@ async function getPagJog(id, ano) {
         jogpay.innerHTML+=`<tr align="center">`+paganual+`<td>R$${somapags}</td></tr>`
     }
 }
+
+// Insert a comment
+async function addJogador(jogador) {
+    const response = await fetch(url+"/jog/", {
+      method: "POST",
+      body: jogador,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+  
+    const data = await response.json();
+  
+    createComment(data);
+  }
+
 if (!jogadorId) {
     getAllJogadores()
 } else {
@@ -176,7 +192,11 @@ if (!jogadorId) {
 
         let jognovo = {
             
-        }
+        };
+      
+        jognovo = JSON.stringify(jognovo);
+      
+        addJogador(jognovo); //mudar
     })
 
 }

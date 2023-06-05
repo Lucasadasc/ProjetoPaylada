@@ -104,7 +104,7 @@ async function getJogador(id) {
 async function getPagJog(id, ano) {
     const responseJog = await fetch(`${url}jog/${id}`)
     const jogador = await responseJog.json()
-    
+
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
 
@@ -127,8 +127,8 @@ async function getPagJog(id, ano) {
     var status;
     var somapags = 0;
     var valormensal;
-    peladas.map((pelada)=>{
-        if(pelada.id == jogador.id_pelada){
+    peladas.map((pelada) => {
+        if (pelada.id == jogador.id_pelada) {
             valormensal = Number(pelada.valorpagamento)
         }
     })
@@ -136,8 +136,8 @@ async function getPagJog(id, ano) {
         status = pagamento.status
         if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
             let pags = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
-                        pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
-                        pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
+            pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
+            pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
             pags.forEach(function (statuspag) {
                 if (statuspag == 'pago') {
                     paganual += `<td><i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
@@ -157,24 +157,25 @@ async function getPagJog(id, ano) {
     var fixob = `<td>${status}</td>
                 <td>R$</td></tr>`
     if (!jogadorId) {
-        lista.innerHTML+= (fixo+paganual+fixob)
+        lista.innerHTML += (fixo + paganual + fixob)
     } else {
-        jogpay.innerHTML+=`<tr align="center">`+paganual+`<td>R$${somapags}</td></tr>`
+        jogpay.innerHTML += `<tr align="center">` + paganual + `<td>R$${somapags}</td></tr>`
     }
 }
 
 // Insert a comment
 async function addJogador(jognovo) {
-    const response = await fetch(url+'jog/', 
-    {
-      method: "POST",
-      body: jognovo,
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-  
+    const response = await fetch(url + 'jog/',
+        {
+            method: "POST",
+            body: jognovo,
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
+
     const data = await response.json();
+    addPagamento(data.id)
     getPagJog(data.id, 2023)
 }
 
@@ -182,10 +183,9 @@ if (!jogadorId) {
     getAllJogadores()
 
     // evento de add jogador
-    formadd.addEventListener("submit", (e)=>{
+    formadd.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        console.log(nome.value)
         let jognovo = {
             "id_pelada": 1,
             "nome": nome.value,
@@ -193,12 +193,202 @@ if (!jogadorId) {
             "time": time.value,
             "datadeingresso": ingresso.value
         };
-      
+
         jognovo = JSON.stringify(jognovo);
-      
+
         addJogador(jognovo); //mudar
     })
 } else {
     getJogador(jogadorId)
     getPagJog(jogadorId, 2023)
+}
+
+//criando o pagamento do peladeiro 
+async function gerarListaPagamentos(id) {
+    const responseJog = await fetch(`${url}jog/${id}`)
+    const jogador = await responseJog.json()
+
+    const responsePelada = await fetch(`${url}pelada/`)
+    const peladas = await responsePelada.json()
+
+    let pagmaximo
+    peladas.map((pelada) => {
+        if (pelada.id == jogador.id_pelada) {
+            pagmaximo = Number(pelada.diamaxpagamento)
+        }
+    })
+
+    let pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
+
+    var data = new Date();
+    var anoatual = data.getFullYear()
+
+    var datadeingresso = jogador.datadeingresso
+    var diaingresso = Number(datadeingresso.substring(8, 10))
+    var mesingresso = Number(datadeingresso.substring(5, 7))
+
+    if (mesingresso == 1) {
+        if (diaingresso > pagmaximo) {
+            pagjan = "alerta"
+            status = "inapto"
+
+            pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 2) {
+        pagjan = "isento"
+        if (diaingresso > pagmaximo) {
+            pagfev = "alerta"
+            status = "inapto"
+
+            pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 3) {
+        pagjan = pagfev = "isento"
+        if (diaingresso > pagmaximo) {
+            pagmar = "alerta"
+            status = "inapto"
+
+            pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+
+            pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 4) {
+        pagjan = pagfev = pagmar = "isento"
+        if (diaingresso > pagmaximo) {
+            pagabr = "alerta"
+            status = "inapto"
+
+            pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 5) {
+        pagjan = pagfev = pagmar = pagabr = "isento"
+        if (diaingresso > pagmaximo) {
+            pagmai = "alerta"
+            status = "inapto"
+
+            pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 6) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = "isento"
+        if (diaingresso > pagmaximo) {
+            pagjun = "alerta"
+            status = "inapto"
+
+            pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagjun = pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 7) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = "isento"
+        if (diaingresso > pagmaximo) {
+            pagjul = "alerta"
+            status = "inapto"
+
+            pagago = pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagjul = pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 8) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = "isento"
+        if (diaingresso > pagmaximo) {
+            pagago = "alerta"
+            status = "inapto"
+
+            pagset = pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagago = pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 9) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = "isento"
+        if (diaingresso > pagmaximo) {
+            pagset = "alerta"
+            status = "inapto"
+
+            pagout = pagnov = pagdez = "pendente"
+        } else {
+            pagset = pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 10) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = "isento"
+        if (diaingresso > pagmaximo) {
+            pagout = "alerta"
+            status = "inapto"
+
+            pagnov = pagdez = "pendente"
+        } else {
+            pagout = pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 11) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = "isento"
+        if (diaingresso > pagmaximo) {
+            pagnov = "alerta"
+            status = "inapto"
+
+            pagdez = "pendente"
+        } else {
+            pagnov = pagdez = "pendente"
+            status = "apto"
+        }
+    } else if (mesingresso == 12) {
+        pagjan = pagfev = pagmar = pagabr = pagmai = pagjun = pagjul = pagago = pagset = pagout = pagnov = "isento"
+        if (diaingresso > pagmaximo) {
+            pagdez = "alerta"
+            status = "inapto"
+        } else {
+            pagdez = "pendente"
+            status = "apto"
+        }
+    }
+    
+    let novopagamento = {
+        "id_jogador": jogador.id,
+        "anoatual": anoatual,
+        "pagjan": pagjan,
+        "pagfev": pagfev,
+        "pagmar": pagmar,
+        "pagabr": pagabr,
+        "pagmai": pagmai,
+        "pagjun": pagjun,
+        "pagjul": pagjul,
+        "pagago": pagago,
+        "pagset": pagset,
+        "pagout": pagout,
+        "pagnov": pagnov,
+        "pagdez": pagdez,
+        "totalpag": 0,
+        "status": status
+    };
+
+    novopagamento = JSON.stringify(novopagamento);
+
+    addPagamento(novopagamento)
+}
+async function addPagamento(novopagamento) {
+    const response = await fetch(url + 'pag/',
+        {
+            method: "POST",
+            body: novopagamento,
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
 }

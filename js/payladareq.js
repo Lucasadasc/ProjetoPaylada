@@ -14,6 +14,13 @@ const jogpay = document.querySelector("#jogadorpay");
 const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
 const jogadorId = urlsearchParams.get("id")
 
+//itens do forms
+const formadd = document.querySelector("#novojogador")
+const nome = document.querySelector("#addnome")
+const time = document.querySelector("#timeselect")
+const numero = document.querySelector("#numero")
+const ingresso = document.querySelector("#ingresso")
+
 //Pegando todos os jogadores
 async function getAllJogadores() { //async - vou usar await para esperar as requisições
     const response = await fetch(url + 'jog/')
@@ -162,4 +169,14 @@ if (!jogadorId) {
 } else {
     getJogador(jogadorId)
     getPagJog(jogadorId, 2023)
+
+    // evento de add jogador
+    formadd.addEventListener("submit", (e)=>{
+        e.preventDefault();
+
+        let jognovo = {
+            
+        }
+    })
+
 }

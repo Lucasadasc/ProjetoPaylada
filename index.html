@@ -215,7 +215,7 @@
                 <!-- Entrando no Page Content -->
                 <div id="carregando">
                     <p id="loading" style="color: #1cc88a;">
-                        Carregando... 
+                        Carregando...
                         <i class="fa-regular fa-futbol fa-spin" style="color: #1cc88a;"></i>
                     </p>
                 </div>
@@ -291,8 +291,8 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <form id="novojogador">
+                                    <form id="novojogador">
+                                        <div class="modal-body">
                                             <div class="form-group">
                                                 <strong><label for="addnome">Nome do atleta</label></strong>
                                                 <input type="text" class="form-control" id="addnome"
@@ -300,14 +300,14 @@
                                             </div>
                                             <div id="timenum">
                                                 <div class="form-group" id="time">
-                                                    <strong><label for="time">Time</label></strong>
+                                                    <strong><label for="timeselect">Time</label></strong>
                                                     <select class="form-control" id="timeselect">
                                                         <option value="Internazionale">Internazionale</option>
                                                         <option value="Milan">Milan</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group" id="numinput">
-                                                    <strong><label for="Número">Nº</label></strong>
+                                                    <strong><label for="numero">Nº</label></strong>
                                                     <input type="text" class="form-control" id="numero"
                                                         placeholder="00">
                                                 </div>
@@ -316,11 +316,11 @@
                                                     <input type="date" class="form-control" id="ingresso" required>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="submit" value="Adicionar">
-                                    </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input id="concluir" type="submit" value="Adicionar" data-bs-dismiss="modal">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -360,16 +360,15 @@
                                             <div id="editefoto">
                                                 <div id="edicoes">
                                                     <div class="form-group">
-                                                        <strong><label for="addnome">Nome da pelada</label></strong>
-                                                        <input type="text" class="form-control" id="addnome"
+                                                        <strong><label for="modnomepelada">Nome da pelada</label></strong>
+                                                        <input type="text" class="form-control" id="modnomepelada"
                                                             placeholder="Nome da pelada" value="Bola Cheia">
                                                     </div>
                                                     <div class="form-group">
-                                                        <strong><label for="addnome">Times
-                                                                participantes</label></strong>
-                                                        <input type="text" class="form-control" id="addnome"
+                                                        <strong><label for="modtimes">Times participantes</label></strong>
+                                                        <input type="text" class="form-control" id="modtimesa"
                                                             placeholder="Nome da pelada" value="Milan">
-                                                        <input type="text" class="form-control" id="addnome"
+                                                        <input type="text" class="form-control" id="modtimesb"
                                                             placeholder="Nome da pelada" value="Inter">
                                                     </div>
                                                 </div>
@@ -637,16 +636,11 @@
             </a>
 
             <!-- Meu JS -->
-            <script src="./js/scriptpay.js"></script>
             <script src="./js/payladareq.js"></script>
             <!-- Importando Data Tables JS-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
-            <script>
-                $(document).ready(function () {
-                    $('#tabgeral').DataTable();
-                });
-            </script>
+            <script src="./js/datatable.js"></script>
 
             <script src="vendor/jquery/jquery.min.js"></script>
             <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

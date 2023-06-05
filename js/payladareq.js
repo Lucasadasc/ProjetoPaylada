@@ -27,12 +27,10 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
 
     const jogadores = await response.json()
 
-    console.log(jogadores)
-
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 
-    jogadores.map((jogador) => {
+    await jogadores.map((jogador) => {
         getPagJog(jogador.id, 2023)
     })
 }
@@ -166,37 +164,41 @@ async function getPagJog(id, ano) {
 }
 
 // Insert a comment
-async function addJogador(jogador) {
-    const response = await fetch(url+"/jog/", {
+async function addJogador(jognovo) {
+    const response = await fetch(url+'jog/', 
+    {
       method: "POST",
-      body: jogador,
+      body: jognovo,
       headers: {
         "Content-type": "application/json",
       },
     });
   
     const data = await response.json();
-  
-    createComment(data);
-  }
+    getPagJog(data.id, 2023)
+}
 
 if (!jogadorId) {
     getAllJogadores()
-} else {
-    getJogador(jogadorId)
-    getPagJog(jogadorId, 2023)
 
     // evento de add jogador
     formadd.addEventListener("submit", (e)=>{
         e.preventDefault();
 
+        console.log(nome.value)
         let jognovo = {
-            
+            "id_pelada": 1,
+            "nome": nome.value,
+            "numero": numero.value,
+            "time": time.value,
+            "datadeingresso": ingresso.value
         };
       
         jognovo = JSON.stringify(jognovo);
       
         addJogador(jognovo); //mudar
     })
-
+} else {
+    getJogador(jogadorId)
+    getPagJog(jogadorId, 2023)
 }

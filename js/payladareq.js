@@ -361,7 +361,7 @@ async function gerarListaPagamentos(id) {
     
     let novopagamento = {
         "id_jogador": jogador.id,
-        "anoatual": anoatual,
+        "anoatual": String(anoatual),
         "pagjan": pagjan,
         "pagfev": pagfev,
         "pagmar": pagmar,
@@ -391,4 +391,5 @@ async function addPagamento(novopagamento) {
                 "Content-type": "application/json",
             },
         });
+    
 }

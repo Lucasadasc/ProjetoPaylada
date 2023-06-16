@@ -33,10 +33,10 @@
     
 }
 #cardreceitas #addcard .add-titulo{
-    width: 40%;
+    width: 58%;
 }
 #cardreceitas #addcard .add-data{
-    width: 37%;
+    width: 20%;
 }
 #cardreceitas #addcard .add-valor{
     width: 20%;
@@ -55,6 +55,20 @@
     margin-top: 14px;
 }
 #cardreceita #card-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (min-width: 768px) {
+    #carddespesa{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+#carddespesa{
+    margin-top: 14px;
+}
+#carddespesa #card-info{
     display: flex;
     align-items: center;
     justify-content: space-between;

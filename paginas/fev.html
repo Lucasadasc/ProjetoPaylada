@@ -291,25 +291,10 @@
                                         </div>
                                     </div>
                                     <div id="btadd">
-                                        <button type="button" class="btn btn-outline-success add" onclick="addReceitaouDespesa()">Adicionar +</button>
+                                        <button type="button" class="btn btn-outline-success add" onclick="addReceita()">Adicionar +</button>
                                     </div>
                                     <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-header cent">
-                                                <h6 class="m-0 font-weight-bold text-success">EM Clean</h6>
-                                                <button type="button" class="btn btn-danger">X</button>
-                                            </div>
-                                            <div class="card-body">
-                                                <div id="card-info">
-                                                    <strong><p>Data</p></strong>
-                                                    <strong><p>Valor</p></strong>
-                                                </div>
-                                                <div id="card-info">
-                                                    <p>01/01/2023</p>
-                                                    <p>R$400</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -323,39 +308,24 @@
                                     <div id="addcard">
                                         <div class="form-group add-titulo" id="form-titulo">
                                             <strong><label for="addnome">Título</label></strong>
-                                            <input type="text" class="form-control" id="addnome"
+                                            <input type="text" class="form-control" id="addnomed"
                                                 placeholder="Ex.: Água">
                                         </div>
                                         <div class="form-group add-data" id="form-data">
-                                            <strong><label for="addvalor">Data</label></strong>
-                                            <input type="date" class="form-control" id="datareceita">
+                                            <strong><label for="addvalor">Nº dia</label></strong>
+                                            <input type="text" class="form-control" id="datadespesa">
                                         </div>
                                         <div class="form-group add-valor" id="form-valor">
                                             <strong><label for="addvalor">Valor(R$)</label></strong>
-                                            <input type="text" class="form-control" id="addnome"
+                                            <input type="text" class="form-control" id="addvalord"
                                                 placeholder="00">
                                         </div>
                                     </div>
-                                    <div id="btadd">
-                                        <button type="button" class="btn btn-outline-danger add">Adicionar +</button>
+                                    <div id="btaddd">
+                                        <button type="button" class="btn btn-outline-danger add" onclick="addDespesa()">Adicionar +</button>
                                     </div>
-                                    <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-header cent">
-                                                <h6 class="m-0 font-weight-bold text-danger">Água</h6>
-                                                <button type="button" class="btn btn-danger">X</button>
-                                            </div>
-                                            <div class="card-body">
-                                                <div id="card-info">
-                                                    <strong><p>Data</p></strong>
-                                                    <strong><p>Valor</p></strong>
-                                                </div>
-                                                <div id="card-info">
-                                                    <p>01/01/2023</p>
-                                                    <p>R$20</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-xl-3 col-md-6 mb-4" id="carddespesa">
+                                        <!-- Aqui vão entrar os cards de receitas -->
                                     </div>
                                 </div>
                             </div>

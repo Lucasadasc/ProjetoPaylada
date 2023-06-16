@@ -1,6 +1,6 @@
 # ProjetoPaylada
 
-Link do vídeo da unidade 2:
+Link do vídeo da unidade 2: https://youtu.be/0JGYR7FZO3Q
 Link Netilify: https://paylada.netlify.app/
 Link repositório da API: https://github.com/Lucasadasc/BackPaylada
 Link docs de descrição: https://docs.google.com/document/d/1w4FjzRvdg_JrVzLb0KIOk8jlTrgpLDkzrsCAnI82C8Y/edit?usp=sharing

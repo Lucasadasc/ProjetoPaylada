@@ -21,18 +21,24 @@ const time = document.querySelector("#timeselect")
 const numero = document.querySelector("#numero")
 const ingresso = document.querySelector("#ingresso")
 
+//cards iniciais
+const totaljog = document.querySelector("#totalatletas")
+
 //Pegando todos os jogadores
 async function getAllJogadores() { //async - vou usar await para esperar as requisições
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
 
+
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 
+    let contjog = 0
     await jogadores.map((jogador) => {
+        contjog++
         getPagJog(jogador.id, 2023)
     })
-
+    totaljog.innerHTML = contjog
 }
 
 //Pegando jogador especifico

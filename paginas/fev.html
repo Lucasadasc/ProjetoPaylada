@@ -219,7 +219,7 @@
                         <i class="fa-regular fa-futbol fa-spin" style="color: #1cc88a;"></i>
                     </p>
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid" id="conteudo">
                     <!-- Navegar nos meses -->
                     <div id="navmeses">
                         <a href="">
@@ -244,7 +244,8 @@
                                 </div>
                                 <div class="card-body">
                                     <table
-                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl">
+                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl" 
+                                        id="pagmesespecifico">
                                         <thead>
                                             <tr align="center">
                                                 <th scope="col">#</th>
@@ -252,11 +253,12 @@
                                                 <th scope="col">Nº</th>
                                                 <th scope="col">Time</th>
                                                 <th scope="col">Data de ingresso</th>
-                                                <th scope="col">Data de pagamento</th>
+                                                <th scope="col">Pagamento</th>
+                                                <th scope="col">Situação</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Total</th>
                                         </thead>
-                                        <tbody id="pagmesespecifico">
+                                        <tbody align="center">
                                             <!-- Os dados da tabela estarão aqui -->
                                         </tbody>
                                     </table>
@@ -279,17 +281,17 @@
                                                 placeholder="Ex.: Patrocinio">
                                         </div>
                                         <div class="form-group add-data" id="form-data">
-                                            <strong><label for="addvalor">Data</label></strong>
-                                            <input type="date" class="form-control" id="datareceita">
+                                            <strong><label for="addvalor">Nº dia</label></strong>
+                                            <input type="text" class="form-control" id="datareceita">
                                         </div>
                                         <div class="form-group add-valor" id="form-valor">
                                             <strong><label for="addvalor">Valor(R$)</label></strong>
-                                            <input type="text" class="form-control" id="addnome"
+                                            <input type="text" class="form-control" id="addvalor"
                                                 placeholder="00">
                                         </div>
                                     </div>
                                     <div id="btadd">
-                                        <button type="button" class="btn btn-outline-success add">Adicionar +</button>
+                                        <button type="button" class="btn btn-outline-success add" onclick="addReceitaouDespesa()">Adicionar +</button>
                                     </div>
                                     <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
                                         <div class="card shadow mb-4">
@@ -582,13 +584,11 @@
                 <i class="fas fa-angle-up"></i>
             </a>
 
-            <!-- Importando Data Tables-->
-            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-
             <!-- Meu JS -->
-            <script src="../js/scriptpay.js"></script>
-            <script src="../js/payladareq.js"></script>
+            <script src="../js/fev.js"></script>
+            <!-- Importando Data Tables JS-->
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
 
             <script src="../vendor/jquery/jquery.min.js"></script>
             <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

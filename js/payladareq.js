@@ -35,11 +35,9 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
 
-
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 
-    
     await jogadores.map((jogador) => {
         contjog++ //número de jogadores
         getPagJog(jogador.id, 2023)
@@ -455,8 +453,9 @@ async function addPagamento(novopagamento) {
 
 }
 if (!jogadorId) {
-    getAllJogadores()
+    localStorage.setItem('id_pelada', '1')
 
+    getAllJogadores()
     // evento de add jogador
     formadd.addEventListener("submit", (e) => {
         e.preventDefault();

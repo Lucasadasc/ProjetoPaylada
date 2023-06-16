@@ -14,6 +14,8 @@ const jogpay = document.querySelector("#jogadorpay");
 const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
 const jogadorId = urlsearchParams.get("id")
 
+//modais
+const modalAddJogador = document.querySelector("#addjogador")
 //itens do forms
 const formadd = document.querySelector("#novojogador")
 const nome = document.querySelector("#addnome")
@@ -23,6 +25,10 @@ const ingresso = document.querySelector("#ingresso")
 
 //cards iniciais
 const totaljog = document.querySelector("#totalatletas")
+let contjog = 0
+function totaisCards() {
+    totaljog.innerHTML = contjog
+}
 
 //Pegando todos os jogadores
 async function getAllJogadores() { //async - vou usar await para esperar as requisições
@@ -33,12 +39,12 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
 
-    let contjog = 0
+    
     await jogadores.map((jogador) => {
-        contjog++
+        contjog++ //número de jogadores
         getPagJog(jogador.id, 2023)
     })
-    totaljog.innerHTML = contjog
+    totaisCards()
 }
 
 //Pegando jogador especifico
@@ -250,6 +256,9 @@ async function addJogador(jognovo) {
                 "Content-type": "application/json",
             },
         });
+    
+    contjog++
+    totaisCards()
 
     const data = await response.json();
     await gerarListaPagamentos(data.id)
@@ -452,6 +461,9 @@ if (!jogadorId) {
     formadd.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        if(numero.value==""){
+            numero.value = "s/n"
+        }
         let jognovo = {
             "id_pelada": 1,
             "nome": nome.value,
@@ -463,6 +475,8 @@ if (!jogadorId) {
         jognovo = JSON.stringify(jognovo);
 
         addJogador(jognovo); //mudar
+
+        modalAddJogador.modal('hide')
     })
 } else {
     getJogador(jogadorId)

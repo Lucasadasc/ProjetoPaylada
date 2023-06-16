@@ -262,7 +262,7 @@
 
                         <!-- Card adicionar jogador -->
                         <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
-                            data-bs-target="#addModal">
+                            data-bs-target="#addjogador">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -280,7 +280,7 @@
                         </a>
 
                         <!-- Modal de adicionar jogador-->
-                        <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="addjogador" tabindex="-1" role="dialog"
                             aria-labelledby="addModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -309,7 +309,7 @@
                                                 <div class="form-group" id="numinput">
                                                     <strong><label for="numero">Nº</label></strong>
                                                     <input type="text" class="form-control" id="numero"
-                                                        placeholder="00">
+                                                        placeholder="00" maxlength="2">
                                                 </div>
                                                 <div class="form-group" id="dataing">
                                                     <strong><label for="ingresso">Ingresso</label></strong>
@@ -491,7 +491,7 @@
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Total</th>
                                         </thead>
-                                        <tbody id="geralpagamentos">
+                                        <tbody align="center" id="geralpagamentos">
                                             <!-- Os dados da tabela estarão aqui -->
                                         </tbody>
                                     </table>

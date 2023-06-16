@@ -94,7 +94,6 @@ async function getPagJog(id, ano) {
             pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
             pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
             let mes = 0;
-            status = pagamento.status
             pags.forEach(function (statuspag) {
                 mes++
                 if (statuspag == 'pago') {
@@ -216,7 +215,22 @@ async function getPagJog(id, ano) {
 
         });
     } else {
-        jogpay.innerHTML += `<tr align="center">` + paganual + `<td>R$${somapags}</td></tr>`
+        jogpay.innerHTML += 
+        `<tr align="center">
+        <td>${pagjan}</td>
+        <td>${pagfev}</td>
+        <td>${pagmar}</td>
+        <td>${pagabr}</td>
+        <td>${pagmai}</td>
+        <td>${pagjun}</td>
+        <td>${pagjul}</td>
+        <td>${pagago}</td>
+        <td>${pagset}</td>
+        <td>${pagout}</td>
+        <td>${pagnov}</td>
+        <td>${pagdez}</td>
+        <td>R$${somapags}</td>
+        </tr>`
     }
 }
 
@@ -232,7 +246,7 @@ async function addJogador(jognovo) {
         });
 
     const data = await response.json();
-    addPagamento(data.id)
+    await gerarListaPagamentos(data.id)
     getPagJog(data.id, 2023)
 }
 //criando o pagamento do peladeiro 

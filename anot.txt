@@ -1,0 +1,2 @@
+ONDE MUDAR O ANO - FUNCÕES
+verificarStatus() em jogador.js

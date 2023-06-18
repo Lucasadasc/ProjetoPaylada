@@ -109,107 +109,107 @@ async function getPagJog(id, ano) {
                 if (statuspag == 'pago') {
                     somapags += valormensal
                     if(mes==1){
-                        pagjan = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagjan = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jan"></i></td>`
                     }else if(mes==2){
-                        pagfev = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagfev = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="fev"></i></td>`
                     }else if(mes==3){
-                        pagmar = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagmar = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="mar"></i></td>`
                     }else if(mes==4){
-                        pagabr = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagabr = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="abr"></i></td>`
                     }else if(mes==5){
-                        pagmai = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagmai = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="mai"></i></td>`
                     }else if(mes==6){
-                        pagjun = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagjun = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jun"></i></td>`
                     }else if(mes==7){
-                        pagjul = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagjul = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jul"></i></td>`
                     }else if(mes==8){
-                        pagago = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagago = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="ago"></i></td>`
                     }else if(mes==9){
-                        pagset = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagset = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="set"></i></td>`
                     }else if(mes==10){
-                        pagout = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagout = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="out"></i></td>`
                     }else if(mes==11){
-                        pagnov = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagnov = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="nov"></i></td>`
                     }else if(mes==12){
-                        pagdez = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
+                        pagdez = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="dez"></i></td>`
                     }
                 } else if (statuspag == 'pendente') {
                     if(mes==1){
-                        pagjan = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagjan = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jan"></i>`
                     }else if(mes==2){
-                        pagfev = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagfev = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="fev"></i>`
                     }else if(mes==3){
-                        pagmar = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagmar = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="mar"></i>`
                     }else if(mes==4){
-                        pagabr = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagabr = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="abr"></i>`
                     }else if(mes==5){
-                        pagmai = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagmai = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="mai"></i>`
                     }else if(mes==6){
-                        pagjun = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagjun = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jun"></i>`
                     }else if(mes==7){
-                        pagjul = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagjul = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jul"></i>`
                     }else if(mes==8){
-                        pagago = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagago = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="ago"></i>`
                     }else if(mes==9){
-                        pagset = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagset = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="set"></i>`
                     }else if(mes==10){
-                        pagout = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagout = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="out"></i>`
                     }else if(mes==11){
-                        pagnov = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagnov = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="nov"></i>`
                     }else if(mes==12){
-                        pagdez = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300"></i>`
+                        pagdez = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="dez"></i>`
                     }
                 } else if (statuspag == 'isento') {
                     if(mes==1){
-                        pagjan = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==2){
-                        pagfev = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==3){
-                        pagmar = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==4){
-                        pagabr = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==5){
-                        pagmai = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==6){
-                        pagjun = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==7){
-                        pagjul = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==8){
-                        pagago = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==9){
-                        pagset = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==10){
-                        pagout = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==11){
-                        pagnov = `<i class="fa-solid fa-circle-minus"></i>`
-                    }else if(mes==12){
-                        pagdez = `<i class="fa-solid fa-circle-minus"></i>`
-                    }
+                        pagjan = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jan"></i>`
+                    }else if(mes==2){ 
+                        pagfev = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="fev"></i>`
+                    }else if(mes==3){ 
+                        pagmar = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="mar"></i>`
+                    }else if(mes==4){ 
+                        pagabr = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="abr"></i>`
+                    }else if(mes==5){ 
+                        pagmai = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="mai"></i>`
+                    }else if(mes==6){ 
+                        pagjun = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jun"></i>`
+                    }else if(mes==7){ 
+                        pagjul = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jul"></i>`
+                    }else if(mes==8){ 
+                        pagago = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="ago"></i>`
+                    }else if(mes==9){ 
+                        pagset = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="set"></i>`
+                    }else if(mes==10){ 
+                        pagout = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="out"></i>`
+                    }else if(mes==11){ 
+                        pagnov = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="nov"></i>`
+                    }else if(mes==12){ 
+                        pagdez = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="dez"></i>`
+                    } 
                 } else {
                     if(mes==1){
-                        pagjan = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagjan = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jan"></i>`
                     }else if(mes==2){
-                        pagfev = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagfev = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="fev"></i>`
                     }else if(mes==3){
-                        pagmar = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagmar = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="mar"></i>`
                     }else if(mes==4){
-                        pagabr = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagabr = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="abr"></i>`
                     }else if(mes==5){
-                        pagmai = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagmai = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="mai"></i>`
                     }else if(mes==6){
-                        pagjun = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagjun = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jun"></i>`
                     }else if(mes==7){
-                        pagjul = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagjul = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jul"></i>`
                     }else if(mes==8){
-                        pagago = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagago = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="ago"></i>`
                     }else if(mes==9){
-                        pagset = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagset = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="set"></i>`
                     }else if(mes==10){
-                        pagout = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagout = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="out"></i>`
                     }else if(mes==11){
-                        pagnov = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagnov = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="nov"></i>`
                     }else if(mes==12){
-                        pagdez = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;"></i>`
+                        pagdez = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="dez"></i>`
                     }
                 }
             });
@@ -227,18 +227,18 @@ async function getPagJog(id, ano) {
     } else {
         jogpay.innerHTML += 
         `<tr align="center">
-        <td>${pagjan}</td>
-        <td>${pagfev}</td>
-        <td>${pagmar}</td>
-        <td>${pagabr}</td>
-        <td>${pagmai}</td>
-        <td>${pagjun}</td>
-        <td>${pagjul}</td>
-        <td>${pagago}</td>
-        <td>${pagset}</td>
-        <td>${pagout}</td>
-        <td>${pagnov}</td>
-        <td>${pagdez}</td>
+        <td><button onclick="editPag('janeiro')">${pagjan}</button></td>
+        <td><button onclick="editPag('fevereiro')">${pagfev}</button></td>
+        <td><button onclick="editPag('março')">${pagmar}</button></td>
+        <td><button onclick="editPag('abril')">${pagabr}</button></td>
+        <td><button onclick="editPag('maio')">${pagmai}</button></td>
+        <td><button onclick="editPag('junho')">${pagjun}</button></td>
+        <td><button onclick="editPag('julho')">${pagjul}</button></td>
+        <td><button onclick="editPag('agosto')">${pagago}</button></td>
+        <td><button onclick="editPag('setembro')">${pagset}</button></td>
+        <td><button onclick="editPag('outubro')">${pagout}</button></td>
+        <td><button onclick="editPag('novembro')">${pagnov}</button></td>
+        <td><button onclick="editPag('dezembro')">${pagdez}</button></td>
         <td>R$${somapags}</td>
         </tr>`
     }

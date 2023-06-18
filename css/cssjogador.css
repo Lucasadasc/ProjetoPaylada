@@ -37,3 +37,10 @@
     display: flex; 
     justify-content: space-between;
 }
+
+#jogadorpay button{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}

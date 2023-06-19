@@ -1,4 +1,4 @@
-.fundo{
+.fundo {
   height: 100vh;
   background-image: url(../img/def/fundo_paylada.svg);
   background-position: center;
@@ -9,20 +9,79 @@
   align-items: center;
   justify-content: center;
 }
-#login{
+
+#login {
   display: flex;
   margin: auto;
 
   width: 300px;
 }
 
-#corpo-login{
+#corpo-login {
   display: flex;
   flex-direction: column;
 
   align-items: center;
   justify-content: center;
 }
-#corpo-login img{
+
+#h1 {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+#h2 {
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  
+  color: black;
+
+  background-color: rgb(221, 221, 221) !important;
+
+}
+
+.card-header img {
   width: 160px;
+}
+#corpo-login #infologs .form-group{
+  color: black;
+}
+#corpo-login #infologs input {
+
+  width: 300px;
+
+  border-width: 0 0 2px 0;
+  border-radius: 0;
+}
+
+#corpo-login #infologs input:focus {
+  width: 300px;
+
+  border-width: 0 0 2px 0;
+  border-radius: 2px;
+
+  border-color: rgb(78, 168, 78);
+}
+#corpo-login #infologs button{
+  width: 200px !important;
+}
+#mais{
+  margin-top: 5px ;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+#mais a{
+ font-size: 12px;
+}
+#footer span{
+  font-size: 12px;
 }

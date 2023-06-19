@@ -89,17 +89,12 @@ async function getPagJog(id, ano) {
                     </a>`
 
     let status;
-    var somapags = 0;
-    var valormensal;
-    peladas.map((pelada) => {
-        if (pelada.id == jogador.id_pelada) {
-            valormensal = Number(pelada.valorpagamento)
-        }
-    })
+    var somapags;
     let pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez
     pagamentos.map((pagamento) => {
         if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
             status = pagamento.status
+            somapags = pagamento.totalpag
             var pags = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
             pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
             pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
@@ -107,7 +102,6 @@ async function getPagJog(id, ano) {
             pags.forEach(function (statuspag) {
                 mes++
                 if (statuspag == 'pago') {
-                    somapags += valormensal
                     if(mes==1){
                         pagjan = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jan"></i></td>`
                     }else if(mes==2){
@@ -225,7 +219,7 @@ async function getPagJog(id, ano) {
 
         });
     } else {
-        jogpay.innerHTML += 
+        jogpay.innerHTML = 
         `<tr align="center">
         <td><button onclick="editPag('janeiro')">${pagjan}</button></td>
         <td><button onclick="editPag('fevereiro')">${pagfev}</button></td>

@@ -84,7 +84,7 @@ async function getPagJog(id, ano) {
     const responsePelada = await fetch(`${url}pelada/`)
     const peladas = await responsePelada.json()
 
-    const detalhar = `<a href="./paginas/jogador.html?id=${id}">
+    const detalhar = `<a href="./jogador.html?id=${id}">
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                     </a>`
 

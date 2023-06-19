@@ -1,9 +1,28 @@
-.container {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../img/def/login.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: black;
-  }
+.fundo{
+  height: 100vh;
+  background-image: url(../img/def/fundo_paylada.svg);
+  background-position: center;
+  background-repeat: repeat;
+  background-color: rgb(184, 219, 128);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#login{
+  display: flex;
+  margin: auto;
+
+  width: 300px;
+}
+
+#corpo-login{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+#corpo-login img{
+  width: 160px;
+}

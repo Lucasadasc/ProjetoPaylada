@@ -16,6 +16,8 @@
 }
 #botao-pelada #card-pelada #infos-pelada span{
     color: rgb(39, 39, 39);
+
+    font-size: 14px;
 }
 #botao-pelada:hover{
     background-color: rgb(160, 160, 160);

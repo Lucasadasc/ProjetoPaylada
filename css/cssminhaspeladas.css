@@ -1,0 +1,22 @@
+#botao-pelada{
+    text-decoration: none;
+    margin-bottom: 7px;
+}
+#botao-pelada #card-pelada{
+    display: flex;
+}
+#botao-pelada #card-pelada img{
+    width: 80px;
+}
+#botao-pelada #card-pelada #infos-pelada{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+}
+#botao-pelada #card-pelada #infos-pelada span{
+    color: rgb(39, 39, 39);
+}
+#botao-pelada:hover{
+    background-color: rgb(160, 160, 160);
+}

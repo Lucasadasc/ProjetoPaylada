@@ -49,10 +49,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./inicio.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Bola Cheia</div>
+                <div class="sidebar-brand-text mx-3" id="peladanome-sel">Nome da pelada</div>
             </a>
 
             <!-- Divider -->
@@ -278,8 +275,9 @@
                                                 <div class="form-group" id="time">
                                                     <strong><label for="timeselect">Time</label></strong>
                                                     <select class="form-control" id="timeselect">
-                                                        <option value="Internazionale">Internazionale</option>
-                                                        <option value="Milan">Milan</option>
+                                                        <option id="opcao">Não especificar</option>
+                                                        <option id="opcao-a"></option>
+                                                        <option id="opcao-b"></option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group" id="numinput">
@@ -338,19 +336,19 @@
                                                     <div class="form-group">
                                                         <strong><label for="modnomepelada">Nome da pelada</label></strong>
                                                         <input type="text" class="form-control" id="modnomepelada"
-                                                            placeholder="Nome da pelada" value="Bola Cheia">
+                                                            placeholder="Nome da pelada">
                                                     </div>
                                                     <div class="form-group">
                                                         <strong><label for="modtimes">Times participantes</label></strong>
                                                         <input type="text" class="form-control" id="modtimesa"
-                                                            placeholder="Nome da pelada" value="Milan">
+                                                            placeholder="Nome do time A">
                                                         <input type="text" class="form-control" id="modtimesb"
-                                                            placeholder="Nome da pelada" value="Inter">
+                                                            placeholder="Nome do time B">
                                                     </div>
                                                 </div>
                                                 <div id="logopelada">
                                                     <div id="mudarfoto">
-                                                        <img src="../img/def/bolacheia.png" alt="">
+                                                        <img src="../img/def/logopadrao.svg" alt="">
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input"
                                                                 id="customFile">
@@ -364,12 +362,12 @@
                                                 <div id="payday" class="form-group">
                                                     <strong><label for="paydayv">Pagamento máx.</label></strong>
                                                     <input type="text" class="form-control" id="paydayv"
-                                                        placeholder="Dia máximo do pagamento" value="10">
+                                                        placeholder="Dia máximo do pagamento">
                                                 </div>
                                                 <div id="valor" class="form-group">
                                                     <strong><label for="valormensal">Valor mensal (R$)</label></strong>
                                                     <input type="text" class="form-control" id="valormensal"
-                                                        placeholder="Valor mensal em R$" value="40">
+                                                        placeholder="Valor mensal em R$">
                                                 </div>
                                             </div>
                                         </form>
@@ -390,8 +388,8 @@
                                 <div class="card-header py-3" id="header-tabela">
                                     <h6 class="m-0 font-weight-bold text-success">Todos os jogadores</h6>
                                     <select class="form-control" id="anofinanceiro">
-                                        <option>2023</option>
-                                        <option>2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
                                     </select>
                                 </div>
                                 <div class="card-body">

@@ -3,11 +3,14 @@ const url = "http://127.0.0.1:8000/paylada/"
 //carregamento
 const loading = document.querySelector("#loading")
 const conteudo = document.querySelector("#conteudo")
-
+//id da pelada no localStorage
+const id_pelada = localStorage.getItem('id_pelada')
+//ano da análise
+const ano_selecionado = document.querySelector('#anofinanceiro')
 //lista de jogadores
 const lista = document.querySelector("#geralpagamentos");
 
-//pagina do jogador
+//pagina do jogador - pagamento
 const jogpay = document.querySelector("#jogadorpay");
 
 //pegando id da url
@@ -35,14 +38,16 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
 
-    loading.classList.add("hide")
-    conteudo.classList.remove("hide")
-
     await jogadores.map((jogador) => {
-        contjog++ //número de jogadores
-        getPagJog(jogador.id, 2023)
+        if(jogador.id_pelada==id_pelada){
+            contjog++ //número de jogadores
+            getPagJog(jogador.id, 2023)
+        }
     })
     totaisCards()
+
+    loading.classList.add("hide")
+    conteudo.classList.remove("hide")
 }
 
 //Pegando jogador especifico
@@ -208,7 +213,6 @@ async function getPagJog(id, ano) {
                 }
             });
         }
-
     })
 
     if (!jogadorId) {
@@ -558,13 +562,49 @@ function mesesFoco(){
     }
     return mesesemfoco.innerHTML += meses
 }
+async function personalizando(){
+    const response = await fetch(url + 'pelada/')
+    const peladas = await response.json()
 
+    const sidebar_nome = document.querySelector('#peladanome-sel')
+
+    //modal de add jogador
+    const timesel_a = document.querySelector('#opcao-a')
+    const timesel_b = document.querySelector('#opcao-b')
+    //modal de mudar pelada
+    const nome_modal = document.querySelector('#modnomepelada')
+    const time_a = document.querySelector('#modtimesa')
+    const time_b = document.querySelector('#modtimesb')
+    const payday = document.querySelector('#paydayv')
+    const valormensal = document.querySelector('#valormensal')
+
+    await peladas.map((pelada) => {
+        if(pelada.id==id_pelada){
+            sidebar_nome.innerHTML = pelada.nomepelada
+            
+            timesel_a.innerHTML = pelada.timea
+            timesel_b.innerHTML = pelada.timeb
+            timesel_a.value = pelada.timea
+            timesel_b.value = pelada.timeb
+
+            nome_modal.value = pelada.nomepelada
+            time_a.value = pelada.timea
+            time_b.value = pelada.timeb
+            payday.value = pelada.diamaxpagamento
+            valormensal.value = pelada.valorpagamento
+        }
+    })
+}
 if (!jogadorId) {
-    localStorage.setItem('id_pelada', '1')
 
-    mesesFoco()
-
+    mesesFoco() //pega o mês atual
+    personalizando()
     getAllJogadores()
+
+    // evento de mudança na escolha do ano
+    ano_selecionado.addEventListener('change', function(){
+        console.log(ano_selecionado.value)
+    })
     // evento de add jogador
     formadd.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -573,7 +613,7 @@ if (!jogadorId) {
             numero.value = "s/n"
         }
         let jognovo = {
-            "id_pelada": 1,
+            "id_pelada": id_pelada,
             "nome": nome.value,
             "numero": numero.value,
             "time": time.value,

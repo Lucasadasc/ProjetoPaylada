@@ -60,17 +60,17 @@ async function minhasPeladas(){
 
             let quantJogadores = 0
             jogadores.map((jogador)=>{
-                if(jogador.id_pelada = pelada.id){
+                if(jogador.id_pelada == pelada.id){
                     quantJogadores++
                 }
             })
 
-            divpeladas.innerHTML += addCardPelada(pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
+            divpeladas.innerHTML += addCardPelada(pelada.id, pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
         }
     })
 }
-function addCardPelada(logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
-    return `<a href="./inicio.html" class="card shadow" id="botao-pelada">
+function addCardPelada(id, logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
+    return `<a href="./inicio.html" onclick="passarId(${id})" class="card shadow" id="botao-pelada">
                 <div class="card-body" id="card-pelada">
                     <img src="${logopelada}" alt="">
                     <div id="infos-pelada">
@@ -80,6 +80,10 @@ function addCardPelada(logopelada, nomepelada, diacriacao, mescriacao, anocriaca
                     </div>
                 </div>
             </a>`
+}
+function passarId(id){
+    console.log(id)
+    localStorage.setItem('id_pelada', id)
 }
 if(!userId){
     console.log('a')

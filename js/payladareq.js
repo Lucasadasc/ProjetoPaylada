@@ -446,8 +446,123 @@ async function addPagamento(novopagamento) {
         });
 
 }
+function mesesFoco(){
+    const mesesemfoco = document.querySelector("#mf")
+
+    //pegando a data atual
+    var data = new Date();
+    var mesatual = data.getMonth() + 1
+
+    var meses
+    if(mesatual==1){
+        meses = `
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Janeiro</span>
+            </a>
+        `
+    }else if(mesatual == 2){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Fevereiro</span>
+            </a>
+        `
+    }else if(mesatual == 3){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Março</span>
+            </a>
+        `
+    }else if(mesatual == 4){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Abril</span>
+            </a>
+        `
+    }else if(mesatual == 5){
+        meses = `
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Maio</span>
+            </a>
+        `
+    }else if(mesatual == 6){
+        meses = `
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Junho</span>
+            </a>
+        `
+    }else if(mesatual == 7){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Julho</span>
+            </a>
+        `
+    }else if(mesatual == 8){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Agosto</span>
+            </a>
+        `
+    }else if(mesatual == 9){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Setembro</span>
+            </a>
+        `
+    }else if(mesatual == 10){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Setembro</span>
+            </a>
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Outubro</span>
+            </a>
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Novembro</span>
+            </a>
+        `
+    }else if(mesatual == 11){
+        meses = `
+        
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Novembro</span>
+            </a>
+        `
+    }else if(mesatual == 12){
+        meses = `
+            <a class="nav-link" href="">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Dezembro</span>
+            </a>
+        `
+    }
+    return mesesemfoco.innerHTML += meses
+}
+
 if (!jogadorId) {
     localStorage.setItem('id_pelada', '1')
+
+    mesesFoco()
 
     getAllJogadores()
     // evento de add jogador

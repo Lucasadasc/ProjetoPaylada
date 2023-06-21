@@ -64,20 +64,22 @@ async function minhasPeladas(){
                     quantJogadores++
                 }
             })
-            
-            divpeladas.innerHTML += `<a href="./inicio.html" class="card shadow" id="botao-pelada">
-                                        <div class="card-body" id="card-pelada">
-                                            <img src="${pelada.logopelada}" alt="">
-                                            <div id="infos-pelada">
-                                                <span><strong>${pelada.nomepelada}</strong></span>
-                                                <span><strong>Criada em: </strong>${pelada.diacriacao}/${pelada.mescriacao}/${pelada.anocriacao}</span>
-                                                <span><strong>Total de jogadores: </strong>${quantJogadores}</span>
-                                            </div>
-                                        </div>
-                                    </a>`
-            console.log(pelada.nomepelada)
+
+            divpeladas.innerHTML += addCardPelada(pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
         }
     })
+}
+function addCardPelada(logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
+    return `<a href="./inicio.html" class="card shadow" id="botao-pelada">
+                <div class="card-body" id="card-pelada">
+                    <img src="${logopelada}" alt="">
+                    <div id="infos-pelada">
+                        <span><strong>${nomepelada}</strong></span>
+                        <span><strong>Criada em: </strong>${diacriacao}/${mescriacao}/${anocriacao}</span>
+                        <span><strong>Total de jogadores: </strong>${quantJogadores}</span>
+                    </div>
+                </div>
+            </a>`
 }
 if(!userId){
     console.log('a')

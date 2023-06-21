@@ -34,6 +34,7 @@
         crossorigin="anonymous"></script>
     <!-- Estilização do template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="fundo">
@@ -65,25 +66,25 @@
                                     <div id="editefoto">
                                         <div id="edicoes">
                                             <div class="form-group">
-                                                <strong><label for="modnomepelada">Nome da pelada</label></strong>
-                                                <input type="text" class="form-control" id="modnomepelada"
+                                                <strong><label for="nome-pelada">Nome da pelada</label></strong>
+                                                <input type="text" class="form-control" id="nome-pelada"
                                                     placeholder="Nome da pelada" required>
                                             </div>
                                             <div class="form-group">
-                                                <strong><label for="modtimes">Times participantes</label></strong>
-                                                <input type="text" class="form-control" id="modtimesa"
+                                                <strong><label for="time-a">Times participantes</label></strong>
+                                                <input type="text" class="form-control" id="time-a"
                                                     placeholder="Peladeiros A">
-                                                <input type="text" class="form-control" id="modtimesb"
+                                                <input type="text" class="form-control" id="time-b"
                                                     placeholder="Peladeiros B">
                                             </div>
                                         </div>
                                         <div id="logopelada">
                                             <div id="mudarfoto">
-                                                <img src="../img/def/logopadrao.svg" alt="">
+                                                <img src="../img/def/logopadrao.svg" alt="" id="logo-mostrar">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input"
-                                                        id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Nova
+                                                        id="logo-pelada">
+                                                    <label class="custom-file-label" for="logo-pelada">Nova
                                                         logo</label>
                                                 </div>
                                             </div>
@@ -92,13 +93,13 @@
                                     <div id="financas">
                                         <div id="payday" class="form-group">
                                             <strong><label for="paydayv">Pagamento máx.</label></strong>
-                                            <input type="text" class="form-control" id="paydayv"
-                                                placeholder="Dia máximo do pagamento" value="10">
+                                            <input type="text" class="form-control" id="pay-day"
+                                                placeholder="Dia máximo do pagamento" required>
                                         </div>
                                         <div id="valor" class="form-group">
                                             <strong><label for="valormensal">Valor mensal (R$)</label></strong>
-                                            <input type="text" class="form-control" id="valormensal"
-                                                placeholder="Valor mensal em R$" value="40">
+                                            <input type="text" class="form-control" id="valor-mensal"
+                                                placeholder="Valor mensal em R$">
                                         </div>
                                     </div>
                                 </form>
@@ -106,7 +107,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Salvar alterações</button>
+                                <button type="button" class="btn btn-primary" onclick="criarPelada()">Adicionar</button>
                             </div>
                         </div>
                     </div>
@@ -119,5 +120,6 @@
         </div>
     </div>
     <script src="../js/logar.js"></script>
+    <script src="../js/peladas.js"></script>
 </body>
 </html>

@@ -6,7 +6,11 @@ const conteudo = document.querySelector("#conteudo")
 
 //lista de jogadores
 const pagmes = document.querySelector("#pagmesespecifico");
-
+const lista_jogadores = []
+//id da pelada no localStorage
+const id_pelada = localStorage.getItem('id_pelada')
+//ano da análise
+const ano_selecionado = document.querySelector('#anofinanceiro')
 //pagina do jogador
 const jogpay = document.querySelector("#jogadorpay");
 
@@ -32,8 +36,11 @@ async function getPagMes() { //async - vou usar await para esperar as requisiç�
     conteudo.classList.remove("hide")
 
     await jogadores.map((jogador) => {
-        contjog++ //número de jogadores
-        getPagJog(jogador.id, 2023)
+        if(jogador.id_pelada==id_pelada){
+            contjog++ //número de jogadores
+            getPagJog(jogador.id, ano_selecionado.value)
+            lista_jogadores.push(jogador)
+        }
     })
 }
 async function getPagJog(id, ano) {
@@ -82,7 +89,7 @@ async function addDespesa(){
     const valor = document.querySelector('#addvalord')
 
     let roudnovo = {
-        "id_pelada": 1,
+        "id_pelada": id_pelada,
         "nome": nome.value,
         "tipo": 'despesa',
         "dia": dia.value,
@@ -100,7 +107,7 @@ async function addReceita(){
     const valor = document.querySelector('#addvalor')
 
     let roudnovo = {
-        "id_pelada": 1,
+        "id_pelada": id_pelada,
         "nome": nome.value,
         "tipo": 'receita',
         "dia": dia.value,
@@ -135,7 +142,7 @@ async function percorreRecouDesp(){
     const receitas = await response.json()
 
     await receitas.map((receita)=>{
-        if(receita.id_pelada==1){
+        if(receita.id_pelada==id_pelada){
             if(receita.tipo == 'despesa'){
                 cardsdespesas.innerHTML = addHtmlRouC(receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsdespesas.innerHTML
             }else{

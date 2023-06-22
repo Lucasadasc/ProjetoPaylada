@@ -36,8 +36,10 @@ async function editPag(mes) {
     let valorpag
     const responsePelada = await fetch(`${url}pelada/`)
     const peladas = await responsePelada.json()
+
+    const id_pelada = localStorage.getItem('id_pelada')
     peladas.map((pelada) => {
-        if (pelada.id == 1) {
+        if (pelada.id == id_pelada) {
             diapagmaximo = Number(pelada.diamaxpagamento)
             valorpag = Number(pelada.valorpagamento)
         }

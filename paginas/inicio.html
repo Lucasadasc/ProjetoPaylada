@@ -226,7 +226,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Arrecadado (anual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$0</div>
+                                            <div class="h5 mb-0 font-weight-bold" id="arrecadado">R$0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -278,7 +278,7 @@
                                                 <div class="form-group" id="time">
                                                     <strong><label for="timeselect">Time</label></strong>
                                                     <select class="form-control" id="timeselect">
-                                                        <option id="opcao">Não especificar</option>
+                                                        <option id="opcao">N/I</option>
                                                         <option id="opcao-a"></option>
                                                         <option id="opcao-b"></option>
                                                     </select>
@@ -304,12 +304,12 @@
 
                         <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
                             data-bs-target="#editarpelada">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div id="textadd"
-                                                class="text-xs text-info font-weight-bold text-uppercase ">
+                                                class="text-xs text-success font-weight-bold text-uppercase ">
                                                 Editar pelada
                                             </div>
                                         </div>
@@ -389,12 +389,12 @@
                     <div class="row">
                         <div class="col-lg-6 mb-4">
                             <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
+                            <div class="card border-left-info shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Gastos X despesas anuais</h6>
+                                    <h6 class="m-0 font-weight-bold text-info">Gastos X despesas anuais</h6>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="gastos-despesas" style="width: 100px; height: 100px;"></canvas>
+                                    <canvas id="gastos-despesas" style=""></canvas>
                                 </div>
                             </div>
                         </div>
@@ -631,28 +631,6 @@
                 <i class="fas fa-angle-up"></i>
             </a>
             <!-- Meu JS -->
-            <script>
-                const cta = document.getElementById('gastos-despesas');
-
-                new Chart(cta, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
             <script src="../js/payladareq.js"></script>
             <script src="../js/graficos.js"></script>
             

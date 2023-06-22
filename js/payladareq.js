@@ -41,7 +41,7 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     await jogadores.map((jogador) => {
         if(jogador.id_pelada==id_pelada){
             contjog++ //número de jogadores
-            getPagJog(jogador.id, 2023)
+            getPagJog(jogador.id, jogador.nome, jogador.numero, jogador.time, ano_selecionado.value)
         }
     })
     totaisCards()
@@ -79,9 +79,7 @@ async function getJogador(id) {
 }
 
 //relacionando jogador com pagamento
-async function getPagJog(id, ano) {
-    const responseJog = await fetch(`${url}jog/${id}`)
-    const jogador = await responseJog.json()
+async function getPagJog(id, nome, numero, time, ano) {
 
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
@@ -219,7 +217,7 @@ async function getPagJog(id, ano) {
         $(document).ready(function () {
             var t = $('#tabgeral').DataTable();
 
-            t.row.add([detalhar, jogador.nome, jogador.numero, jogador.time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, "R$"+somapags]).draw(false);
+            t.row.add([detalhar, nome, numero, time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, "R$"+somapags]).draw(false);
 
         });
     } else {
@@ -594,6 +592,10 @@ async function personalizando(){
             valormensal.value = pelada.valorpagamento
         }
     })
+}
+async function estatisticasPelada(pelada_id, valorpagamento){
+
+
 }
 if (!jogadorId) {
 

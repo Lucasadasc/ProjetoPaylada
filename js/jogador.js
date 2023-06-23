@@ -125,12 +125,15 @@ function verificarStatus(mes, diapagmaximo) {
 
     let situacao
 
-    if (diaatual > diapagmaximo) {
+    
+    if (anoatual > 2023) {
         situacao = 'alerta'
     } else if (mesatual > mes) {
         situacao = 'alerta'
-    } else if (anoatual > 2023) {
-        situacao = 'alerta'
+    } else if (mesatual == mes) {
+        if (diaatual > diapagmaximo) {
+            situacao = 'alerta'
+        }
     } else {
         situacao = 'pendente'
     }

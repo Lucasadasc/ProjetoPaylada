@@ -5,6 +5,7 @@ const loading = document.querySelector("#loading")
 const conteudo = document.querySelector("#conteudo")
 //id da pelada no localStorage
 const id_pelada = localStorage.getItem('id_pelada')
+let pel_sel = ''
 //ano da análise
 const ano_selecionado = document.querySelector('#anofinanceiro')
 //lista de jogadores
@@ -36,17 +37,25 @@ function totaisCards() {
 
 //Pegando todos os jogadores
 async function getAllJogadores() { //async - vou usar await para esperar as requisições
+
+    //pegando a pelada e guardando numa lista
+    const responsePelada = await fetch(`${url}pelada/${id_pelada}`)
+    pel_sel = await responsePelada.json()
+
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
 
     await jogadores.map((jogador) => {
-        if(jogador.id_pelada==id_pelada){
+        if (jogador.id_pelada == id_pelada) {
             contjog++ //número de jogadores
             getPagJog(jogador.id, ano_selecionado.value)
             lista_jogadores.push(jogador)
         }
     })
+
     totaisCards()
+    analiseRecorrente()
+    personalizando()
 
     loading.classList.add("hide")
     conteudo.classList.remove("hide")
@@ -91,7 +100,6 @@ async function getPagJog(id, ano) {
     const detalhar = `<a href="./jogador.html?id=${id}">
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                     </a>`
-
     let status;
     var somapags;
     let pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez
@@ -106,107 +114,107 @@ async function getPagJog(id, ano) {
             pags.forEach(function (statuspag) {
                 mes++
                 if (statuspag == 'pago') {
-                    if(mes==1){
+                    if (mes == 1) {
                         pagjan = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jan"></i></td>`
-                    }else if(mes==2){
+                    } else if (mes == 2) {
                         pagfev = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="fev"></i></td>`
-                    }else if(mes==3){
+                    } else if (mes == 3) {
                         pagmar = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="mar"></i></td>`
-                    }else if(mes==4){
+                    } else if (mes == 4) {
                         pagabr = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="abr"></i></td>`
-                    }else if(mes==5){
+                    } else if (mes == 5) {
                         pagmai = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="mai"></i></td>`
-                    }else if(mes==6){
+                    } else if (mes == 6) {
                         pagjun = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jun"></i></td>`
-                    }else if(mes==7){
+                    } else if (mes == 7) {
                         pagjul = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="jul"></i></td>`
-                    }else if(mes==8){
+                    } else if (mes == 8) {
                         pagago = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="ago"></i></td>`
-                    }else if(mes==9){
+                    } else if (mes == 9) {
                         pagset = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="set"></i></td>`
-                    }else if(mes==10){
+                    } else if (mes == 10) {
                         pagout = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="out"></i></td>`
-                    }else if(mes==11){
+                    } else if (mes == 11) {
                         pagnov = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="nov"></i></td>`
-                    }else if(mes==12){
+                    } else if (mes == 12) {
                         pagdez = `<i class="fa-solid fa-circle-check" style="color: #03ad00;" id="dez"></i></td>`
                     }
                 } else if (statuspag == 'pendente') {
-                    if(mes==1){
+                    if (mes == 1) {
                         pagjan = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jan"></i>`
-                    }else if(mes==2){
+                    } else if (mes == 2) {
                         pagfev = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="fev"></i>`
-                    }else if(mes==3){
+                    } else if (mes == 3) {
                         pagmar = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="mar"></i>`
-                    }else if(mes==4){
+                    } else if (mes == 4) {
                         pagabr = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="abr"></i>`
-                    }else if(mes==5){
+                    } else if (mes == 5) {
                         pagmai = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="mai"></i>`
-                    }else if(mes==6){
+                    } else if (mes == 6) {
                         pagjun = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jun"></i>`
-                    }else if(mes==7){
+                    } else if (mes == 7) {
                         pagjul = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="jul"></i>`
-                    }else if(mes==8){
+                    } else if (mes == 8) {
                         pagago = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="ago"></i>`
-                    }else if(mes==9){
+                    } else if (mes == 9) {
                         pagset = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="set"></i>`
-                    }else if(mes==10){
+                    } else if (mes == 10) {
                         pagout = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="out"></i>`
-                    }else if(mes==11){
+                    } else if (mes == 11) {
                         pagnov = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="nov"></i>`
-                    }else if(mes==12){
+                    } else if (mes == 12) {
                         pagdez = `<i class="fas fa-dollar-sign fa-1,5x text-gray-300" id="dez"></i>`
                     }
                 } else if (statuspag == 'isento') {
-                    if(mes==1){
+                    if (mes == 1) {
                         pagjan = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jan"></i>`
-                    }else if(mes==2){ 
+                    } else if (mes == 2) {
                         pagfev = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="fev"></i>`
-                    }else if(mes==3){ 
+                    } else if (mes == 3) {
                         pagmar = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="mar"></i>`
-                    }else if(mes==4){ 
+                    } else if (mes == 4) {
                         pagabr = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="abr"></i>`
-                    }else if(mes==5){ 
+                    } else if (mes == 5) {
                         pagmai = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="mai"></i>`
-                    }else if(mes==6){ 
+                    } else if (mes == 6) {
                         pagjun = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jun"></i>`
-                    }else if(mes==7){ 
+                    } else if (mes == 7) {
                         pagjul = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="jul"></i>`
-                    }else if(mes==8){ 
+                    } else if (mes == 8) {
                         pagago = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="ago"></i>`
-                    }else if(mes==9){ 
+                    } else if (mes == 9) {
                         pagset = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="set"></i>`
-                    }else if(mes==10){ 
+                    } else if (mes == 10) {
                         pagout = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="out"></i>`
-                    }else if(mes==11){ 
+                    } else if (mes == 11) {
                         pagnov = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="nov"></i>`
-                    }else if(mes==12){ 
+                    } else if (mes == 12) {
                         pagdez = `<i class="fa-solid fa-circle-minus" style="color: #858796;" id="dez"></i>`
-                    } 
+                    }
                 } else {
-                    if(mes==1){
+                    if (mes == 1) {
                         pagjan = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jan"></i>`
-                    }else if(mes==2){
+                    } else if (mes == 2) {
                         pagfev = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="fev"></i>`
-                    }else if(mes==3){
+                    } else if (mes == 3) {
                         pagmar = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="mar"></i>`
-                    }else if(mes==4){
+                    } else if (mes == 4) {
                         pagabr = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="abr"></i>`
-                    }else if(mes==5){
+                    } else if (mes == 5) {
                         pagmai = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="mai"></i>`
-                    }else if(mes==6){
+                    } else if (mes == 6) {
                         pagjun = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jun"></i>`
-                    }else if(mes==7){
+                    } else if (mes == 7) {
                         pagjul = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="jul"></i>`
-                    }else if(mes==8){
+                    } else if (mes == 8) {
                         pagago = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="ago"></i>`
-                    }else if(mes==9){
+                    } else if (mes == 9) {
                         pagset = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="set"></i>`
-                    }else if(mes==10){
+                    } else if (mes == 10) {
                         pagout = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="out"></i>`
-                    }else if(mes==11){
+                    } else if (mes == 11) {
                         pagnov = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="nov"></i>`
-                    }else if(mes==12){
+                    } else if (mes == 12) {
                         pagdez = `<i class="fa-solid fa-dollar-sign" style="color: #b40404;" id="dez"></i>`
                     }
                 }
@@ -218,12 +226,12 @@ async function getPagJog(id, ano) {
         $(document).ready(function () {
             var t = $('#tabgeral').DataTable();
 
-            t.row.add([detalhar, jog.nome, jog.numero, jog.time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, "R$"+somapags]).draw(false);
+            t.row.add([detalhar, jog.nome, jog.numero, jog.time, pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status, "R$" + somapags]).draw(false);
 
         });
     } else {
-        jogpay.innerHTML = 
-        `<tr align="center">
+        jogpay.innerHTML =
+            `<tr align="center">
         <td><button onclick="editPag('janeiro')">${pagjan}</button></td>
         <td><button onclick="editPag('fevereiro')">${pagfev}</button></td>
         <td><button onclick="editPag('março')">${pagmar}</button></td>
@@ -251,7 +259,7 @@ async function addJogador(jognovo) {
                 "Content-type": "application/json",
             },
         });
-    
+
     contjog++
     totaisCards()
 
@@ -264,15 +272,7 @@ async function gerarListaPagamentos(id) {
     const responseJog = await fetch(`${url}jog/${id}`)
     const jogador = await responseJog.json()
 
-    const responsePelada = await fetch(`${url}pelada/`)
-    const peladas = await responsePelada.json()
-
-    let pagmaximo
-    peladas.map((pelada) => {
-        if (pelada.id == jogador.id_pelada) {
-            pagmaximo = Number(pelada.diamaxpagamento)
-        }
-    })
+    let pagmaximo = Number(pel_sel.diamaxpagamento)
 
     let pagjan, pagfev, pagmar, pagabr, pagmai, pagjun, pagjul, pagago, pagset, pagout, pagnov, pagdez, status
 
@@ -449,7 +449,7 @@ async function addPagamento(novopagamento) {
         });
 
 }
-function mesesFoco(){
+function mesesFoco() {
     const mesesemfoco = document.querySelector("#mf")
 
     //pegando a data atual
@@ -457,14 +457,14 @@ function mesesFoco(){
     var mesatual = data.getMonth() + 1
 
     var meses
-    if(mesatual==1){
+    if (mesatual == 1) {
         meses = `
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Janeiro</span>
             </a>
         `
-    }else if(mesatual == 2){
+    } else if (mesatual == 2) {
         meses = `
         
             <a class="nav-link" href="">
@@ -472,7 +472,7 @@ function mesesFoco(){
                 <span>Fevereiro</span>
             </a>
         `
-    }else if(mesatual == 3){
+    } else if (mesatual == 3) {
         meses = `
         
             <a class="nav-link" href="">
@@ -480,7 +480,7 @@ function mesesFoco(){
                 <span>Março</span>
             </a>
         `
-    }else if(mesatual == 4){
+    } else if (mesatual == 4) {
         meses = `
         
             <a class="nav-link" href="">
@@ -488,21 +488,21 @@ function mesesFoco(){
                 <span>Abril</span>
             </a>
         `
-    }else if(mesatual == 5){
+    } else if (mesatual == 5) {
         meses = `
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Maio</span>
             </a>
         `
-    }else if(mesatual == 6){
+    } else if (mesatual == 6) {
         meses = `
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Junho</span>
             </a>
         `
-    }else if(mesatual == 7){
+    } else if (mesatual == 7) {
         meses = `
         
             <a class="nav-link" href="">
@@ -510,7 +510,7 @@ function mesesFoco(){
                 <span>Julho</span>
             </a>
         `
-    }else if(mesatual == 8){
+    } else if (mesatual == 8) {
         meses = `
         
             <a class="nav-link" href="">
@@ -518,7 +518,7 @@ function mesesFoco(){
                 <span>Agosto</span>
             </a>
         `
-    }else if(mesatual == 9){
+    } else if (mesatual == 9) {
         meses = `
         
             <a class="nav-link" href="">
@@ -526,7 +526,7 @@ function mesesFoco(){
                 <span>Setembro</span>
             </a>
         `
-    }else if(mesatual == 10){
+    } else if (mesatual == 10) {
         meses = `
         
             <a class="nav-link" href="">
@@ -543,7 +543,7 @@ function mesesFoco(){
                 <span>Novembro</span>
             </a>
         `
-    }else if(mesatual == 11){
+    } else if (mesatual == 11) {
         meses = `
         
             <a class="nav-link" href="">
@@ -551,7 +551,7 @@ function mesesFoco(){
                 <span>Novembro</span>
             </a>
         `
-    }else if(mesatual == 12){
+    } else if (mesatual == 12) {
         meses = `
             <a class="nav-link" href="">
                 <i class="fa-regular fa-calendar-days"></i>
@@ -561,11 +561,7 @@ function mesesFoco(){
     }
     return mesesemfoco.innerHTML += meses
 }
-async function personalizando(){
-
-    const response = await fetch(url + 'pelada/')
-    const peladas = await response.json()
-
+async function personalizando() {
     const sidebar_nome = document.querySelector('#peladanome-sel')
 
     //modal de add jogador
@@ -578,26 +574,23 @@ async function personalizando(){
     const payday = document.querySelector('#paydayv')
     const valormensal = document.querySelector('#valormensal')
 
-    await peladas.map((pelada) => {
-        if(pelada.id==id_pelada){
-            sidebar_nome.innerHTML = pelada.nomepelada
-            
-            timesel_a.innerHTML = pelada.timea
-            timesel_b.innerHTML = pelada.timeb
-            timesel_a.value = pelada.timea
-            timesel_b.value = pelada.timeb
+    sidebar_nome.innerHTML = pel_sel.nomepelada
 
-            nome_modal.value = pelada.nomepelada
-            time_a.value = pelada.timea
-            time_b.value = pelada.timeb
-            payday.value = pelada.diamaxpagamento
-            valormensal.value = pelada.valorpagamento
+    timesel_a.innerHTML = pel_sel.timea
+    timesel_b.innerHTML = pel_sel.timeb
+    timesel_a.value = pel_sel.timea
+    timesel_b.value = pel_sel.timeb
 
-            estatisticasPelada(id_pelada, Number(pelada.valorpagamento))
-        }
-    })
+    nome_modal.value = pel_sel.nomepelada
+    time_a.value = pel_sel.timea
+    time_b.value = pel_sel.timeb
+    payday.value = pel_sel.diamaxpagamento
+    valormensal.value = pel_sel.valorpagamento
+
+    estatisticasPelada(id_pelada)
+
 }
-async function estatisticasPelada(id_pelada, valormensal){
+async function estatisticasPelada(id_pelada) {
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
 
@@ -610,49 +603,82 @@ async function estatisticasPelada(id_pelada, valormensal){
     let faturamento = 0
 
     //somando todos os pagamentos de todos os meses dos jogadores
-    lista_jogadores.forEach(function(jogador){
-        pagamentos.map((pagamento)=>{
-            if(jogador.id == pagamento.id_jogador){
+    lista_jogadores.forEach(function (jogador) {
+        pagamentos.map((pagamento) => {
+            if (jogador.id == pagamento.id_jogador) {
                 faturamento += pagamento.totalpag
             }
         })
     })
     //pegando as despesas e receitas extras de todos os meses
-    receitas.map((receita)=>{
-        if(receita.id_pelada==id_pelada){
-            if(receita.tipo=='receita'){
+    receitas.map((receita) => {
+        if (receita.id_pelada == id_pelada) {
+            if (receita.tipo == 'receita') {
                 faturamento += Number(receita.valor)
-            }else{
+            } else {
                 faturamento -= Number(receita.valor)
             }
         }
     })
 
-    arrecadado.innerHTML = "R$"+faturamento
+    arrecadado.innerHTML = "R$" + faturamento
 
-    if(faturamento>0){
+    if (faturamento > 0) {
         arrecadado.style.color = "#03ad00"
-    }else{
+    } else {
         arrecadado.style.color = "#b40404"
     }
 
 }
-if (!jogadorId) {
+async function analiseRecorrente() {
+    const responsePag = await fetch(`${url}pag/`)
+    const pagamentos = await responsePag.json()
 
+    //somando todos os pagamentos de todos os meses dos jogadores
+    lista_jogadores.forEach(function (jogador) {
+        pagamentos.map((pagamento) => {
+            if (jogador.id == pagamento.id_jogador) {
+                pagsjog = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
+                pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
+                pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
+                let mes = 0
+                pagsjog.forEach(function (pag) {
+                    mes++
+                    if (pag == "pendente") {
+                        var data = new Date();
+                        var diaatual = data.getDate()
+                        var mesatual = data.getMonth() + 1
+                        var anoatual = data.getFullYear()
+
+                        if (anoatual > ano_selecionado.value) {
+                            console.log("vencido " + mes + " " + jogador.nome + "ano")
+                        } else if (mesatual > mes) {
+                            console.log("vencido " + mes + " " + jogador.nome + "mes")
+                        } else if(mesatual == mes){
+                            if (diaatual > pel_sel.diamaxpagamento) {
+                                console.log("vencido " + mes + " " + jogador.nome + "dia")
+                            }
+                        }
+                    }
+                })
+            }
+        })
+    })
+}
+if (!jogadorId) {
     mesesFoco() //pega o mês atual
-    personalizando()
     getAllJogadores()
     console.log(lista_jogadores)
 
     // evento de mudança na escolha do ano
-    ano_selecionado.addEventListener('change', function(){
+    ano_selecionado.addEventListener('change', function () {
         console.log(ano_selecionado.value)
     })
     // evento de add jogador
     formadd.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if(numero.value==""){
+        if (numero.value == "") {
             numero.value = "s/n"
         }
         let jognovo = {

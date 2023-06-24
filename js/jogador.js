@@ -1,5 +1,19 @@
-let ano, modjan, modfev, modmar, modabr, modmai, modjun, modjul, modago, modset, modout, modnov, moddez, modstatus, modtotalpag
+let id_pag, ano,
+modjan, modvalor_pagjan, moddata_pagjan, 
+modfev, modvalor_pagfev, moddata_pagfev,
+modmar, modvalor_pagmar, moddata_pagmar,
+modabr, modvalor_pagabr, moddata_pagabr,
+modmai, modvalor_pagmai, moddata_pagmai,
+modjun, modvalor_pagjun, moddata_pagjun,
+modjul, modvalor_pagjul, moddata_pagjul,
+modago, modvalor_pagago, moddata_pagago,
+modset, modvalor_pagset, moddata_pagset,
+modout, modvalor_pagout, moddata_pagout,
+modnov, modvalor_pagnov, moddata_pagnov,
+moddez, modvalor_pagdez, moddata_pagdez,
+modstatus, modtotalpag
 let totalmudpag = 0
+let valorpag // pa
 let atualizarpagamento
 
 async function atribuindoPagamento(jogadorId){
@@ -12,19 +26,44 @@ async function atribuindoPagamento(jogadorId){
     //atribuindo pagamento ao jogador
     pagamentos.map((pagamento) => {
         if (pagamento.id_jogador == jogador.id) {
+            id_pag = pagamento.id
             ano = pagamento.anoatual
             modjan = pagamento.pagjan
+            modvalor_pagjan = pagamento.valor_pagjan
+            moddata_pagjan = pagamento.data_pagjan
             modfev = pagamento.pagfev
+            modvalor_pagfev = pagamento.valor_pagfev
+            moddata_pagfev = pagamento.data_pagfev
             modmar = pagamento.pagmar
+            modvalor_pagmar = pagamento.valor_pagmar
+            moddata_pagmar = pagamento.data_pagmar
             modabr = pagamento.pagabr
+            modvalor_pagabr = pagamento.valor_pagabr
+            moddata_pagabr = pagamento.data_pagabr
             modmai = pagamento.pagmai
+            modvalor_pagmai = pagamento.valor_pagmai
+            moddata_pagmai = pagamento.data_pagmai
             modjun = pagamento.pagjun
+            modvalor_pagjun = pagamento.valor_pagjun
+            moddata_pagjun = pagamento.data_pagjun
             modjul = pagamento.pagjul
+            modvalor_pagjul = pagamento.valor_pagjul
+            moddata_pagjul = pagamento.data_pagjul
             modago = pagamento.pagago
+            modvalor_pagago = pagamento.valor_pagago
+            moddata_pagago = pagamento.data_pagago
             modset = pagamento.pagset
+            modvalor_pagset = pagamento.valor_pagset
+            moddata_pagset = pagamento.data_pagset
             modout = pagamento.pagout
+            modvalor_pagout = pagamento.valor_pagout
+            moddata_pagout = pagamento.data_pagout
             modnov = pagamento.pagnov
+            modvalor_pagnov = pagamento.valor_pagnov
+            moddata_pagnov = pagamento.data_pagnov
             moddez = pagamento.pagdez
+            modvalor_pagdez = pagamento.valor_pagdez
+            moddata_pagdez = pagamento.data_pagdez
             modtotalpag = Number(pagamento.totalpag)
             modstatus = pagamento.status
         }
@@ -33,7 +72,6 @@ async function atribuindoPagamento(jogadorId){
 async function editPag(mes) {
     console.log(totalmudpag)
     let diapagmaximo
-    let valorpag
     const responsePelada = await fetch(`${url}pelada/`)
     const peladas = await responsePelada.json()
 
@@ -44,9 +82,18 @@ async function editPag(mes) {
             valorpag = Number(pelada.valorpagamento)
         }
     })
+    var data = new Date();
+    var diaatual = data.getDate()
+    var mesatual = data.getMonth() + 1
+    var anoatual = data.getFullYear()
+
     if (mes == "janeiro") {
         const icon = document.getElementById("jan");
         modjan = modPag(icon, 1, diapagmaximo, valorpag)
+        if(modjan == 'pago'){
+            modvalor_pagjan = Number(valorpag)
+            moddata_pagjan = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "fevereiro") {
         const icon = document.getElementById("fev");
         modfev = modPag(icon, 2, diapagmaximo)
@@ -140,7 +187,7 @@ function verificarStatus(mes, diapagmaximo) {
     return situacao
 }
 async function confirmandoPagamento(novopagamento){
-    const response = await fetch(url + 'pag/'+ jogadorId+'/',
+    const response = await fetch(url + 'pag/'+ id_pag+'/',
         {
             method: "PUT",
             body: novopagamento,
@@ -156,17 +203,41 @@ async function mudandoPagamento(){
         "id_jogador": jogadorId,
         "anoatual": ano,
         "pagjan": modjan,
+        "valor_pagjan": modvalor_pagfev,
+        "data_pagjan": moddata_pagjan,
         "pagfev": modfev,
+        "valor_pagfev": 0,
+        "data_pagfev": 'não pago',
         "pagmar": modmar,
+        "valor_pagmar": 0,
+        "data_pagmar": 'não pago',
         "pagabr": modabr,
+        "valor_pagabr": 0,
+        "data_pagabr": 'não pago',
         "pagmai": modmai,
+        "valor_pagmai": 0,
+        "data_pagmai": 'não pago',
         "pagjun": modjun,
+        "valor_pagjun": 0,
+        "data_pagjun": 'não pago',
         "pagjul": modjul,
+        "valor_pagjul": 0,
+        "data_pagjul": 'não pago',
         "pagago": modago,
+        "valor_pagago": 0,
+        "data_pagago": 'não pago',
         "pagset": modset,
+        "valor_pagset": 0,
+        "data_pagset": 'não pago',
         "pagout": modout,
+        "valor_pagout": 0,
+        "data_pagout": 'não pago',
         "pagnov": modnov,
+        "valor_pagnov": 0,
+        "data_pagnov": 'não pago',
         "pagdez": moddez,
+        "valor_pagdez": 0,
+        "data_pagdez": 'não pago',
         "totalpag": modtotalpag+totalmudpag,
         "status": modstatus
     };

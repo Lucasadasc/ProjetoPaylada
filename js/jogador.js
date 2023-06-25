@@ -97,36 +97,80 @@ async function editPag(mes) {
     } else if (mes == "fevereiro") {
         const icon = document.getElementById("fev");
         modfev = modPag(icon, 2, diapagmaximo)
+        if(modfev == 'pago'){
+            modvalor_pagfev = Number(valorpag)
+            moddata_pagfev = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "março") {
         const icon = document.getElementById("mar");
         modmar = modPag(icon, 3, diapagmaximo, valorpag)
+        if(modmar == 'pago'){
+            modvalor_pagmar = Number(valorpag)
+            moddata_pagmar = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "abril") {
         const icon = document.getElementById("abr");
         modabr = modPag(icon, 4, diapagmaximo, valorpag)
+        if(modabr == 'pago'){
+            modvalor_pagabr = Number(valorpag)
+            moddata_pagabr = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "maio") {
         const icon = document.getElementById("mai");
         modmai = modPag(icon, 5, diapagmaximo, valorpag)
+        if(modmai == 'pago'){
+            modvalor_pagmai = Number(valorpag)
+            moddata_pagmai = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "junho") {
         const icon = document.getElementById("jun");
         modjun = modPag(icon, 6, diapagmaximo, valorpag)
+        if(modjun == 'pago'){
+            modvalor_pagjun = Number(valorpag)
+            moddata_pagjun = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "julho") {
         const icon = document.getElementById("jul");
         modjul = modPag(icon, 7, diapagmaximo, valorpag)
+        if(modjul == 'pago'){
+            modvalor_pagjul = Number(valorpag)
+            moddata_pagjul = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "agosto") {
         const icon = document.getElementById("ago");
         modago = modPag(icon, 8, diapagmaximo, valorpag)
+        if(modago == 'pago'){
+            modvalor_pagago = Number(valorpag)
+            moddata_pagago = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "setembro") {
         const icon = document.getElementById("set");
         modset = modPag(icon, 9, diapagmaximo, valorpag)
+        if(modset == 'pago'){
+            modvalor_pagset = Number(valorpag)
+            moddata_pagset = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "outubro") {
         const icon = document.getElementById("out");
         modout = modPag(icon, 10, diapagmaximo, valorpag)
+        if(modout == 'pago'){
+            modvalor_pagout = Number(valorpag)
+            moddata_pagout = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "novembro") {
         const icon = document.getElementById("nov");
         modnov = modPag(icon, 11, diapagmaximo, valorpag)
+        if(modnov == 'pago'){
+            modvalor_pagnov = Number(valorpag)
+            moddata_pagnov = diaatual+"/"+mesatual+"/"+anoatual
+        }
     } else if (mes == "dezembro") {
         const icon = document.getElementById("dez");
         moddez = modPag(icon, 12, diapagmaximo, valorpag)
+        if(moddez == 'pago'){
+            modvalor_pagdez = Number(valorpag)
+            moddata_pagdez = diaatual+"/"+mesatual+"/"+anoatual
+        }
     }
 
 }
@@ -206,38 +250,38 @@ async function mudandoPagamento(){
         "valor_pagjan": modvalor_pagfev,
         "data_pagjan": moddata_pagjan,
         "pagfev": modfev,
-        "valor_pagfev": 0,
-        "data_pagfev": 'não pago',
+        "valor_pagfev": modvalor_pagfev,
+        "data_pagfev": moddata_pagfev,
         "pagmar": modmar,
-        "valor_pagmar": 0,
-        "data_pagmar": 'não pago',
+        "valor_pagmar": modvalor_pagmar,
+        "data_pagmar": moddata_pagmar,
         "pagabr": modabr,
-        "valor_pagabr": 0,
-        "data_pagabr": 'não pago',
+        "valor_pagabr": modvalor_pagabr,
+        "data_pagabr": moddata_pagabr,
         "pagmai": modmai,
-        "valor_pagmai": 0,
-        "data_pagmai": 'não pago',
+        "valor_pagmai": modvalor_pagmai,
+        "data_pagmai": moddata_pagmai,
         "pagjun": modjun,
-        "valor_pagjun": 0,
-        "data_pagjun": 'não pago',
+        "valor_pagjun": modvalor_pagjun,
+        "data_pagjun": moddata_pagjun,
         "pagjul": modjul,
-        "valor_pagjul": 0,
-        "data_pagjul": 'não pago',
+        "valor_pagjul": modvalor_pagjul,
+        "data_pagjul": moddata_pagjul,
         "pagago": modago,
-        "valor_pagago": 0,
-        "data_pagago": 'não pago',
+        "valor_pagago": modvalor_pagago,
+        "data_pagago": moddata_pagago,
         "pagset": modset,
-        "valor_pagset": 0,
-        "data_pagset": 'não pago',
+        "valor_pagset": modvalor_pagset,
+        "data_pagset": moddata_pagset,
         "pagout": modout,
-        "valor_pagout": 0,
-        "data_pagout": 'não pago',
+        "valor_pagout": modvalor_pagout,
+        "data_pagout": moddata_pagout,
         "pagnov": modnov,
-        "valor_pagnov": 0,
-        "data_pagnov": 'não pago',
+        "valor_pagnov": modvalor_pagnov,
+        "data_pagnov": moddata_pagnov,
         "pagdez": moddez,
-        "valor_pagdez": 0,
-        "data_pagdez": 'não pago',
+        "valor_pagdez": modvalor_pagdez,
+        "data_pagdez": moddata_pagdez,
         "totalpag": modtotalpag+totalmudpag,
         "status": modstatus
     };

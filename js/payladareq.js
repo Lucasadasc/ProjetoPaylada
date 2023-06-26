@@ -659,12 +659,30 @@ async function analiseRecorrente() {
     const pagamentos = await responsePag.json()
 
     //somando todos os pagamentos de todos os meses dos jogadores
+    // --> criando variaveis pra preencher pelos valores antes da analise
+    let modjan, modfev, modmar, modabr, modmai, modjun, modjul, modago, modset, modout, modnov, moddez, modstaus
     lista_jogadores.forEach(function (jogador) {
         pagamentos.map((pagamento) => {
             if (jogador.id == pagamento.id_jogador) {
+                //preenchendo pelos valores antes da analise
+                modjan = pagamento.pagjan
+                modfev = pagamento.pagfev
+                modmar = pagamento.pagmar
+                modabr = pagamento.pagabr
+                modmai = pagamento.pagmai
+                modjun = pagamento.pagjun
+                modjul = pagamento.pagjul
+                modago = pagamento.pagago
+                modset = pagamento.pagset
+                modout = pagamento.pagout
+                modnov = pagamento.pagnov
+                moddez = pagamento.pagdez
+                modstatus = pagamento.status
+                //lista pra percorrer
                 pagsjog = [pagamento.pagjan, pagamento.pagfev, pagamento.pagmar, pagamento.pagabr,
                 pagamento.pagmai, pagamento.pagjun, pagamento.pagjul, pagamento.pagago,
                 pagamento.pagset, pagamento.pagout, pagamento.pagnov, pagamento.pagdez]
+
                 let mes = 0
                 pagsjog.forEach(function (pag) {
                     mes++
@@ -675,12 +693,223 @@ async function analiseRecorrente() {
                         var anoatual = data.getFullYear()
 
                         if (anoatual > ano_selecionado.value) {
-                            console.log("vencido " + mes + " " + jogador.nome + "ano")
+                            if (mes == 1) {
+                                modjan = 'alerta'
+                            } else if (mes == 2) {
+                                modfev = 'alerta'
+                            } else if (mes == 3) {
+                                modmar = 'alerta'
+                            } else if (mes == 4) {
+                                modabr = 'alerta'
+                            } else if (mes == 5) {
+                                modmai = 'alerta'
+                            } else if (mes == 6) {
+                                modjun = 'alerta'
+                            } else if (mes == 7) {
+                                modjul = 'alerta'
+                            } else if (mes == 8) {
+                                modago = 'alerta'
+                            } else if (mes == 9) {
+                                modset = 'alerta'
+                            } else if (mes == 10) {
+                                modout = 'alerta'
+                            } else if (mes == 11) {
+                                modnov = 'alerta'
+                            } else if (mes == 12) {
+                                moddez = 'alerta'
+                            }
+                            modstaus = 'inapto'
+                            atualizarsit = {
+                                "id_jogador": jogador.id,
+                                "anoatual": pagamento.anoatual,
+                                "pagjan": modjan,
+                                "valor_pagjan": pagamento.valor_pagjan,
+                                "data_pagjan": pagamento.data_pagjan,
+                                "pagfev": modfev,
+                                "valor_pagfev": pagamento.valor_pagfev,
+                                "data_pagfev": pagamento.data_pagfev,
+                                "pagmar": modmar,
+                                "valor_pagmar": pagamento.valor_pagmar,
+                                "data_pagmar": pagamento.data_pagmar,
+                                "pagabr": modabr,
+                                "valor_pagabr": pagamento.valor_pagabr,
+                                "data_pagabr": pagamento.data_pagabr,
+                                "pagmai": modmai,
+                                "valor_pagmai": pagamento.valor_pagmai,
+                                "data_pagmai": pagamento.data_pagmai,
+                                "pagjun": modjun,
+                                "valor_pagjun": pagamento.valor_pagjun,
+                                "data_pagjun": pagamento.data_pagjan,
+                                "pagjul": modjul,
+                                "valor_pagjul": pagamento.valor_pagjul,
+                                "data_pagjul": pagamento.data_pagjul,
+                                "pagago": modago,
+                                "valor_pagago": pagamento.valor_pagago,
+                                "data_pagago": pagamento.data_pagago,
+                                "pagset": modset,
+                                "valor_pagset": pagamento.valor_pagset,
+                                "data_pagset": pagamento.data_pagset,
+                                "pagout": modout,
+                                "valor_pagout": pagamento.valor_pagout,
+                                "data_pagout": pagamento.data_pagout,
+                                "pagnov": modnov,
+                                "valor_pagnov": pagamento.valor_pagnov,
+                                "data_pagnov": pagamento.data_pagnov,
+                                "pagdez": moddez,
+                                "valor_pagdez": pagamento.valor_pagdez,
+                                "data_pagdez": pagamento.data_pagdez,
+                                "totalpag": pagamento.totalpag,
+                                "status": modstatus
+                            };
+                            novopagamento = JSON.stringify(atualizarsit);
+                            console.log(novopagamento)
+                            confirmandoPagamento(novopagamento, pagamento.id)
+
                         } else if (mesatual > mes) {
-                            console.log("vencido " + mes + " " + jogador.nome + "mes")
-                        } else if(mesatual == mes){
+                            if (mes == 1) {
+                                modjan = 'alerta'
+                            } else if (mes == 2) {
+                                modfev = 'alerta'
+                            } else if (mes == 3) {
+                                modmar = 'alerta'
+                            } else if (mes == 4) {
+                                modabr = 'alerta'
+                            } else if (mes == 5) {
+                                modmai = 'alerta'
+                            } else if (mes == 6) {
+                                modjun = 'alerta'
+                            } else if (mes == 7) {
+                                modjul = 'alerta'
+                            } else if (mes == 8) {
+                                modago = 'alerta'
+                            } else if (mes == 9) {
+                                modset = 'alerta'
+                            } else if (mes == 10) {
+                                modout = 'alerta'
+                            } else if (mes == 11) {
+                                modnov = 'alerta'
+                            } else if (mes == 12) {
+                                moddez = 'alerta'
+                            }
+                            modstaus = 'inapto'
+                            atualizarsit = {
+                                "id_jogador": jogador.id,
+                                "anoatual": pagamento.anoatual,
+                                "pagjan": modjan,
+                                "valor_pagjan": pagamento.valor_pagjan,
+                                "data_pagjan": pagamento.data_pagjan,
+                                "pagfev": modfev,
+                                "valor_pagfev": pagamento.valor_pagfev,
+                                "data_pagfev": pagamento.data_pagfev,
+                                "pagmar": modmar,
+                                "valor_pagmar": pagamento.valor_pagmar,
+                                "data_pagmar": pagamento.data_pagmar,
+                                "pagabr": modabr,
+                                "valor_pagabr": pagamento.valor_pagabr,
+                                "data_pagabr": pagamento.data_pagabr,
+                                "pagmai": modmai,
+                                "valor_pagmai": pagamento.valor_pagmai,
+                                "data_pagmai": pagamento.data_pagmai,
+                                "pagjun": modjun,
+                                "valor_pagjun": pagamento.valor_pagjun,
+                                "data_pagjun": pagamento.data_pagjan,
+                                "pagjul": modjul,
+                                "valor_pagjul": pagamento.valor_pagjul,
+                                "data_pagjul": pagamento.data_pagjul,
+                                "pagago": modago,
+                                "valor_pagago": pagamento.valor_pagago,
+                                "data_pagago": pagamento.data_pagago,
+                                "pagset": modset,
+                                "valor_pagset": pagamento.valor_pagset,
+                                "data_pagset": pagamento.data_pagset,
+                                "pagout": modout,
+                                "valor_pagout": pagamento.valor_pagout,
+                                "data_pagout": pagamento.data_pagout,
+                                "pagnov": modnov,
+                                "valor_pagnov": pagamento.valor_pagnov,
+                                "data_pagnov": pagamento.data_pagnov,
+                                "pagdez": moddez,
+                                "valor_pagdez": pagamento.valor_pagdez,
+                                "data_pagdez": pagamento.data_pagdez,
+                                "totalpag": pagamento.totalpag,
+                                "status": modstatus
+                            };
+                            novopagamento = JSON.stringify(atualizarsit);
+                            console.log(novopagamento)
+                            confirmandoPagamento(novopagamento, pagamento.id)
+                        } else if (mesatual == mes) {
                             if (diaatual > pel_sel.diamaxpagamento) {
-                                console.log("vencido " + mes + " " + jogador.nome + "dia")
+                                if (mes == 1) {
+                                    modjan = 'alerta'
+                                } else if (mes == 2) {
+                                    modfev = 'alerta'
+                                } else if (mes == 3) {
+                                    modmar = 'alerta'
+                                } else if (mes == 4) {
+                                    modabr = 'alerta'
+                                } else if (mes == 5) {
+                                    modmai = 'alerta'
+                                } else if (mes == 6) {
+                                    modjun = 'alerta'
+                                } else if (mes == 7) {
+                                    modjul = 'alerta'
+                                } else if (mes == 8) {
+                                    modago = 'alerta'
+                                } else if (mes == 9) {
+                                    modset = 'alerta'
+                                } else if (mes == 10) {
+                                    modout = 'alerta'
+                                } else if (mes == 11) {
+                                    modnov = 'alerta'
+                                } else if (mes == 12) {
+                                    moddez = 'alerta'
+                                }
+                                modstaus = 'inapto'
+                                atualizarsit = {
+                                    "id_jogador": jogador.id,
+                                    "anoatual": pagamento.anoatual,
+                                    "pagjan": modjan,
+                                    "valor_pagjan": pagamento.valor_pagjan,
+                                    "data_pagjan": pagamento.data_pagjan,
+                                    "pagfev": modfev,
+                                    "valor_pagfev": pagamento.valor_pagfev,
+                                    "data_pagfev": pagamento.data_pagfev,
+                                    "pagmar": modmar,
+                                    "valor_pagmar": pagamento.valor_pagmar,
+                                    "data_pagmar": pagamento.data_pagmar,
+                                    "pagabr": modabr,
+                                    "valor_pagabr": pagamento.valor_pagabr,
+                                    "data_pagabr": pagamento.data_pagabr,
+                                    "pagmai": modmai,
+                                    "valor_pagmai": pagamento.valor_pagmai,
+                                    "data_pagmai": pagamento.data_pagmai,
+                                    "pagjun": modjun,
+                                    "valor_pagjun": pagamento.valor_pagjun,
+                                    "data_pagjun": pagamento.data_pagjan,
+                                    "pagjul": modjul,
+                                    "valor_pagjul": pagamento.valor_pagjul,
+                                    "data_pagjul": pagamento.data_pagjul,
+                                    "pagago": modago,
+                                    "valor_pagago": pagamento.valor_pagago,
+                                    "data_pagago": pagamento.data_pagago,
+                                    "pagset": modset,
+                                    "valor_pagset": pagamento.valor_pagset,
+                                    "data_pagset": pagamento.data_pagset,
+                                    "pagout": modout,
+                                    "valor_pagout": pagamento.valor_pagout,
+                                    "data_pagout": pagamento.data_pagout,
+                                    "pagnov": modnov,
+                                    "valor_pagnov": pagamento.valor_pagnov,
+                                    "data_pagnov": pagamento.data_pagnov,
+                                    "pagdez": moddez,
+                                    "valor_pagdez": pagamento.valor_pagdez,
+                                    "data_pagdez": pagamento.data_pagdez,
+                                    "totalpag": pagamento.totalpag,
+                                    "status": modstatus
+                                };
+                                novopagamento = JSON.stringify(atualizarsit);
+                                console.log(novopagamento)
+                                confirmandoPagamento(novopagamento, pagamento.id)
                             }
                         }
                     }
@@ -688,6 +917,16 @@ async function analiseRecorrente() {
             }
         })
     })
+}
+async function confirmandoPagamento(novopagamento, id) {
+    const response = await fetch(url + 'pag/' + id + '/',
+        {
+            method: "PUT",
+            body: novopagamento,
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
 }
 if (!jogadorId) {
     mesesFoco() //pega o mês atual

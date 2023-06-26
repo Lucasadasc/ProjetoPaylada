@@ -64,7 +64,7 @@ async function atribuindoPagamento(jogadorId){
             moddez = pagamento.pagdez
             modvalor_pagdez = pagamento.valor_pagdez
             moddata_pagdez = pagamento.data_pagdez
-            modtotalpag = Number(pagamento.totalpag)
+            modtotalpag = parseInt(pagamento.totalpag)
             modstatus = pagamento.status
         }
     })
@@ -247,7 +247,7 @@ async function mudandoPagamento(){
         "id_jogador": jogadorId,
         "anoatual": ano,
         "pagjan": modjan,
-        "valor_pagjan": modvalor_pagfev,
+        "valor_pagjan": modvalor_pagjan,
         "data_pagjan": moddata_pagjan,
         "pagfev": modfev,
         "valor_pagfev": modvalor_pagfev,

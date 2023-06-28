@@ -1,2 +1,59 @@
-ONDE MUDAR O ANO - FUNCÕES
-verificarStatus() em jogador.js
+ANALISE POR MÊS
+
+async function estatisticaMes(mes){
+  const responsePag = await fetch(`${url}pag/`)
+  const pagamentos = await responsePag.json()
+
+  const response = await fetch(`${url}receitas/`)
+  const receitas = await response.json()
+
+  let faturamento = 0
+  let despesas = 0
+
+  //pegando as despesas e receitas extras do mes indicado
+  receitas.map((receita)=>{
+    if(receita.id_pelada==id_pelada){
+        if(receita.tipo=='receita'){
+            if(mes == parseInt(receita.mes)){
+                faturamento += parseFloat(receita.valor)
+            }else{
+                despesas += parseFloat(receita.valor)
+            }
+        }
+    }
+  })
+
+  //somando todos os pagamentos de todos os meses dos jogadores
+  lista_jogadores.forEach(function(jogador){
+      pagamentos.map((pagamento)=>{
+          if(jogador.id == pagamento.id_jogador){
+              if (mes == 1) {
+                  faturamento += pagamento.valor_pagjan
+              } else if (mes == 2) {
+                  faturamento += pagamento.valor_pagfev
+              } else if (mes == 3) {
+                  faturamento += pagamento.valor_pagmar
+              } else if (mes == 4) {
+                  faturamento += pagamento.valor_pagabr
+              } else if (mes == 5) {
+                  faturamento += pagamento.valor_pagmai
+              } else if (mes == 6) {
+                  faturamento += pagamento.valor_pagjun
+              } else if (mes == 7) {
+                  faturamento += pagamento.valor_pagjul
+              } else if (mes == 8) {
+                  faturamento += pagamento.valor_pagago
+              } else if (mes == 9) {
+                  faturamento += pagamento.valor_pagset
+              } else if (mes == 10) {
+                  faturamento += pagamento.valor_pagout
+              } else if (mes == 11) {
+                  faturamento += pagamento.valor_pagnov
+              } else if (mes == 12) {
+                  faturamento += pagamento.valor_pagdez
+              }
+          }
+      })
+  })
+
+}

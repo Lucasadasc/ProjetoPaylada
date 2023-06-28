@@ -16,6 +16,8 @@ let totalmudpag = 0
 let valorpag // pa
 let atualizarpagamento
 
+const mudandoStatus = document.querySelector("#status")
+
 async function atribuindoPagamento(jogadorId){
     //pegando jogador
     const responseJog = await fetch(`${url}jog/${jogadorId}`)
@@ -93,6 +95,9 @@ async function editPag(mes) {
         if(modjan == 'pago'){
             modvalor_pagjan = Number(valorpag)
             moddata_pagjan = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modjan == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "fevereiro") {
         const icon = document.getElementById("fev");
@@ -100,6 +105,9 @@ async function editPag(mes) {
         if(modfev == 'pago'){
             modvalor_pagfev = Number(valorpag)
             moddata_pagfev = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modfev == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "março") {
         const icon = document.getElementById("mar");
@@ -107,6 +115,9 @@ async function editPag(mes) {
         if(modmar == 'pago'){
             modvalor_pagmar = Number(valorpag)
             moddata_pagmar = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modmar == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "abril") {
         const icon = document.getElementById("abr");
@@ -114,6 +125,9 @@ async function editPag(mes) {
         if(modabr == 'pago'){
             modvalor_pagabr = Number(valorpag)
             moddata_pagabr = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modabr == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "maio") {
         const icon = document.getElementById("mai");
@@ -121,6 +135,9 @@ async function editPag(mes) {
         if(modmai == 'pago'){
             modvalor_pagmai = Number(valorpag)
             moddata_pagmai = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modmai == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "junho") {
         const icon = document.getElementById("jun");
@@ -128,6 +145,9 @@ async function editPag(mes) {
         if(modjun == 'pago'){
             modvalor_pagjun = Number(valorpag)
             moddata_pagjun = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modjun == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "julho") {
         const icon = document.getElementById("jul");
@@ -135,6 +155,9 @@ async function editPag(mes) {
         if(modjul == 'pago'){
             modvalor_pagjul = Number(valorpag)
             moddata_pagjul = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modjul == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "agosto") {
         const icon = document.getElementById("ago");
@@ -142,6 +165,9 @@ async function editPag(mes) {
         if(modago == 'pago'){
             modvalor_pagago = Number(valorpag)
             moddata_pagago = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modago == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "setembro") {
         const icon = document.getElementById("set");
@@ -149,6 +175,9 @@ async function editPag(mes) {
         if(modset == 'pago'){
             modvalor_pagset = Number(valorpag)
             moddata_pagset = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modset == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "outubro") {
         const icon = document.getElementById("out");
@@ -156,6 +185,9 @@ async function editPag(mes) {
         if(modout == 'pago'){
             modvalor_pagout = Number(valorpag)
             moddata_pagout = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modout == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "novembro") {
         const icon = document.getElementById("nov");
@@ -163,6 +195,9 @@ async function editPag(mes) {
         if(modnov == 'pago'){
             modvalor_pagnov = Number(valorpag)
             moddata_pagnov = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(modnov == 'alerta'){
+            modstatus = 'inapto'
         }
     } else if (mes == "dezembro") {
         const icon = document.getElementById("dez");
@@ -170,6 +205,9 @@ async function editPag(mes) {
         if(moddez == 'pago'){
             modvalor_pagdez = Number(valorpag)
             moddata_pagdez = diaatual+"/"+mesatual+"/"+anoatual
+            modstatus = 'apto'
+        }else if(moddez == 'alerta'){
+            modstatus = 'inapto'
         }
     }
 
@@ -285,6 +323,8 @@ async function mudandoPagamento(){
         "totalpag": modtotalpag+totalmudpag,
         "status": modstatus
     };
+
+    mudandoStatus.innerHTML = "O peladeiro está "+ modstatus+ " a jogar"
 
     novopagamento = JSON.stringify(atualizarpagamento);
     console.log(novopagamento)

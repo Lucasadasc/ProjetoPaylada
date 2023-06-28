@@ -4,6 +4,8 @@ let somajan = somafev = somamar = somaabr = somamai = somajun = somajul = somaag
 let desjan = desfev = desmar = desabr = desmai = desjun = desjul = desago = desset = desout = desnov = desdez = 0
 receitas_data = []
 despesas_data = []
+faturamento_mes = []
+faturamento_anual = []
 
 async function getAllJogadores() { //async - vou usar await para esperar as requisições
 
@@ -28,9 +30,6 @@ async function estatisticaMes() {
 
   const response = await fetch(`${url}receitas/`)
   const receitas = await response.json()
-
-  let faturamento = 0
-  let despesas = 0
 
   //pegando as despesas e receitas extras do mes indicado
   receitas.map((receita) => {
@@ -110,16 +109,78 @@ async function estatisticaMes() {
       }
     })
   })
+  despesas_data  = [desjan , desfev , desmar , desabr , desmai , desjun , desjul , desago , desset , desout , desnov , desdez]
   receitas_data = [somajan, somafev, somamar, somaabr, somamai, somajun, somajul, somaago, somaset, somaout, somanov, somadez]
+  faturamento_mes = [
+    somajan-desjan,
+    somafev-desfev,
+    somamar-desmar,
+    somaabr-desabr,
+    somamai-desmai,
+    somajun-desjun,
+    somajul-desjul,
+    somaago-desago,
+    somaset-desset,
+    somaout-desout,
+    somanov-desnov,
+    somadez-desdez
+  ]
+  for(i=0; i<12; i++){
+    if(i==0){
+      faturamento_anual[0]=faturamento_mes[0]
+    }else{
+      faturamento_anual[i] = faturamento_mes[i]+faturamento_anual[i-1]
+    }
+  }
+  grafico1()
   grafico2()
 }
 getAllJogadores()
+function grafico1(){
+  var options = {
+    series: [{
+      name: "Faturamento anual",
+      data: faturamento_anual
+    },{
+      name: 'Faturamento mês',
+      data: faturamento_mes
+  }],
+    chart: {
+    height: 350,
+    type: 'line',
+    zoom: {
+      enabled: false
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'straight'
+  },
+  title: {
+    text: 'Faturamento anual e mensal',
+    align: 'left'
+  },
+  grid: {
+    row: {
+      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+      opacity: 0.5
+    },
+  },
+  xaxis: {
+    categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+  }
+  };
 
+  var chart = new ApexCharts(document.querySelector("#faturamento-mes"), options);
+  chart.render();
+}
 function grafico2() {
   var options = {
     series: [{
       name: 'Despesas',
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+      data: despesas_data
     }, {
       name: 'Receitas extras',
       data: receitas_data
@@ -163,6 +224,6 @@ function grafico2() {
     }
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  var chart = new ApexCharts(document.querySelector("#gastos-despesas"), options);
   chart.render();
 }

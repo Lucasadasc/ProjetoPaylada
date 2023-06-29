@@ -182,7 +182,7 @@ function grafico2() {
       name: 'Despesas',
       data: despesas_data
     }, {
-      name: 'Receitas extras',
+      name: 'Receitas',
       data: receitas_data
     }],
     chart: {
@@ -209,7 +209,7 @@ function grafico2() {
     },
     yaxis: {
       title: {
-        text: 'R$ (thousands)'
+        text: 'Valor em R$'
       }
     },
     fill: {

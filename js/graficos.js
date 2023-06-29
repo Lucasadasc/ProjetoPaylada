@@ -132,8 +132,53 @@ async function estatisticaMes() {
       faturamento_anual[i] = faturamento_mes[i]+faturamento_anual[i-1]
     }
   }
-  grafico1()
-  grafico2()
+  //grafico1()
+  //grafico2()
+  estatisticaMesEspecifico(1, "fevereiro")
+}
+function estatisticaMesEspecifico(mes, nomemes){
+  var options = {
+    series: [receitas_data[mes], despesas_data[mes] ],
+    chart: {
+    width: 380,
+    type: 'donut',
+  },
+  plotOptions: {
+    pie: {
+      startAngle: -90,
+      endAngle: 270
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  fill: {
+    type: 'gradient',
+  },
+  legend: {
+    formatter: function(val, opts) {
+      return val + " - " + opts.w.globals.series[opts.seriesIndex]
+    }
+  },
+  title: {
+    text: 'Gastos x despesas em '+nomemes
+  },
+  responsive: [{
+    breakpoint: 480,
+    options: {
+      chart: {
+        width: 200
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }]
+  };
+
+  var chart = new ApexCharts(document.querySelector("#grafico-mes"), options);
+  chart.render();
+
 }
 getAllJogadores()
 function grafico1(){

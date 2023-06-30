@@ -78,3 +78,9 @@
     justify-content: space-between;
     align-items: center;
 }
+@media (min-width: 768px) {
+    #card-graficos{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

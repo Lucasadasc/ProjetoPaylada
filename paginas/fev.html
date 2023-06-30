@@ -215,6 +215,46 @@
                         </a>
                     </div>
                     <!-- Tabela de jogadores -->
+                    <!-- Cards e botões -->
+                    <div class="row">
+                        <!-- Card de nº de jogadores -->
+                        <div class="col-xl-3 col-md-6 mb-4" id="card-graficos">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Número de jogadores
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalatletas">
+                                                <!-- Aqui ficará o total de jogadores que tem na pelada-->
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa-solid fa-user-group fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card arrecadado anual-->
+                        <div class="col-xl-3 col-md-6 mb-4" id="card-graficos">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Arrecadado (anual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xl-3 col-md-6 mb-4" id="barradeprocura">
                             <div class="card border-left-success shadow mb-4">
@@ -334,205 +374,6 @@
                                     </div>
                                     <div class="col-xl-3 col-md-6 mb-4" id="carddespesa">
                                         <!-- Aqui vão entrar os cards de receitas -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Cards e botões -->
-                    <div class="row">
-                        <!-- Card de nº de jogadores -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Número de jogadores
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalatletas">
-                                                <!-- Aqui ficará o total de jogadores que tem na pelada-->
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-user-group fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card arrecadado anual-->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Arrecadado (anual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card adicionar jogador -->
-                        <a id="cardaddjogador" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
-                            data-bs-target="#addModal">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div id="textadd"
-                                                class="text-xs text-success font-weight-bold text-uppercase ">Adicionar
-                                                jogador</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-user-plus fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- Modal de adicionar jogador-->
-                        <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
-                            aria-labelledby="addModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <img src="../img/def/icon.png" alt="">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="">
-                                            <div class="form-group">
-                                                <strong><label for="addnome">Nome do atleta</label></strong>
-                                                <input type="text" class="form-control" id="addnome"
-                                                    placeholder="Nome do atleta" required>
-                                            </div>
-                                            <div id="timenum">
-                                                <div class="form-group" id="time">
-                                                    <strong><label for="time">Time</label></strong>
-                                                    <select class="form-control" id="timeselect">
-                                                        <option value="Internazionale">Internazionale</option>
-                                                        <option value="Milan">Milan</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group" id="numinput">
-                                                    <strong><label for="Número">Nº</label></strong>
-                                                    <input type="text" class="form-control" id="numero"
-                                                        placeholder="00">
-                                                </div>
-                                                <div class="form-group" id="dataing">
-                                                    <strong><label for="ingresso">Ingresso</label></strong>
-                                                    <input type="date" class="form-control" id="ingresso" required>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-                                            onclick="salvarJogadores()">Adicionar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a id="cardgerenciar" class="col-xl-3 col-md-6 mb-4" data-bs-toggle="modal"
-                            data-bs-target="#editarpelada">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div id="textadd"
-                                                class="text-xs text-info font-weight-bold text-uppercase ">
-                                                Editar pelada
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-file-pen fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="editarpelada" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <img src="../img/def/icon.png" alt="">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="">
-                                            <div id="editefoto">
-                                                <div id="edicoes">
-                                                    <div class="form-group">
-                                                        <strong><label for="addnome">Nome da pelada</label></strong>
-                                                        <input type="text" class="form-control" id="addnome"
-                                                            placeholder="Nome da pelada" value="Bola Cheia">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <strong><label for="addnome">Times
-                                                                participantes</label></strong>
-                                                        <input type="text" class="form-control" id="addnome"
-                                                            placeholder="Nome da pelada" value="Milan">
-                                                        <input type="text" class="form-control" id="addnome"
-                                                            placeholder="Nome da pelada" value="Inter">
-                                                    </div>
-                                                </div>
-                                                <div id="logopelada">
-                                                    <div id="mudarfoto">
-                                                        <img src="../img/def/bolacheia.png" alt="">
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input"
-                                                                id="customFile">
-                                                            <label class="custom-file-label" for="customFile">Nova
-                                                                logo</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="datas">
-                                                <div id="inicio" class="form-group">
-                                                    <strong><label for="datadeinicio">Inicio</label></strong>
-                                                    <input type="date" class="form-control" id="datadeinicio">
-                                                </div>
-                                                <div id="termino" class="form-group">
-                                                    <strong><label for="datadetermino">Término</label></strong>
-                                                    <input type="date" class="form-control" id="datadetermino">
-                                                </div>
-                                            </div>
-                                            <div id="financas">
-                                                <div id="payday" class="form-group">
-                                                    <strong><label for="paydayv">Pagamento máx.</label></strong>
-                                                    <input type="text" class="form-control" id="paydayv"
-                                                        placeholder="Dia máximo do pagamento" value="10">
-                                                </div>
-                                                <div id="valor" class="form-group">
-                                                    <strong><label for="valormensal">Valor mensal (R$)</label></strong>
-                                                    <input type="text" class="form-control" id="valormensal"
-                                                        placeholder="Valor mensal em R$" value="40">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Salvar alterações</button>
                                     </div>
                                 </div>
                             </div>

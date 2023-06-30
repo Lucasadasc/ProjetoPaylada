@@ -72,7 +72,7 @@ async function minhasPeladas(){
 function addCardPelada(id, logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
     return `<a href="./inicio.html" onclick="passarId(${id})" class="card shadow" id="botao-pelada">
                 <div class="card-body" id="card-pelada">
-                    <img src="${logopelada}" alt="">
+                    <img src="../img/def/logopadrao.svg" alt="">
                     <div id="infos-pelada">
                         <span><strong>${nomepelada}</strong></span>
                         <span><strong>Criada em: </strong>${diacriacao}/${mescriacao}/${anocriacao}</span>

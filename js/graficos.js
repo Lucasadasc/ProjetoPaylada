@@ -109,113 +109,232 @@ async function estatisticaMes() {
       }
     })
   })
-  despesas_data  = [desjan , desfev , desmar , desabr , desmai , desjun , desjul , desago , desset , desout , desnov , desdez]
+  despesas_data = [desjan, desfev, desmar, desabr, desmai, desjun, desjul, desago, desset, desout, desnov, desdez]
   receitas_data = [somajan, somafev, somamar, somaabr, somamai, somajun, somajul, somaago, somaset, somaout, somanov, somadez]
   faturamento_mes = [
-    somajan-desjan,
-    somafev-desfev,
-    somamar-desmar,
-    somaabr-desabr,
-    somamai-desmai,
-    somajun-desjun,
-    somajul-desjul,
-    somaago-desago,
-    somaset-desset,
-    somaout-desout,
-    somanov-desnov,
-    somadez-desdez
+    somajan - desjan,
+    somafev - desfev,
+    somamar - desmar,
+    somaabr - desabr,
+    somamai - desmai,
+    somajun - desjun,
+    somajul - desjul,
+    somaago - desago,
+    somaset - desset,
+    somaout - desout,
+    somanov - desnov,
+    somadez - desdez
   ]
-  for(i=0; i<12; i++){
-    if(i==0){
-      faturamento_anual[0]=faturamento_mes[0]
-    }else{
-      faturamento_anual[i] = faturamento_mes[i]+faturamento_anual[i-1]
+  for (i = 0; i < 12; i++) {
+    if (i == 0) {
+      faturamento_anual[0] = faturamento_mes[0]
+    } else {
+      faturamento_anual[i] = faturamento_mes[i] + faturamento_anual[i - 1]
     }
   }
-  //grafico1()
-  //grafico2()
+  grafico1()
+  grafico2()
   estatisticaMesEspecifico(1, "fevereiro")
+  porcPagamento('fevereiro')
+  //totalPagosMes('fevereiro')
 }
-function estatisticaMesEspecifico(mes, nomemes){
+
+function estatisticaMesEspecifico(mes, nomemes) {
+
   var options = {
-    series: [receitas_data[mes], despesas_data[mes] ],
+    series: [receitas_data[mes], despesas_data[mes]],
     chart: {
-    width: 380,
-    type: 'donut',
-  },
-  plotOptions: {
-    pie: {
-      startAngle: -90,
-      endAngle: 270
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  fill: {
-    type: 'gradient',
-  },
-  legend: {
-    formatter: function(val, opts) {
-      return val + " - " + opts.w.globals.series[opts.seriesIndex]
-    }
-  },
-  title: {
-    text: 'Gastos x despesas em '+nomemes
-  },
-  responsive: [{
-    breakpoint: 480,
-    options: {
-      chart: {
-        width: 200
-      },
-      legend: {
-        position: 'bottom'
+      width: 380,
+      type: 'donut',
+    },
+    labels: ['Receitas', 'Despesas'],
+    plotOptions: {
+      pie: {
+        startAngle: -90,
+        endAngle: 270
       }
-    }
-  }]
+    },
+    dataLabels: {
+      enabled: false
+    },
+    fill: {
+      type: 'gradient',
+    },
+    legend: {
+      formatter: function (val, opts) {
+        return val + " - " + opts.w.globals.series[opts.seriesIndex]
+      }
+    },
+    title: {
+      text: 'Gastos x despesas em ' + nomemes
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
   };
 
   var chart = new ApexCharts(document.querySelector("#grafico-mes"), options);
   chart.render();
 
 }
-getAllJogadores()
-function grafico1(){
+async function porcPagamento(mes) {
+  const responsePag = await fetch(`${url}pag/`)
+  const pagamentos = await responsePag.json()
+
+  let pago=0;
+  let naopago=0;
+
+  jogadores_dados.forEach(function (jogador) {
+    pagamentos.map((pagamento) => {
+      if (jogador.id == pagamento.id_jogador) {
+        if(mes=='fevereiro'){
+          if(pagamento.pagfev=='pago'){
+            pago++
+          }else if(pagamento.pagfev =='alerta' || pagamento.pagfev == 'pendente'){
+            naopago++
+          }
+        }
+      }
+    })
+  })
+
+  let total = pago + naopago
+  let percentual
+
+  if(pago==0 && naopago==0){
+    percentual = 100
+  }else{
+    percentual = (pago/total)*100
+  }
+
+  //var options = {
+  //  chart: {
+  //    height: 240,
+  //    type: "radialBar"
+  //  },
+//
+  //  series: [percentual],
+//
+  //  plotOptions: {
+  //    radialBar: {
+  //      hollow: {
+  //        margin: 15,
+  //        size: "70%"
+  //      },
+//
+  //      dataLabels: {
+  //        showOn: "always",
+  //        name: {
+  //          offsetY: -10,
+  //          show: true,
+  //          color: "#888",
+  //          fontSize: "13px"
+  //        },
+  //        value: {
+  //          color: "#111",
+  //          fontSize: "30px",
+  //          show: true
+  //        }
+  //      }
+  //    }
+  //  },
+//
+  //  stroke: {
+  //    lineCap: "round",
+  //  },
+  //  labels: ["% de pagamento"]
+  //};
+  var options2 = {
+    chart: {
+      height: 280,
+      type: "radialBar",
+    },
+    series: [percentual],
+    colors: ["#20E647"],
+    plotOptions: {
+      radialBar: {
+        startAngle: -90,
+        endAngle: 90,
+        track: {
+          background: '#333',
+          startAngle: -90,
+          endAngle: 90,
+        },
+        dataLabels: {
+          name: {
+            show: false,
+          },
+          value: {
+            fontSize: "30px",
+            show: true
+          }
+        }
+      }
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shade: "dark",
+        type: "horizontal",
+        gradientToColors: ["#87D4F9"],
+        stops: [0, 100]
+      }
+    },
+    stroke: {
+      lineCap: "butt"
+    },
+    labels: ["Progress"]
+  };
+  
+  new ApexCharts(document.querySelector("#pagos-mes"), options2).render();
+
+  //var chart = new ApexCharts(document.querySelector("#pagos-mes"), options);
+
+  //chart.render();
+}
+function grafico1() {
   var options = {
     series: [{
       name: "Faturamento anual",
       data: faturamento_anual
-    },{
+    }, {
       name: 'Faturamento mês',
       data: faturamento_mes
-  }],
+    }],
     chart: {
-    height: 350,
-    type: 'line',
-    zoom: {
-      enabled: false
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    curve: 'straight'
-  },
-  title: {
-    text: 'Faturamento anual e mensal',
-    align: 'left'
-  },
-  grid: {
-    row: {
-      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-      opacity: 0.5
+      height: 350,
+      type: 'line',
+      zoom: {
+        enabled: false
+      }
     },
-  },
-  xaxis: {
-    categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-  }
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'straight'
+    },
+    title: {
+      text: 'Faturamento anual e mensal',
+      align: 'left'
+    },
+    grid: {
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    xaxis: {
+      categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    }
   };
 
   var chart = new ApexCharts(document.querySelector("#faturamento-mes"), options);
@@ -272,3 +391,4 @@ function grafico2() {
   var chart = new ApexCharts(document.querySelector("#gastos-despesas"), options);
   chart.render();
 }
+getAllJogadores()

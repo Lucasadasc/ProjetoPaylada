@@ -144,7 +144,7 @@ function estatisticaMesEspecifico(mes, nomemes) {
   var options = {
     series: [receitas_data[mes], despesas_data[mes]],
     chart: {
-      width: 380,
+      width: 310,
       type: 'donut',
     },
     labels: ['Receitas', 'Despesas'],
@@ -214,50 +214,12 @@ async function porcPagamento(mes) {
   }else{
     percentual = (pago/total)*100
   }
-
-  //var options = {
-  //  chart: {
-  //    height: 240,
-  //    type: "radialBar"
-  //  },
-//
-  //  series: [percentual],
-//
-  //  plotOptions: {
-  //    radialBar: {
-  //      hollow: {
-  //        margin: 15,
-  //        size: "70%"
-  //      },
-//
-  //      dataLabels: {
-  //        showOn: "always",
-  //        name: {
-  //          offsetY: -10,
-  //          show: true,
-  //          color: "#888",
-  //          fontSize: "13px"
-  //        },
-  //        value: {
-  //          color: "#111",
-  //          fontSize: "30px",
-  //          show: true
-  //        }
-  //      }
-  //    }
-  //  },
-//
-  //  stroke: {
-  //    lineCap: "round",
-  //  },
-  //  labels: ["% de pagamento"]
-  //};
   var options2 = {
     chart: {
-      height: 280,
+      height: 200,
       type: "radialBar",
     },
-    series: [percentual],
+    series: [percentual.toFixed(1)],
     colors: ["#20E647"],
     plotOptions: {
       radialBar: {
@@ -273,7 +235,7 @@ async function porcPagamento(mes) {
             show: false,
           },
           value: {
-            fontSize: "30px",
+            fontSize: "20px",
             show: true
           }
         }

@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:8000/paylada/"
+const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/"
 
 //carregamento
 const loading = document.querySelector("#loading")

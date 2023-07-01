@@ -194,7 +194,7 @@
                 <!-- Entrando no Page Content -->
                 <div id="carregando">
                     <p id="loading" style="color: #1cc88a;">
-                        Carregando... 
+                        Carregando...
                         <i class="fa-regular fa-futbol fa-spin" style="color: #1cc88a;"></i>
                     </p>
                 </div>
@@ -218,27 +218,17 @@
                     <!-- Cards e botões -->
                     <div class="row">
                         <!-- Card de nº de jogadores -->
-                        <div class="col-xl-3 col-md-6 mb-4" id="card-graficos">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow">
+                                <div class="card-header">% de pagamento do mês</div>
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Número de jogadores
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalatletas">
-                                                <!-- Aqui ficará o total de jogadores que tem na pelada-->
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-user-group fa-2x text-gray-300"></i>
-                                        </div>
+                                    <div class="col-auto" id="pagos-mes">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Card arrecadado anual-->
-                        <div class="col-xl-3 col-md-6 mb-4" id="card-graficos">
+                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -247,8 +237,8 @@
                                                 Arrecadado (anual)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">R$0</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <div class="col-auto" id="grafico-mes">
+
                                         </div>
                                     </div>
                                 </div>
@@ -267,7 +257,7 @@
                                 </div>
                                 <div class="card-body">
                                     <table
-                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl" 
+                                        class="table table-hover table-responsive-sm table-responsive-md table-responsive-lg| table-responsive-xl"
                                         id="pagmesespecifico">
                                         <thead>
                                             <tr align="center">
@@ -334,22 +324,22 @@
                                         </div>
                                         <div class="form-group add-valor" id="form-valor">
                                             <strong><label for="addvalor">Valor(R$)</label></strong>
-                                            <input type="text" class="form-control" id="addvalor"
-                                                placeholder="00">
+                                            <input type="text" class="form-control" id="addvalor" placeholder="00">
                                         </div>
                                     </div>
                                     <div id="btadd">
-                                        <button type="button" class="btn btn-outline-success add" onclick="addReceita()">Adicionar +</button>
+                                        <button type="button" class="btn btn-outline-success add"
+                                            onclick="addReceita()">Adicionar +</button>
                                     </div>
                                     <div class="col-xl-3 col-md-6 mb-4" id="cardreceita">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6 mb-4" id="cardreceitas">
                             <div class="card border-left-danger shadow mb-4">
-                                <div class="card-header" >
+                                <div class="card-header">
                                     <h6 class="m-0 font-weight-bold text-danger">Despesas</h6>
                                 </div>
                                 <div class="card-body">
@@ -365,12 +355,12 @@
                                         </div>
                                         <div class="form-group add-valor" id="form-valor">
                                             <strong><label for="addvalor">Valor(R$)</label></strong>
-                                            <input type="text" class="form-control" id="addvalord"
-                                                placeholder="00">
+                                            <input type="text" class="form-control" id="addvalord" placeholder="00">
                                         </div>
                                     </div>
                                     <div id="btaddd">
-                                        <button type="button" class="btn btn-outline-danger add" onclick="addDespesa()">Adicionar +</button>
+                                        <button type="button" class="btn btn-outline-danger add"
+                                            onclick="addDespesa()">Adicionar +</button>
                                     </div>
                                     <div class="col-xl-3 col-md-6 mb-4" id="carddespesa">
                                         <!-- Aqui vão entrar os cards de receitas -->

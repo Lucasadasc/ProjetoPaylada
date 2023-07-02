@@ -22,3 +22,13 @@
 #botao-pelada:hover{
     background-color: rgb(160, 160, 160);
 }
+#carregando{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+}
+#carregando p{
+    text-align: center;
+}

@@ -88,6 +88,9 @@ async function minhasPeladas(){
             divpeladas.innerHTML += addCardPelada(pelada.id, pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
         }
     })
+
+    loading.classList.remove("spinner-border")
+    conteudo.classList.remove("hide")
 }
 function addCardPelada(id, logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
     return `<a href="./inicio.html" onclick="passarId(${id})" class="card shadow" id="botao-pelada">

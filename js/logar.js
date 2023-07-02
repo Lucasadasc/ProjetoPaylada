@@ -41,22 +41,23 @@ function logar(){
     console.log(lista_usuarios)
 
     lista_usuarios.forEach(function(user){
-        if(user.usuario == login && user.senha == senha){
+        if(user.usuario == login.value && user.senha == senha.value){
             validar = 'logado'
             id = user.id
         }
     })
 
-    //if(validar='logado'){
-    //    let urlgo = "./paginas/minhaspeladas.html?id="+id
-    //    window.location.href = urlgo
-    //}else{
-    //    alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
-    //                                Usuário ou senha incorretos!
-    //                            </div>`
-    //}
+    if(validar == 'logado'){
+        let urlgo = "./paginas/minhaspeladas.html?id="+id
+        window.location.href = urlgo
+    }else{
+        alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
+                                    Usuário ou senha incorretos!
+                                </div>`
+    }
 }
 async function minhasPeladas(){
+
     const responsePel = await fetch(url + 'pelada/')
     const peladas = await responsePel.json()
 
@@ -65,8 +66,17 @@ async function minhasPeladas(){
 
     const divpeladas = document.querySelector("#peladas")
 
+    const nomeUsuario = document.querySelector('#h2')
+    //nomeUsuario.innerHTML = 'a'
+
+    lista_usuarios.forEach(function(usuario){
+        if(usuario.id == userId){
+            nomeUsuario.innerHTML = `<strong>Olá, ${usuario.nome}!</strong>`
+        }
+    })
+
     peladas.map((pelada)=>{
-        if(pelada.id_usuario = userId){
+        if(pelada.id_usuario == userId){
 
             let quantJogadores = 0
             jogadores.map((jogador)=>{
@@ -99,5 +109,6 @@ if(!userId){
     console.log('c')
     guardandoUsuarios()
 }else{
+    guardandoUsuarios()
     minhasPeladas()
 }

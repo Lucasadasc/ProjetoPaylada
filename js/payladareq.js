@@ -3,6 +3,7 @@ const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/"
 //carregamento
 const loading = document.querySelector("#loading")
 const conteudo = document.querySelector("#conteudo")
+
 //id da pelada no localStorage
 const id_pelada = localStorage.getItem('id_pelada')
 let pel_sel = ''
@@ -21,6 +22,9 @@ const jogadorId = urlsearchParams.get("id")
 
 //modais
 const modalAddJogador = document.querySelector("#addjogador")
+//ações do modal
+const adicionado = document.querySelector('#sucesso')
+const loadAdicionar = document.querySelector('#jog-footer')
 //itens do forms
 const formadd = document.querySelector("#novojogador")
 const nome = document.querySelector("#addnome")
@@ -540,6 +544,12 @@ async function addJogador(jognovo) {
     const data = await response.json();
     await gerarListaPagamentos(data.id)
     getPagJog(data.id, 2023)
+
+    adicionado.innerHTML = `<div class="alert alert-success" role="alert">
+                                ${data.nome} foi adicionado
+                            </div>`
+    loadAdicionar.innerHTML = `<button type="submit" class="btn btn-outline-success"
+                                id="concluir">Adicionar +</button>`
 }
 //criando o pagamento do peladeiro 
 async function gerarListaPagamentos(id) {
@@ -944,6 +954,11 @@ if (!jogadorId) {
     formadd.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        loadAdicionar.innerHTML = `<button class="btn btn-secondary" type="button" id="concluir" disabled>
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="margin-right: 6px;"></span>
+                                         Adicionando
+                                    </button>`
+
         if (numero.value == "") {
             numero.value = "s/n"
         }
@@ -958,8 +973,6 @@ if (!jogadorId) {
         jognovo = JSON.stringify(jognovo);
 
         addJogador(jognovo); //mudar
-
-        modalAddJogador.modal('hide')
     })
 } else {
     getJogador(jogadorId)

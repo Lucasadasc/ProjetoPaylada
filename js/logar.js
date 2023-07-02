@@ -21,7 +21,6 @@ const alerta_erro = document.querySelector('#erro')
 
 const lista_usuarios = []
 
-guardandoUsuarios()
 async function guardandoUsuarios(){
     const response = await fetch(url + 'user/')
     const usuarios = await response.json()
@@ -96,6 +95,7 @@ function passarId(id){
 }
 if(!userId){
     console.log('a')
+    guardandoUsuarios()
 }else{
     minhasPeladas()
 }

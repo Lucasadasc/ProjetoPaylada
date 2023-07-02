@@ -38,6 +38,8 @@ function logar(){
     let validar = 'invalido'
     let id = ''
 
+    console.log(lista_usuarios)
+
     lista_usuarios.forEach(function(user){
         if(user.usuario == login && user.senha == senha){
             validar = 'logado'

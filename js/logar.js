@@ -47,14 +47,14 @@ function logar(){
         }
     })
 
-    if(validar='logado'){
-        let urlgo = "./paginas/minhaspeladas.html?id="+id
-        window.location.href = urlgo
-    }else{
-        alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
-                                    Usuário ou senha incorretos!
-                                </div>`
-    }
+    //if(validar='logado'){
+    //    let urlgo = "./paginas/minhaspeladas.html?id="+id
+    //    window.location.href = urlgo
+    //}else{
+    //    alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
+    //                                Usuário ou senha incorretos!
+    //                            </div>`
+    //}
 }
 async function minhasPeladas(){
     const responsePel = await fetch(url + 'pelada/')

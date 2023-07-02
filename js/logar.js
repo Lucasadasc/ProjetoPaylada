@@ -94,7 +94,7 @@ function passarId(id){
     localStorage.setItem('id_pelada', id)
 }
 if(!userId){
-    console.log('a')
+    console.log('b')
     guardandoUsuarios()
 }else{
     minhasPeladas()

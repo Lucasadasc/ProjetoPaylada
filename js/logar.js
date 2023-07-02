@@ -35,7 +35,7 @@ function logar(){
     const login = document.querySelector('#login-usuario')
     const senha = document.querySelector('#senha')
 
-    let validar = ''
+    let validar = 'invalido'
     let id = ''
 
     lista_usuarios.forEach(function(user){

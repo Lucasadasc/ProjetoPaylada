@@ -19,32 +19,41 @@ const ingresso = document.querySelector("#ingresso")
 
 const alerta_erro = document.querySelector('#erro')
 
-async function logar(){
-    const login = document.querySelector('#login-usuario')
-    const senha = document.querySelector('#senha')
+const lista_usuarios = []
 
-    verificarConta(login.value, senha.value)
-}
-async function verificarConta(login, senha){
+guardandoUsuarios()
+async function guardandoUsuarios(){
     const response = await fetch(url + 'user/')
     const usuarios = await response.json()
 
-    usuarios.map((user) => {
-        if(user.usuario == login){
-            if(user.senha == senha){
-                var url = "./paginas/minhaspeladas.html?id="+user.id
-                window.location.href = url
-            }else{
-                alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
-                                            Usuário ou senha incorretos!
-                                        </div>`
-            }
-        }else{
-            alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
-                                        Usuário ou senha incorretos!
-                                    </div>`
+    usuarios.map((usuario)=>{
+        lista_usuarios.push(usuario)
+    })
+
+}
+
+function logar(){
+    const login = document.querySelector('#login-usuario')
+    const senha = document.querySelector('#senha')
+
+    let validar = ''
+    let id = ''
+
+    lista_usuarios.forEach(function(user){
+        if(user.usuario == login && user.senha == senha){
+            validar = 'logado'
+            id = user.id
         }
     })
+
+    if(validar='logado'){
+        let urlgo = "./paginas/minhaspeladas.html?id="+id
+        window.location.href = urlgo
+    }else{
+        alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
+                                    Usuário ou senha incorretos!
+                                </div>`
+    }
 }
 async function minhasPeladas(){
     const responsePel = await fetch(url + 'pelada/')

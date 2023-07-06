@@ -118,6 +118,7 @@ function addFinancaMes(tipo){
     }
 
     if(validar == 'ok'){
+        
         let roudnovo = {
             "id_pelada": id_pelada,
             "nome": nome,

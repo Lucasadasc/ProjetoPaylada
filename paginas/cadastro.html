@@ -19,6 +19,7 @@
         rel="stylesheet">
     <!-- Meu CSS -->
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/csspay.css">
 
     <!-- CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -72,17 +73,17 @@
                         
                     </div>
                     <div id="erro">
-                        
                     </div>
-                    <button class="btn btn-primary" onclick="cadastrar()">Cadastrar</button>
-                    
+                    <div id="botao-logar" style="width: 100%;">
+                        <button class="btn btn-primary" onclick="cadastrar()" id="concluir" >Cadastrar</button>
+                    </div>
                 </div>
-                <div class="card-footer" id="footer"style="display: flex; justify-content: center ">
+                <div class="card-footer" id="footer" style="display: flex; justify-content: center ">
                     <span>Copyright &copy; Paylada 2023</span>
                 </div>
             </div>
         </div>
     </div>
-    <script src="./js/cadastro.js"></script>
+    <script src="../js/cadastro.js"></script>
 </body>
 </html>

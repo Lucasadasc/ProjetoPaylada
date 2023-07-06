@@ -12,7 +12,8 @@ const ano_selecionado = document.querySelector('#anofinanceiro')
 //lista de jogadores
 const lista = document.querySelector("#geralpagamentos");
 const lista_jogadores = []
-
+//usuário dono da pelada
+let user = ''
 //pagina do jogador - pagamento
 const jogpay = document.querySelector("#jogadorpay");
 
@@ -45,6 +46,10 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     //pegando a pelada e guardando numa variavel
     const responsePelada = await fetch(`${url}pelada/${id_pelada}`)
     pel_sel = await responsePelada.json()
+
+    //pegando o usuário responsavél pela pelada
+    const user_response = await fetch(url + 'user/'+pel_sel.id_usuario);
+    user = await user_response.json();
 
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
@@ -870,24 +875,32 @@ function mesesFoco() {
     return mesesemfoco.innerHTML += meses
 }
 async function personalizando() {
-    const sidebar_nome = document.querySelector('#peladanome-sel')
+    
+    //nome da pelada no sidebar
+    const sidebar_nome = document.querySelector('#peladanome-sel');
+
+    sidebar_nome.innerHTML = pel_sel.nomepelada;
+
+    //personalizando áreas do usuário
+    const pelada_user = document.getElementById('usuario-nome')
+
+    pelada_user.innerHTML = user.nome
 
     //modal de add jogador
     const timesel_a = document.querySelector('#opcao-a')
     const timesel_b = document.querySelector('#opcao-b')
+
+    timesel_a.innerHTML = pel_sel.timea
+    timesel_b.innerHTML = pel_sel.timeb
+    timesel_a.value = pel_sel.timea
+    timesel_b.value = pel_sel.timeb
+
     //modal de mudar pelada
     const nome_modal = document.querySelector('#modnomepelada')
     const time_a = document.querySelector('#modtimesa')
     const time_b = document.querySelector('#modtimesb')
     const payday = document.querySelector('#paydayv')
     const valormensal = document.querySelector('#valormensal')
-
-    sidebar_nome.innerHTML = pel_sel.nomepelada
-
-    timesel_a.innerHTML = pel_sel.timea
-    timesel_b.innerHTML = pel_sel.timeb
-    timesel_a.value = pel_sel.timea
-    timesel_b.value = pel_sel.timeb
 
     nome_modal.value = pel_sel.nomepelada
     time_a.value = pel_sel.timea

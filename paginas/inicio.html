@@ -1,4 +1,3 @@
-<!-- Vídeo da unidade 1 - https://youtu.be/w8kyZMl2ioE -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -51,7 +50,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./inicio.html">
-                <div class="sidebar-brand-text mx-3" id="peladanome-sel">Nome da pelada</div>
+                <div class="sidebar-brand-text mx-3" id="peladanome-sel">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                        style="margin-right: 6px;"></span>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -157,7 +159,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lucas Augusto</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="usuario-nome">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                                        style="margin-right: 6px;"></span>
+                                </span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -166,7 +171,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Permissões
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#" >
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configurações
                                 </a>
@@ -253,7 +258,6 @@
                                 </div>
                             </div>
                         </a>
-
                         <!-- Modal de adicionar jogador-->
                         <div class="modal fade" id="addjogador" tabindex="-1" role="dialog"
                             aria-labelledby="addModalLabel" aria-hidden="true">
@@ -294,7 +298,7 @@
                                             </div>
                                             <div id="jog-footer">
                                                 <button type="submit" class="btn btn-outline-success"
-                                                id="concluir">Adicionar +</button>
+                                                    id="concluir">Adicionar +</button>
                                             </div>
                                             <div id="sucesso" style="margin-top: 8px;">
 
@@ -302,12 +306,11 @@
                                         </div>
                                     </form>
                                     <div class="modal-footer" id="body-adicionado">
-                                        <button class="btn btn-primary"  data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        Concluir 
-                                        <i class="fa-solid fa-check" style="margin-left: 8px;"></i>
+                                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+                                            Concluir
+                                            <i class="fa-solid fa-check" style="margin-left: 8px;"></i>
                                         </button>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -655,20 +658,20 @@
             <!-- Meu JS -->
             <script src="../js/payladareq.js"></script>
             <script src="../js/graficos.js"></script>
-            
+
             <!-- Importando Data Tables JS-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
 
             <script src="../vendor/jquery/jquery.min.js"></script>
             <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-            
+
             <!-- Core plugin JavaScript-->
             <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-            
+
             <!-- Custom scripts for all pages-->
             <script src="../js/sb-admin-2.min.js"></script>
-            
+
             <!-- Page level plugins -->
             <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
             <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>

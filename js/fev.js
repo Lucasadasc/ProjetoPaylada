@@ -83,42 +83,60 @@ async function getPagJog(id, ano) {
 
     })
 }
-async function addDespesa(){
-    const nome = document.querySelector("#addnomed")
-    const dia = document.querySelector('#datadespesa')
-    const valor = document.querySelector('#addvalord')
 
-    let roudnovo = {
-        "id_pelada": id_pelada,
-        "nome": nome.value,
-        "tipo": 'despesa',
-        "dia": dia.value,
-        "mes": '02',
-        "ano": '2023',
-        "valor": valor.value
-    };
+function addFinancaMes(tipo){
+    let nome, dia, valor, alerta_erro
 
-    roudnovo = JSON.stringify(roudnovo);
-    addRecOuDesp(roudnovo)
+    if(tipo == 'despesa'){
+
+        nome = document.querySelector("#addnomed").value;
+        dia_html = document.querySelector('#datadespesa').value;
+        valor = document.querySelector('#addvalord').value;
+
+        alerta_erro = document.querySelector('#erro-despesa');
+
+    }else{
+
+        nome = document.querySelector("#addnome").value;
+        dia = document.querySelector('#datareceita').value;
+        valor = document.querySelector('#addvalor').value;
+
+        alerta_erro = document.querySelector('#erro-receita');
+    }
+
+    var data = new Date();
+
+    let validar = 'ok';
+
+    if(nome== ''){
+        validar =  'Insira um titulo';
+    }else if(valor == ''){
+        validar = 'Insira um valor'
+    }else if(dia == ''){
+        var diaatual = data.getDate();
+        dia = "0"+String(diaatual);
+    }
+
+    if(validar == 'ok'){
+        let roudnovo = {
+            "id_pelada": id_pelada,
+            "nome": nome,
+            "tipo": tipo,
+            "dia": dia,
+            "mes": '02',
+            "ano": '2023',
+            "valor": valor
+        };
+    
+        roudnovo = JSON.stringify(roudnovo);
+        addRecOuDesp(roudnovo);
+    }else{
+        alerta_erro.innerHTML = `<div class="alert alert-danger" role="alert">
+                                    ${validar}
+                                 </div>`
+    }
 }
-async function addReceita(){
-    const nome = document.querySelector("#addnome")
-    const dia = document.querySelector('#datareceita')
-    const valor = document.querySelector('#addvalor')
 
-    let roudnovo = {
-        "id_pelada": id_pelada,
-        "nome": nome.value,
-        "tipo": 'receita',
-        "dia": dia.value,
-        "mes": '02',
-        "ano": '2023',
-        "valor": valor.value
-    };
-
-    roudnovo = JSON.stringify(roudnovo);
-    addRecOuDesp(roudnovo)
-}
 async function addRecOuDesp(roudnovo) {
     const response = await fetch(url + 'receitas/',
         {

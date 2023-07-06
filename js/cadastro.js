@@ -1,94 +1,49 @@
 const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/";
 
 //itens do forms
-const nome = document.querySelector("#nome");
-const sobrenome = document.querySelector("#sobrenome");
-const email = document.querySelector("#email");
-const login = document.querySelector("#login-usuario");
-const senha = document.querySelector("#senha");
-const senha_confirmada = document.querySelector("#senha-confirmada");
+const nomerec = document.querySelector("#nome");
+const sobrenomerec = document.querySelector("#sobrenome");
+const emailrec = document.querySelector("#email");
+const loginrec = document.querySelector("#login-usuario");
+const senharec = document.querySelector("#senha");
+const senha_confirmadarec = document.querySelector("#senha-confirmada");
 
-function logar(){
-    const login = document.querySelector('#login-usuario')
-    const senha = document.querySelector('#senha')
+async function cadastrar(){
 
-    let validar = 'invalido'
-    let id = ''
+    let nome = nomerec.value;
+    let sobrenome = sobrenomerec.value;
+    let email = emailrec.value;
+    let login = loginrec.value;
+    let senha = senharec.value;
+    let senha_confirmada = senha_confirmadarec.value;
 
-    console.log(lista_usuarios)
+    const response = await fetch(url + 'user/');
+    const usuarios = await response.json();
 
-    lista_usuarios.forEach(function(user){
-        if(user.usuario == login.value && user.senha == senha.value){
-            validar = 'logado'
-            id = user.id
+    let status = 'sucesso';
+
+    usuarios.map((usuario)=>{
+        if(usuario.usuario == login){
+            status = "nome de usuário não disponivel"
         }
-    })
-
-    if(validar == 'logado'){
-        let urlgo = "./paginas/minhaspeladas.html?id="+id
-        window.location.href = urlgo
-    }else{
-        alerta_erro.innerHTML= `<div class="alert alert-danger" role="alert">
-                                    Usuário ou senha incorretos!
-                                </div>`
+    });
+    
+    if(senha != senha_confirmada){
+        status = "senhas não iguais";
     }
-}
-async function minhasPeladas(){
+    if(nome ==''){
+        status = "Nome não informado";
+    }else if(email == ''){
+        status = "E-mail não informado";
+    }else if(login == ''){
+        status = "Nome de usuário não informado";
+    }else if(senha == ''){
+        status = "Senha não informada";
+    }
 
-    const responsePel = await fetch(url + 'pelada/')
-    const peladas = await responsePel.json()
+    if(status == 'sucesso'){
 
-    const response = await fetch(url + 'jog/')
-    const jogadores = await response.json()
+    }else{
 
-    const divpeladas = document.querySelector("#peladas")
-
-    const nomeUsuario = document.querySelector('#h2')
-    //nomeUsuario.innerHTML = 'a'
-
-    lista_usuarios.forEach(function(usuario){
-        if(usuario.id == userId){
-            nomeUsuario.innerHTML = `<strong>Olá, ${usuario.nome}!</strong>`
-        }
-    })
-
-    peladas.map((pelada)=>{
-        if(pelada.id_usuario == userId){
-
-            let quantJogadores = 0
-            jogadores.map((jogador)=>{
-                if(jogador.id_pelada == pelada.id){
-                    quantJogadores++
-                }
-            })
-
-            divpeladas.innerHTML += addCardPelada(pelada.id, pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
-        }
-    })
-
-    loading.classList.remove("spinner-border")
-    conteudo.classList.remove("hide")
-}
-function addCardPelada(id, logopelada, nomepelada, diacriacao, mescriacao, anocriacao, quantJogadores){
-    return `<a href="./inicio.html" onclick="passarId(${id})" class="card shadow" id="botao-pelada">
-                <div class="card-body" id="card-pelada">
-                    <img src="../img/def/logopadrao.svg" alt="">
-                    <div id="infos-pelada">
-                        <span><strong>${nomepelada}</strong></span>
-                        <span><strong>Criada em: </strong>${diacriacao}/${mescriacao}/${anocriacao}</span>
-                        <span><strong>Total de jogadores: </strong>${quantJogadores}</span>
-                    </div>
-                </div>
-            </a>`
-}
-function passarId(id){
-    console.log(id)
-    localStorage.setItem('id_pelada', id)
-}
-if(!userId){
-    console.log('c')
-    guardandoUsuarios()
-}else{
-    guardandoUsuarios()
-    minhasPeladas()
-}
+    }
+};

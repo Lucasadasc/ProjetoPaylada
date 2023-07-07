@@ -217,12 +217,33 @@
                     <!-- Tabela de jogadores -->
                     <!-- Cards e botões -->
                     <div class="row">
-                        <!-- Card de nº de jogadores -->
+                        <!-- Card total arrecadado do mês de jogadores -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-header">% de pagamento do mês</div>
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
-                                    <div class="col-auto" id="pagos-mes">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total mensal</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    <div id="teste" style="margin-top: 12px;">
+                                        <h4 class="small font-weight-bold">Pagamento de jogadores<span
+                                                class="float-right">80%</span></h4>
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <h4 class="small font-weight-bold">Receitas extras<span
+                                                class="float-right">20%</span></h4>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 20%"
+                                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -230,17 +251,20 @@
                         <!-- Card arrecadado anual-->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-header">% de pagamento do mês</div>
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Arrecadado (anual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$0</div>
-                                        </div>
-                                        <div class="col-auto" id="grafico-mes">
-
-                                        </div>
+                                    <h4 class="small font-weight-bold">Server Migration <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 30%"
+                                            aria-valuenow="50" aria-valuemin="30" aria-valuemax="60"></div>
                                     </div>
+                                    <h4 class="small font-weight-bold">Jogadores que pagaram:<span
+                                            class="float-right">20</span>
+                                    </h4>
+                                    <h4 class="small font-weight-bold">Estão pendentes:<span
+                                        class="float-right">12</span>
+                                </h4>
                                 </div>
                             </div>
                         </div>

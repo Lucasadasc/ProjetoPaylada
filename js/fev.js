@@ -172,14 +172,13 @@ async function percorreRecouDesp(){
     })
 }
 async function deletarRouC(id){
+    const excluir_div = document.getElementById(id)
+    excluir_div.innerHTML = ''
+    
     const response = await fetch(url + 'receitas/'+ id+'/',
         {
             method: "DELETE",
         });
-    
-    const excluir_div = document.getElementById(id)
-    excluir_div.innerHTML = ''
-        
 }
 function addHtmlRouC(id, nome, dia, mes, ano, valor, tipo){
     if(tipo == 'despesa'){

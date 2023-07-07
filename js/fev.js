@@ -90,7 +90,7 @@ function addFinancaMes(tipo){
     if(tipo == 'despesa'){
 
         nome = document.querySelector("#addnomed").value;
-        dia_html = document.querySelector('#datadespesa').value;
+        dia = document.querySelector('#datadespesa').value;
         valor = document.querySelector('#addvalord').value;
 
         alerta_erro = document.querySelector('#erro-despesa');
@@ -150,9 +150,9 @@ async function addRecOuDesp(roudnovo) {
 
     const receita_adicionada = await response.json();
     if(receita_adicionada.tipo=='despesa'){
-        cardsdespesas.innerHTML = addHtmlRouC(receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsdespesas.innerHTML
+        cardsdespesas.innerHTML = addHtmlRouC(receita_adicionada.id, receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsdespesas.innerHTML
     }else{
-        cardsreceitas.innerHTML = addHtmlRouC(receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsreceitas.innerHTML
+        cardsreceitas.innerHTML = addHtmlRouC(receita_adicionada.id, receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsreceitas.innerHTML
     }
     
 }
@@ -163,21 +163,31 @@ async function percorreRecouDesp(){
     await receitas.map((receita)=>{
         if(receita.id_pelada==id_pelada){
             if(receita.tipo == 'despesa'){
-                cardsdespesas.innerHTML = addHtmlRouC(receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsdespesas.innerHTML
+                cardsdespesas.innerHTML = addHtmlRouC(receita.id, receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsdespesas.innerHTML
             }else{
-                cardsreceitas.innerHTML = addHtmlRouC(receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsreceitas.innerHTML
+                cardsreceitas.innerHTML = addHtmlRouC(receita.id, receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsreceitas.innerHTML
             }
             
         }
     })
 }
-function addHtmlRouC(nome, dia, mes, ano, valor, tipo){
+async function deletarRouC(id){
+    const response = await fetch(url + 'receitas/'+ id+'/',
+        {
+            method: "DELETE",
+        });
+    
+    const excluir_div = document.getElementById(id)
+    excluir_div.innerHTML = ''
+        
+}
+function addHtmlRouC(id, nome, dia, mes, ano, valor, tipo){
     if(tipo == 'despesa'){
         return `
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4" id="${id}">
                 <div class="card-header cent">
                     <h6 class="m-0 font-weight-bold text-danger">${nome}</h6>
-                    <button type="button" class="btn btn-danger">X</button>
+                    <button type="button" class="btn btn-danger" onclick="deletarRouC(${id})">X</button>
                 </div>
                 <div class="card-body">
                     <div id="card-info">
@@ -192,10 +202,10 @@ function addHtmlRouC(nome, dia, mes, ano, valor, tipo){
             </div>`
     }else{
         return `
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4" id="${id}">
                 <div class="card-header cent">
                     <h6 class="m-0 font-weight-bold text-success">${nome}</h6>
-                    <button type="button" class="btn btn-danger">X</button>
+                    <button type="button" class="btn btn-danger" onclick="deletarRouC(${id})">X</button>
                 </div>
                 <div class="card-body">
                     <div id="card-info">

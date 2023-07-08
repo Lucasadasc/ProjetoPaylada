@@ -134,56 +134,48 @@ async function estatisticaMes() {
   }
   grafico1()
   grafico2()
-  estatisticaMesEspecifico(1, "fevereiro")
   porcPagamento('fevereiro')
+  dadosEspecificos(1) 
   //totalPagosMes('fevereiro')
 }
+function dadosEspecificos(mes){
+  
+  //card lucro
+  const lucro = document.getElementById('lucro')
+  const comparar = document.getElementById('faturamento-despesas')
+  
+  let cor
+  if(faturamento_mes[mes]<=0){
+    cor = 'danger'
+  }
+  lucro.innerHTML = 'R$'+faturamento_mes[mes]
+  lucro.classList.remove('text-gray-800')
+  lucro.classList.add('text-danger')
 
-function estatisticaMesEspecifico(mes, nomemes) {
+  let somas = receitas_data[mes] + despesas_data[mes]
+  let perc_receitas = ((receitas_data[mes]/somas)*100).toFixed(2)
+  let perc_despesas = 100-perc_receitas
 
-  var options = {
-    series: [receitas_data[mes], despesas_data[mes]],
-    chart: {
-      width: 310,
-      type: 'donut',
-    },
-    labels: ['Receitas', 'Despesas'],
-    plotOptions: {
-      pie: {
-        startAngle: -90,
-        endAngle: 270
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    fill: {
-      type: 'gradient',
-    },
-    legend: {
-      formatter: function (val, opts) {
-        return val + " - " + opts.w.globals.series[opts.seriesIndex]
-      }
-    },
-    title: {
-      text: 'Gastos x despesas em ' + nomemes
-    },
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
-        }
-      }
-    }]
-  };
-
-  var chart = new ApexCharts(document.querySelector("#grafico-mes"), options);
-  chart.render();
-
+  comparar.innerHTML = `<h4 class="small font-weight-bold text-success">
+                          Faturamento
+                          <span class="float-right">R$${receitas_data[mes]}</span>
+                        </h4>
+                        <div class="progress mb-4">
+                          <div class="progress-bar bg-success" role="progressbar" 
+                            style="width: ${perc_receitas}%"
+                            aria-valuencow="80" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                        </div>
+                        <h4 class="small font-weight-bold text-danger">
+                          Despesas
+                          <span class="float-right">${despesas_data[mes]}</span>
+                        </h4>
+                        <div class="progress">
+                          <div class="progress-bar bg-danger" role="progressbar" 
+                          style="width: ${perc_despesas}%"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          </div>
+                      </div>`
 }
 async function porcPagamento(mes) {
   const responsePag = await fetch(`${url}pag/`)
@@ -214,53 +206,31 @@ async function porcPagamento(mes) {
   }else{
     percentual = (pago/total)*100
   }
-  var options2 = {
-    chart: {
-      height: 200,
-      type: "radialBar",
-    },
-    series: [percentual.toFixed(1)],
-    colors: ["#20E647"],
-    plotOptions: {
-      radialBar: {
-        startAngle: -90,
-        endAngle: 90,
-        track: {
-          background: '#333',
-          startAngle: -90,
-          endAngle: 90,
-        },
-        dataLabels: {
-          name: {
-            show: false,
-          },
-          value: {
-            fontSize: "20px",
-            show: true
-          }
-        }
-      }
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shade: "dark",
-        type: "horizontal",
-        gradientToColors: ["#87D4F9"],
-        stops: [0, 100]
-      }
-    },
-    stroke: {
-      lineCap: "butt"
-    },
-    labels: ["Progress"]
-  };
   
-  new ApexCharts(document.querySelector("#pagos-mes"), options2).render();
-
-  //var chart = new ApexCharts(document.querySelector("#pagos-mes"), options);
-
-  //chart.render();
+  let cor = 'danger'
+  if(percentual>30){
+    cor = 'warning'
+  }else if(cor>70){
+    cor = 'success'
+  }
+  
+  const perc_html = document.getElementById('porc-pagamento')
+  perc_html.innerHTML = `<h4 class="small font-weight-bold">
+                            Já pagos no mês
+                            <span class="float-right">${percentual.toFixed(2)}%</span>
+                          </h4>
+                          <div class="progress mb-4">
+                            <div class="progress-bar bg-${cor}" role="progressbar" style="width: ${percentual}%"
+                              aria-valuenow="50" aria-valuemin="30" aria-valuemax="60"></div>
+                            </div>
+                          <h4 class="small font-weight-bold text-success">
+                            Jogadores que pagaram:
+                          <span class="float-right">${pago}</span>
+                          </h4>
+                          <h4 class="small font-weight-bold text-warning">
+                            Estão pendentes:
+                            <span class="float-right">${naopago}</span>
+                          </h4>`
 }
 function grafico1() {
   var options = {

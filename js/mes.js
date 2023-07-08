@@ -11,9 +11,9 @@ const lista_jogadores = []
 const id_pelada = localStorage.getItem('id_pelada')
 //ano da análise
 const ano_selecionado = document.querySelector('#anofinanceiro')
-//pagina do jogador
-const jogpay = document.querySelector("#jogadorpay");
-
+let pel_sel = ''
+//usuário dono da pelada
+let user = ''
 //pegando id da url
 const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
 const jogadorId = urlsearchParams.get("id")
@@ -50,12 +50,18 @@ async function getPagJog(id, ano, mes) {
     const detalhar = `<a href="./jogador.html?id=${id}" class="btn btn-outline-success">
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                      </a>`
-    var somapags = 0;
+
     peladas.map((pelada) => {
         if (pelada.id == jogador.id_pelada) {
             valormensal = Number(pelada.valorpagamento)
+
+            pel_sel = pelada
         }
     })
+
+    //Chamando personalizando depois de definir pel_sel
+    personalizando()
+
     let pagmes;
     pagamentos.map((pagamento) => {
         if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
@@ -197,7 +203,7 @@ async function getPagJog(id, ano, mes) {
             $(document).ready(function () {
                 var t = $('#pagmesespecifico').DataTable();
 
-                t.row.add([detalhar, jogador.nome, jogador.numero, jogador.time, jogador.datadeingresso, pagmes, pagamento.pagfev, pagamento.status, "R$" + somapags]).draw(false);
+                t.row.add([detalhar, jogador.nome, jogador.numero, jogador.time, jogador.datadeingresso, pagmes, pagamento.pagfev, pagamento.status, "R$" + pagamento.valor_pagfev]).draw(false);
             });
         }
 
@@ -336,6 +342,23 @@ function addHtmlRouC(id, nome, dia, mes, ano, valor, tipo) {
                 </div>
             </div>`
     }
+}
+async function personalizando() {
+    
+    //nome da pelada no sidebar
+    const sidebar_nome = document.querySelector('#peladanome-sel');
+
+    sidebar_nome.innerHTML = pel_sel.nomepelada;
+
+    //personalizando áreas do usuário
+
+    //pegando o usuário responsavél pela pelada
+    const user_response = await fetch(url + 'user/'+pel_sel.id_usuario);
+    user = await user_response.json();
+
+    const pelada_user = document.getElementById('usuario-nome')
+
+    pelada_user.innerHTML = user.nome
 }
 window.onload = function () {
     //pegando o mês da pelada 

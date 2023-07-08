@@ -19,16 +19,100 @@ async function porcPagamento(mes) {
   jogadores_dados.forEach(function (jogador) {
     pagamentos.map((pagamento) => {
       if (jogador.id == pagamento.id_jogador) {
-        if (mes == 1) {
-          if (pagamento.pagfev == 'pago') {
-            pago++
-          } else if (pagamento.pagfev == 'alerta' || pagamento.pagfev == 'pendente') {
-            naopago++
-          }
+        switch (mes) {
+          case 0:
+            if (pagamento.pagjan == 'pago') {
+              pago++
+            } else if (pagamento.pagjan == 'alerta' || pagamento.pagjan == 'pendente') {
+              naopago++
+            }
+            break;
+          case 1:
+            if (pagamento.pagfev == 'pago') {
+              pago++
+            } else if (pagamento.pagfev == 'alerta' || pagamento.pagfev == 'pendente') {
+              naopago++
+            }
+            break;
+          case 2:
+            if (pagamento.pagmar == 'pago') {
+              pago++
+            } else if (pagamento.pagmar == 'alerta' || pagamento.pagmar == 'pendente') {
+              naopago++
+            }
+            break;
+          case 3:
+            if (pagamento.pagabr == 'pago') {
+              pago++
+            } else if (pagamento.pagabr == 'alerta' || pagamento.pagabr == 'pendente') {
+              naopago++
+            }
+            break;
+          case 4:
+            if (pagamento.pagmai == 'pago') {
+              pago++
+            } else if (pagamento.pagmai == 'alerta' || pagamento.pagmai == 'pendente') {
+              naopago++
+            }
+            break;
+          case 5:
+            if (pagamento.pagjun == 'pago') {
+              pago++
+            } else if (pagamento.pagjun == 'alerta' || pagamento.pagfjun == 'pendente') {
+              naopago++
+            }
+            break;
+          case 6:
+            if (pagamento.pagjul == 'pago') {
+              pago++
+            } else if (pagamento.pagjul == 'alerta' || pagamento.pagjul == 'pendente') {
+              naopago++
+            }
+            break;
+          case 7:
+            if (pagamento.pagago == 'pago') {
+              pago++
+            } else if (pagamento.pagago == 'alerta' || pagamento.pagago == 'pendente') {
+              naopago++
+            }
+            break;
+          case 8:
+            if (pagamento.pagset == 'pago') {
+              pago++
+            } else if (pagamento.pagset == 'alerta' || pagamento.pagset == 'pendente') {
+              naopago++
+            }
+            break;
+          case 9:
+            if (pagamento.pagout == 'pago') {
+              pago++
+            } else if (pagamento.pagout == 'alerta' || pagamento.pagout == 'pendente') {
+              naopago++
+            }
+            break;
+          case 10:
+            if (pagamento.pagnov == 'pago') {
+              pago++
+            } else if (pagamento.pagnov == 'alerta' || pagamento.pagnov == 'pendente') {
+              naopago++
+            }
+            break;
+          case 11:
+            if (pagamento.pagdez == 'pago') {
+              pago++
+            } else if (pagamento.pagdez == 'alerta' || pagamento.pagdez == 'pendente') {
+              naopago++
+            }
+            break;
         }
+
+
+
       }
     })
   })
+
+  console.log(pago)
 
   let total = pago + naopago
   let percentual
@@ -182,7 +266,7 @@ function dadosEspecificos(mes) {
   receitasInfo(mes)
 
   // CARD % DE PAGAMENTO
-  porcPagamento(1)
+  porcPagamento(mes)
 
 }
 function grafico1() {
@@ -389,9 +473,9 @@ async function estatisticaMes(mes) {
     }
   }
 
-  if(mes!='inicio'){
+  if (mes != 'inicio') {
     dadosEspecificos(mes)
-  }else{
+  } else {
     grafico1()
     grafico2()
   }
@@ -402,7 +486,7 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
   const mes_selecionado = document.getElementById('mestext')
 
   let mes = 'inicio';
-  if(mes_selecionado!=null){
+  if (mes_selecionado != null) {
     switch (mes_selecionado.innerHTML) {
       case "JANEIRO":
         mes = 0

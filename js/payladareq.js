@@ -380,7 +380,7 @@ async function getPagJog(id, ano) {
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
 
-    const detalhar = `<a href="./jogador.html?id=${id}">
+    const detalhar = `<a href="./jogador.html?id=${id}" class="btn btn-outline-success">
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                     </a>`
     let status;

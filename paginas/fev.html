@@ -206,8 +206,8 @@
                         </a>
                         <!-- Mes em visualização -->
                         <div class="card border-left-primary shadow h-100 py-2" id="vismes">
-                            <div id="mestext">
-                                <strong>FEVEREIRO</strong>
+                            <div  class="text-primary" style="font-size: 25px;">
+                                <strong id="mestext">FEVEREIRO</strong>
                             </div>
                         </div>
                         <a href="">
@@ -216,15 +216,14 @@
                     </div>
                     <!-- Cards e botões -->
                     <div class="row">
-                        <!-- Card total arrecadado do mês de jogadores -->
+                        <!-- CARD LUCRO -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                <strong>Lucro mensal</strong>
-                                                
+                                                <strong>Lucro mensal</strong>                                        
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="lucro">R$000</div>
                                         </div>
@@ -238,7 +237,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Card total arrecadado do mês de jogadores -->
+                        <!-- CARD RECEITAS POSITIVAS -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -246,29 +245,15 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 <strong>Arrecadado mensal</strong>
-                                                
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-success" >R$000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-success" id="so-receitas">R$000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-success"></i>
                                         </div>
                                     </div>
-                                    <div id="teste" style="margin-top: 12px;">
-                                        <h4 class="small font-weight-bold text-success">Jogadores<span
-                                                class="float-right">80%</span></h4>
-                                        <div class="progress mb-4">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <h4 class="small font-weight-bold text-success">
-                                            Receitas extras                                           
-                                            <span class="float-right">20%</span>
-                                        </h4>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 20%"
-                                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                    <div style="margin-top: 12px;" id="origem-receitas">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -281,9 +266,8 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 <strong>Despesas do mês</strong>
-                                                
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-danger">R$000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-danger" id="valor-despesa">R$000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-danger"></i>
@@ -294,22 +278,7 @@
                                             PRINCIPAIS DESPESAS:                                           
                                         </h4>
                                         <div id="principais-despesas">
-                                            <h4 class="small font-weight-bold text-danger">
-                                                Campos                                         
-                                                <span class="float-right">R$200</span>
-                                            </h4>
-                                            <h4 class="small font-weight-bold text-danger">
-                                                Campos                                         
-                                                <span class="float-right">R$200</span>
-                                            </h4>
-                                            <h4 class="small font-weight-bold text-danger">
-                                                Campos                                         
-                                                <span class="float-right">R$200</span>
-                                            </h4>
-                                            <h4 class="small font-weight-bold text-danger">
-                                                Campos                                         
-                                                <span class="float-right">R$200</span>
-                                            </h4>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -318,7 +287,9 @@
                         <!-- Card arrecadado anual-->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-header text-primary">% de pagamento do mês</div>
+                                <div class="card-header text-primary">
+                                    <strong>% de pagamento do mês</strong>
+                                </div>
                                 <div class="card-body" id="porc-pagamento">
                                     
                             </div>

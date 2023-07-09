@@ -11,9 +11,6 @@ const lista_jogadores = []
 const id_pelada = localStorage.getItem('id_pelada')
 //ano da análise
 const ano_selecionado = document.querySelector('#anofinanceiro')
-let pel_sel = ''
-//usuário dono da pelada
-let user = ''
 //pegando id da url
 const urlsearchParams = new URLSearchParams(window.location.search) //me entrega um objeto que eu posso acessar os parametros na url
 const jogadorId = urlsearchParams.get("id")
@@ -47,7 +44,7 @@ async function getPagJog(id, ano, mes) {
     const responsePelada = await fetch(`${url}pelada/`)
     const peladas = await responsePelada.json()
 
-    const detalhar = `<a href="./jogador.html?id=${id}" class="btn btn-outline-success">
+    const detalhar = `<a href="../jogador.html?id=${id}" class="btn btn-outline-success">
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                      </a>`
 
@@ -59,14 +56,19 @@ async function getPagJog(id, ano, mes) {
         }
     })
 
-    //Chamando personalizando depois de definir pel_sel
-    personalizando()
-
     let pagmes;
+
+    let situacao, status, valor
+
     pagamentos.map((pagamento) => {
         if (pagamento.id_jogador == id && pagamento.anoatual == ano) {
+            status = pagamento.status
             switch (mes) {
                 case 0:
+
+                    situacao = pagamento.pagjan
+                    valor = pagamento.valor_pagjan
+
                     if (pagamento.pagjan == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagjan == 'pendente') {
@@ -78,6 +80,10 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 1:
+
+                    situacao = pagamento.pagfev
+                    valor = pagamento.valor_pagjan
+
                     if (pagamento.pagfev == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagfev == 'pendente') {
@@ -89,6 +95,10 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 2:
+
+                    situacao = pagamento.pagmar
+                    valor = pagamento.valor_pagmar
+
                     if (pagamento.pagmar == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagmar == 'pendente') {
@@ -100,6 +110,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 3:
+                    situacao = pagamento.pagabr
+                    valor = pagamento.valor_pagabr
+
                     if (pagamento.pagabr == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagabr == 'pendente') {
@@ -111,6 +124,8 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 4:
+                    situacao = pagamento.pagmai
+                    valor = pagamento.valor_pagmai
                     if (pagamento.pagmai == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagmai == 'pendente') {
@@ -122,6 +137,8 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 5:
+                    situacao = pagamento.pagjun
+                    valor = pagamento.valor_pagjun
                     if (pagamento.pagjun == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagjun == 'pendente') {
@@ -133,6 +150,10 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 6:
+                    situacao = pagamento.pagjul;
+                    valor = pagamento.valor_pagjul
+                    ;
+
                     if (pagamento.pagjul == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagjul == 'pendente') {
@@ -144,6 +165,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 7:
+                    situacao = pagamento.pagago;
+                    valor = pagamento.valor_pagago;
+
                     if (pagamento.pagago == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagago == 'pendente') {
@@ -155,6 +179,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 8:
+                    situacao = pagamento.pagset;
+                    valor = pagamento.valor_pagset;
+
                     if (pagamento.pagset == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagset == 'pendente') {
@@ -166,6 +193,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 9:
+                    situacao = pagamento.pagout;
+                    valor = pagamento.valor_pagout;
+
                     if (pagamento.pagout == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagout == 'pendente') {
@@ -177,6 +207,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 10:
+                    situacao = pagamento.pagnov
+                    valor = pagamento.valor_pagnov
+
                     if (pagamento.pagnov == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagnov == 'pendente') {
@@ -188,6 +221,9 @@ async function getPagJog(id, ano, mes) {
                     }
                     break;
                 case 11:
+                    situacao = pagamento.pagdez
+                    valor = pagamento.valor_pagdez
+
                     if (pagamento.pagdez == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
                     } else if (pagamento.pagdez == 'pendente') {
@@ -203,7 +239,7 @@ async function getPagJog(id, ano, mes) {
             $(document).ready(function () {
                 var t = $('#pagmesespecifico').DataTable();
 
-                t.row.add([detalhar, jogador.nome, jogador.numero, jogador.time, jogador.datadeingresso, pagmes, pagamento.pagfev, pagamento.status, "R$" + pagamento.valor_pagfev]).draw(false);
+                t.row.add([detalhar, jogador.nome, jogador.numero, jogador.time, jogador.datadeingresso, pagmes, situacao, status, "R$" + valor]).draw(false);
             });
         }
 
@@ -273,6 +309,7 @@ async function addRecOuDesp(roudnovo) {
         });
 
     const receita_adicionada = await response.json();
+
     if (receita_adicionada.tipo == 'despesa') {
         cardsdespesas.innerHTML = addHtmlRouC(receita_adicionada.id, receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsdespesas.innerHTML
     } else {
@@ -285,7 +322,7 @@ async function percorreRecouDesp(mes) {
     const receitas = await response.json()
 
     await receitas.map((receita) => {
-        if (receita.id_pelada == id_pelada && receita.tipo == 'despesa' && parseInt(receita.mes) == (mes+1) ) {
+        if (receita.id_pelada == id_pelada && parseInt(receita.mes) == (mes+1) ) {
             if (receita.tipo == 'despesa') {
                 cardsdespesas.innerHTML = addHtmlRouC(receita.id, receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsdespesas.innerHTML
             } else {
@@ -348,17 +385,14 @@ async function personalizando() {
     //nome da pelada no sidebar
     const sidebar_nome = document.querySelector('#peladanome-sel');
 
-    sidebar_nome.innerHTML = pel_sel.nomepelada;
+    sidebar_nome.innerHTML = localStorage.getItem('nome_pelada')
 
     //personalizando áreas do usuário
 
     //pegando o usuário responsavél pela pelada
-    const user_response = await fetch(url + 'user/'+pel_sel.id_usuario);
-    user = await user_response.json();
-
     const pelada_user = document.getElementById('usuario-nome')
 
-    pelada_user.innerHTML = user.nome
+    pelada_user.innerHTML = localStorage.getItem('nome_usuario')
 }
 window.onload = function () {
     //pegando o mês da pelada 
@@ -406,6 +440,7 @@ window.onload = function () {
 
     pagina_mes = mes
 
+    personalizando()
     getPagMes(mes)
     percorreRecouDesp(mes)
 }

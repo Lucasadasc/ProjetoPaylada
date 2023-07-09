@@ -772,7 +772,7 @@ function mesesFoco() {
     var meses
     if (mesatual == 1) {
         meses = `
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/jan.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Janeiro</span>
             </a>
@@ -780,7 +780,7 @@ function mesesFoco() {
     } else if (mesatual == 2) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/fev.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Fevereiro</span>
             </a>
@@ -788,7 +788,7 @@ function mesesFoco() {
     } else if (mesatual == 3) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/mar.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Março</span>
             </a>
@@ -796,21 +796,21 @@ function mesesFoco() {
     } else if (mesatual == 4) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/abr.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Abril</span>
             </a>
         `
     } else if (mesatual == 5) {
         meses = `
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/mai.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Maio</span>
             </a>
         `
     } else if (mesatual == 6) {
         meses = `
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/jun.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Junho</span>
             </a>
@@ -818,7 +818,7 @@ function mesesFoco() {
     } else if (mesatual == 7) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/jul.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Julho</span>
             </a>
@@ -826,7 +826,7 @@ function mesesFoco() {
     } else if (mesatual == 8) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/ago.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Agosto</span>
             </a>
@@ -834,39 +834,28 @@ function mesesFoco() {
     } else if (mesatual == 9) {
         meses = `
         
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/set.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Setembro</span>
             </a>
         `
     } else if (mesatual == 10) {
         meses = `
-        
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Setembro</span>
-            </a>
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/out.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Outubro</span>
-            </a>
-        
-            <a class="nav-link" href="">
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>Novembro</span>
             </a>
         `
     } else if (mesatual == 11) {
         meses = `
-        
-            <a class="nav-link" href="">
+            <a class="nav-link"  href="./meses/nov.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Novembro</span>
             </a>
         `
     } else if (mesatual == 12) {
         meses = `
-            <a class="nav-link" href="">
+            <a class="nav-link" href="./meses/dez.html">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Dezembro</span>
             </a>
@@ -881,10 +870,14 @@ async function personalizando() {
 
     sidebar_nome.innerHTML = pel_sel.nomepelada;
 
+    localStorage.setItem('nome_pelada', pel_sel.nomepelada)
+
     //personalizando áreas do usuário
     const pelada_user = document.getElementById('usuario-nome')
 
     pelada_user.innerHTML = user.nome
+
+    localStorage.setItem('nome_usuario', user.nome)
 
     //modal de add jogador
     const timesel_a = document.querySelector('#opcao-a')

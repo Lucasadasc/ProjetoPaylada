@@ -22,6 +22,7 @@
     <!-- Mudanças e adições que fiz no css -->
     <link href="../css/csspay.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/cssdatatable.css">
+    <link href="../../css/cssmes.css" rel="stylesheet">
 
     <!-- CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -83,18 +84,18 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Meses do ano</h6>
-                        <a class="collapse-item" href="">Janeiro</a>
-                        <a class="collapse-item" href="./fev.html">Fevereiro</a>
-                        <a class="collapse-item" href="">Março</a>
-                        <a class="collapse-item" href="">Abril</a>
-                        <a class="collapse-item" href="">Maio</a>
-                        <a class="collapse-item" href="">Junho</a>
-                        <a class="collapse-item" href="">Julho</a>
-                        <a class="collapse-item" href="">Agosto</a>
-                        <a class="collapse-item" href="">Setembro</a>
-                        <a class="collapse-item" href="">Outubro</a>
-                        <a class="collapse-item" href="">Novembro</a>
-                        <a class="collapse-item" href="">Dezembro</a>
+                        <a class="collapse-item" href="./meses/jan.html">Janeiro</a>
+                        <a class="collapse-item" href="./meses/fev.html">Fevereiro</a>
+                        <a class="collapse-item" href="./meses/mar.html">Março</a>
+                        <a class="collapse-item" href="./meses/abr.html">Abril</a>
+                        <a class="collapse-item" href="./meses/mai.html">Maio</a>
+                        <a class="collapse-item" href="./meses/jun.html">Junho</a>
+                        <a class="collapse-item" href="./meses/jul.html">Julho</a>
+                        <a class="collapse-item" href="./meses/ago.html">Agosto</a>
+                        <a class="collapse-item" href="./meses/set.html">Setembro</a>
+                        <a class="collapse-item" href="./meses/out.html">Outubro</a>
+                        <a class="collapse-item" href="./meses/nov.html">Novembro</a>
+                        <a class="collapse-item" href="./meses/dez.html">Dezembro</a>
                     </div>
                 </div>
             </li>
@@ -171,7 +172,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Permissões
                                 </a>
-                                <a class="dropdown-item" href="#" >
+                                <a class="dropdown-item" href="./editaruser.html" >
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configurações
                                 </a>
@@ -200,6 +201,21 @@
                     </p>
                 </div>
                 <div class="container-fluid hide" id="conteudo">
+                    <!-- Navegar nos meses -->
+                    <div id="navmeses">
+                        <a href="./meses/dez.html">
+                            <i class="fa-solid fa-circle-chevron-left fa-2x text-primary-300" ></i>
+                        </a>
+                        <!-- Mes em visualização -->
+                        <div class="card border-left-primary shadow h-100 py-2" id="vismes">
+                            <div  class="text-primary" style="font-size: 25px;">
+                                <strong id="mestext">2023</strong>
+                            </div>
+                        </div>
+                        <a href="./meses/jan.html">
+                            <i class="fa-solid fa-circle-chevron-right fa-2x text-primary-300" ></i>
+                        </a>
+                    </div>
                     <!-- Cards e botões -->
                     <div class="row">
                         <!-- Card de nº de jogadores -->
@@ -661,7 +677,7 @@
 
             <!-- Importando Data Tables JS-->
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>]
+            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
             <script src="../vendor/jquery/jquery.min.js"></script>
             <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

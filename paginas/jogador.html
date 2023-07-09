@@ -47,10 +47,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./inicio.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fa-solid fa-chart-line"></i>
+                <div class="sidebar-brand-text mx-3" id="peladanome-sel">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                        style="margin-right: 6px;"></span>
                 </div>
-                <div class="sidebar-brand-text mx-3">Bola Cheia</div>
             </a>
 
             <!-- Divider -->
@@ -60,7 +60,7 @@
 
             <li class="nav-item">
                 <div id="escudonome">
-                    <img src="../img/def/bolacheia.png" alt="logo">
+                    <img src="../img/def/logopadrao.svg" alt="logo">
                 </div>
             </li>
 
@@ -80,18 +80,18 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Meses do ano</h6>
-                        <a class="collapse-item" href="">Janeiro</a>
-                        <a class="collapse-item" href="./fev.html">Fevereiro</a>
-                        <a class="collapse-item" href="">Março</a>
-                        <a class="collapse-item" href="">Abril</a>
-                        <a class="collapse-item" href="">Maio</a>
-                        <a class="collapse-item" href="">Junho</a>
-                        <a class="collapse-item" href="">Julho</a>
-                        <a class="collapse-item" href="">Agosto</a>
-                        <a class="collapse-item" href="">Setembro</a>
-                        <a class="collapse-item" href="">Outubro</a>
-                        <a class="collapse-item" href="">Novembro</a>
-                        <a class="collapse-item" href="">Dezembro</a>
+                        <a class="collapse-item" href="./meses/jan.html">Janeiro</a>
+                        <a class="collapse-item" href="./meses/fev.html">Fevereiro</a>
+                        <a class="collapse-item" href="./meses/mar.html">Março</a>
+                        <a class="collapse-item" href="./meses/abr.html">Abril</a>
+                        <a class="collapse-item" href="./meses/mai.html">Maio</a>
+                        <a class="collapse-item" href="./meses/jun.html">Junho</a>
+                        <a class="collapse-item" href="./meses/jul.html">Julho</a>
+                        <a class="collapse-item" href="./meses/ago.html">Agosto</a>
+                        <a class="collapse-item" href="./meses/set.html">Setembro</a>
+                        <a class="collapse-item" href="./meses/out.html">Outubro</a>
+                        <a class="collapse-item" href="./meses/nov.html">Novembro</a>
+                        <a class="collapse-item" href="./meses/dez.html">Dezembro</a>
                     </div>
                 </div>
             </li>
@@ -156,7 +156,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lucas Augusto</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="usuario-nome">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                                        style="margin-right: 6px;"></span>
+                                </span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -165,16 +168,16 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Permissões
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="./editaruser.html" >
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configurações
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="./minhaspeladas.html">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Mudar de pelada
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="../index.html">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Sair
                                 </a>

@@ -391,5 +391,18 @@ async function mudandoPagamento(){
     confirmandoPagamento(novopagamento)
 }
 window.onload = function(){
+    
+    //nome da pelada no sidebar
+    const sidebar_nome = document.querySelector('#peladanome-sel');
+
+    sidebar_nome.innerHTML = localStorage.getItem('nome_pelada')
+
+    //personalizando áreas do usuário
+
+    //pegando o usuário responsavél pela pelada
+    const pelada_user = document.getElementById('usuario-nome')
+
+    pelada_user.innerHTML = localStorage.getItem('nome_usuario')
+
     atribuindoPagamento(jogadorId)
 }

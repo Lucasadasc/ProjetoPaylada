@@ -15,6 +15,7 @@ modstatus, modtotalpag
 let totalmudpag = 0
 let valorpag // pa
 let atualizarpagamento
+let quantidade_mudancas = 1
 
 const mudandoStatus = document.querySelector("#status")
 
@@ -339,6 +340,19 @@ async function confirmandoPagamento(novopagamento){
         });
         
         getPagJog(jogadorId, 2023)
+
+        const confirmacao = document.getElementById('confirmacao')
+        if(quantidade_mudancas == 1){
+            confirmacao.innerHTML =  `<div class="alert alert-success" role="alert">
+                                        As alterações no pagamento foram salvas
+                                    </div>`
+        }else{
+            confirmacao.innerHTML =  `<div class="alert alert-success" role="alert">
+                                        As alterações no pagamento foram salvas (${quantidade_mudancas})
+                                    </div>`
+        }
+        
+        quantidade_mudancas++
 }
 async function mudandoPagamento(){
     atualizarpagamento = {

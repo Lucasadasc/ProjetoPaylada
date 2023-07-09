@@ -198,10 +198,10 @@
                 </div>
 
                 <div class="container-fluid hide" id="conteudo">
-                    <div class="row">
+                    <div class="row d-flex" style="justify-content: center;align-items: center">
                         <div class="col-xl-3 col-md-6 mb-4" id="viewpagamentos">
                             <div class="card border-left-success shadow mb-4">
-                                <strong><div class="card-header">Pagamentos</div></strong>
+                                <strong><div class="card-header" id="pagamentos">Pagamentos</div></strong>
                                 <div class="card-body">
                                     <p id="status">O jogador se encontra xxxx a jogar</p>
                                     <table id="tabgeral"
@@ -274,7 +274,10 @@
                                             <!--Pagemento do jogador-->
                                         </tbody>
                                     </table>
-                                    <div class="form-text" style="margin-bottom: 8px;">Clique em cima do icone para alterar o pagamento</div>
+                                    <div id="confirmacao">
+                                        
+                                    </div>
+                                    <div class="form-text" style="margin-bottom: 8px;">Clique em cima do icone para alterar o pagamento e salve as alterações</div>
                                     <div id="setsjog">
                                         <div class="dropdown">
                                             <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -286,12 +289,38 @@
 
                                             </ul>
                                         </div>
-                                        <button class="btn btn-success" onclick="mudandoPagamento()">
+                                        <button class="btn btn-success" onclick="mudandoPagamento()"> 
                                             <i class="fa-solid fa-file-invoice-dollar" style="color: #ffffff;"></i>
                                             +
+                                            Salvar alterações
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex" style="justify-content: center;">
+                        <div class="col-xl-3 col-md-6 mb-4" id="viewfaturas">
+                            <div class="card border-left-success shadow mb-4">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-success">Faturas</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="alert alert-primary" role="alert">
+                                        O jogador ainda não efetuou nenhum pagamento
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Fevereiro
+                                        </div>
+                                        <div class="card-body">
+                                            Pago em 12/12/12
+                                            <br>
+                                            Valor pago: 
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6 mb-4" id="viewjogador">
@@ -320,7 +349,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.container-fluid -->
                     <!-- End of Main Content -->

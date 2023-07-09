@@ -352,6 +352,7 @@ async function getJogador(id) {
     const jogador = await responseJog.json()
     const pagamentos = await responsePag.json()
 
+    const header_pagamentos = document.getElementById('pagamentos')
     const nome = document.querySelector("#nomejog")
     const time = document.querySelector("#time")
     const numero = document.querySelector("#numero")
@@ -363,6 +364,7 @@ async function getJogador(id) {
             status.innerHTML = "O peladeiro está " + pagamento.status + " a jogar"
         }
     })
+    header_pagamentos.innerHTML = "Pagamentos de "+jogador.nome
     nome.innerHTML = jogador.nome
     time.innerHTML = jogador.time
     numero.innerHTML = jogador.numero

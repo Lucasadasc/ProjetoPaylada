@@ -19,10 +19,105 @@ let quantidade_mudancas = 1
 
 const mudandoStatus = document.querySelector("#status")
 
+function faturaHtml(mes, data_pagamento, valor){
+    return `<div class="card" style="margin-top: 10px">
+                <div class="card-header text-success" >
+                    ${mes}
+                </div>
+                <div class="card-body d-flex" style="justify-content: space-between;" >
+                    Pago em ${data_pagamento}
+                <br>
+                    Valor pago: R$${valor}
+                </div>
+            </div>`
+}
+function gerandoFaturas() {
+
+    let ha_faturas = false
+
+    const faturas = document.getElementById('faturas')
+
+    faturas.innerHTML = ""
+
+    let pags = [
+        modjan,
+        modfev,
+        modmar,
+        modabr,
+        modmai,
+        modjun,
+        modjul,
+        modago,
+        modset,
+        modout,
+        modnov,
+        moddez,
+    ]
+
+    let mes = 0;
+    pags.map((statuspag)=>{
+        mes++
+        if (statuspag == 'pago') {
+            ha_faturas = true
+            if (mes == 1) {
+                faturas.innerHTML += faturaHtml("Janeiro", moddata_pagjan, modvalor_pagjan)
+            } else if (mes == 2) {
+                faturas.innerHTML += faturaHtml("Fevereiro", moddata_pagfev, modvalor_pagfev)
+            } else if (mes == 3) {
+                faturas.innerHTML += faturaHtml("Março", moddata_pagmar, modvalor_pagmar)
+            } else if (mes == 4) {
+                faturas.innerHTML += faturaHtml("Abril", moddata_pagabr, modvalor_pagabr)
+            } else if (mes == 5) {
+                faturas.innerHTML += faturaHtml("Maio", moddata_pagmai, modvalor_pagmai)
+            } else if (mes == 6) {
+                faturas.innerHTML += faturaHtml("Junho", moddata_pagjun, modvalor_pagjun)
+            } else if (mes == 7) {
+                faturas.innerHTML += faturaHtml("Julho", moddata_pagjul, modvalor_pagjul)
+            } else if (mes == 8) {
+                faturas.innerHTML += faturaHtml("Agosto", moddata_pagago, modvalor_pagago)
+            } else if (mes == 9) {
+                faturas.innerHTML += faturaHtml("Setembro", moddata_pagset, modvalor_pagset)
+            } else if (mes == 10) {
+                faturas.innerHTML += faturaHtml("Outubro", moddata_pagout, modvalor_pagout)
+            } else if (mes == 11) {
+                faturas.innerHTML += faturaHtml("Novembro", moddata_pagnov, modvalor_pagnov)
+            } else if (mes == 12) {
+                faturas.innerHTML += faturaHtml("Dezembro", moddata_pagdez, modvalor_pagdez)
+            }
+        }
+    })
+}
+
+function verificarStatus(mes, diapagmaximo) {
+    //pegando data atual pra comparar
+    var data = new Date();
+    var diaatual = data.getDate()
+    var mesatual = data.getMonth() + 1
+    var anoatual = data.getFullYear()
+
+    let situacao
+
+    
+    if (anoatual > 2023) {
+        situacao = 'alerta'
+    } else if (mesatual > mes) {
+        situacao = 'alerta'
+    } else if (mesatual == mes) {
+        if (diaatual > diapagmaximo) {
+            situacao = 'alerta'
+        }
+    } else {
+        situacao = 'pendente'
+    }
+    return situacao
+}
 async function atribuindoPagamento(jogadorId){
     //pegando jogador
     const responseJog = await fetch(`${url}jog/${jogadorId}`)
     const jogador = await responseJog.json()
+
+    object_jogador = jogador
+
     //pegando pagamento
     const responsePag = await fetch(`${url}pag/`)
     const pagamentos = await responsePag.json()
@@ -71,6 +166,8 @@ async function atribuindoPagamento(jogadorId){
             modstatus = pagamento.status
         }
     })
+
+    gerandoFaturas()
 }
 async function editPag(mes) {
     console.log(totalmudpag)
@@ -306,29 +403,7 @@ function modPag(icon, mes, diapagmaximo, valorpag) {
         return 'isento'
     }
 }
-function verificarStatus(mes, diapagmaximo) {
-    //pegando data atual pra comparar
-    var data = new Date();
-    var diaatual = data.getDate()
-    var mesatual = data.getMonth() + 1
-    var anoatual = data.getFullYear()
 
-    let situacao
-
-    
-    if (anoatual > 2023) {
-        situacao = 'alerta'
-    } else if (mesatual > mes) {
-        situacao = 'alerta'
-    } else if (mesatual == mes) {
-        if (diaatual > diapagmaximo) {
-            situacao = 'alerta'
-        }
-    } else {
-        situacao = 'pendente'
-    }
-    return situacao
-}
 async function confirmandoPagamento(novopagamento){
     const response = await fetch(url + 'pag/'+ id_pag+'/',
         {
@@ -402,8 +477,11 @@ async function mudandoPagamento(){
 
     novopagamento = JSON.stringify(atualizarpagamento);
     console.log(novopagamento)
+    
     confirmandoPagamento(novopagamento)
+    gerandoFaturas()
 }
+
 window.onload = function(){
     
     //nome da pelada no sidebar

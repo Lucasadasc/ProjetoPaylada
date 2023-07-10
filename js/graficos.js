@@ -172,6 +172,7 @@ async function receitasInfo(mes) {
   })
 
   const maiores_despesas = document.getElementById('principais-despesas')
+  maiores_despesas.innerHTML = ''
 
   let cont_vazio = 0
 
@@ -195,8 +196,6 @@ async function receitasInfo(mes) {
 function dadosEspecificos(mes) {
 
   //CARD LUCRO
-
-  console.log(faturamento_mes[mes])
 
   const lucro = document.getElementById('lucro')
   const comparar = document.getElementById('faturamento-despesas')
@@ -367,6 +366,10 @@ function grafico2() {
   chart.render();
 }
 async function estatisticaMes(mes) {
+  somajan = somafev = somamar = somaabr = somamai = somajun = somajul = somaago = somaset = somaout = somanov = somadez = 0
+  desjan = desfev = desmar = desabr = desmai = desjun = desjul = desago = desset = desout = desnov = desdez = 0
+
+
   const responsePag = await fetch(`${url}pag/`)
   const pagamentos = await responsePag.json()
 
@@ -532,7 +535,6 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
         break;
     }
   }
-  console.log(mes)
 
   //pegando a pelada e guardando numa variavél
   const responsePelada = await fetch(`${url}pelada/${id_pelada}`)

@@ -8,11 +8,6 @@ despesas_data = [] //soma das despesas em cada mes
 faturamento_mes = [] //receitas - despesas em cada mês
 faturamento_anual = [] //soma do faturamento a cada mês
 
-//carregamento
-const loading = document.querySelector("#loading")
-const conteudo = document.querySelector("#conteudo")
-
-
 async function porcPagamento(mes) {
   const responsePag = await fetch(`${url}pag/`)
   const pagamentos = await responsePag.json()

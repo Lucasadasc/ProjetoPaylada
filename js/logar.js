@@ -105,7 +105,7 @@ function addCardPelada(id, logopelada, nomepelada, diacriacao, mescriacao, anocr
             </a>`
 }
 function passarId(id){
-    console.log(id)
+
     localStorage.setItem('id_pelada', id)
 }
 if(!userId){

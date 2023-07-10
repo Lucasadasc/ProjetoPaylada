@@ -33,6 +33,13 @@ const time = document.querySelector("#timeselect")
 const numero = document.querySelector("#numero")
 const ingresso = document.querySelector("#ingresso")
 
+//modal de mudar pelada
+const nome_modal = document.querySelector('#modnomepelada')
+const time_a = document.querySelector('#modtimesa')
+const time_b = document.querySelector('#modtimesb')
+const payday = document.querySelector('#paydayv')
+const valormensal = document.querySelector('#valormensal')
+
 //cards iniciais
 const totaljog = document.querySelector("#totalatletas")
 let contjog = 0
@@ -48,7 +55,7 @@ async function getAllJogadores() { //async - vou usar await para esperar as requ
     pel_sel = await responsePelada.json()
 
     //pegando o usuário responsavél pela pelada
-    const user_response = await fetch(url + 'user/'+pel_sel.id_usuario);
+    const user_response = await fetch(url + 'user/' + pel_sel.id_usuario);
     user = await user_response.json();
 
     const response = await fetch(url + 'jog/')
@@ -364,7 +371,7 @@ async function getJogador(id) {
             status.innerHTML = "O peladeiro está " + pagamento.status + " a jogar"
         }
     })
-    header_pagamentos.innerHTML = "Pagamentos de "+jogador.nome
+    header_pagamentos.innerHTML = "Pagamentos de " + jogador.nome
     nome.innerHTML = jogador.nome
     time.innerHTML = jogador.time
     numero.innerHTML = jogador.numero
@@ -376,6 +383,7 @@ async function getJogador(id) {
 
 //relacionando jogador com pagamento
 async function getPagJog(id, ano) {
+
     const responseJog = await fetch(`${url}jog/${id}`)
     const jog = await responseJog.json()
 
@@ -866,7 +874,7 @@ function mesesFoco() {
     return mesesemfoco.innerHTML += meses
 }
 async function personalizando() {
-    
+
     //nome da pelada no sidebar
     const sidebar_nome = document.querySelector('#peladanome-sel');
 
@@ -891,11 +899,6 @@ async function personalizando() {
     timesel_b.value = pel_sel.timeb
 
     //modal de mudar pelada
-    const nome_modal = document.querySelector('#modnomepelada')
-    const time_a = document.querySelector('#modtimesa')
-    const time_b = document.querySelector('#modtimesb')
-    const payday = document.querySelector('#paydayv')
-    const valormensal = document.querySelector('#valormensal')
 
     nome_modal.value = pel_sel.nomepelada
     time_a.value = pel_sel.timea
@@ -903,7 +906,7 @@ async function personalizando() {
     payday.value = pel_sel.diamaxpagamento
     valormensal.value = pel_sel.valorpagamento
 
-    estatisticasPelada(id_pelada) 
+    estatisticasPelada(id_pelada)
 
 }
 async function estatisticasPelada(id_pelada) {
@@ -946,6 +949,42 @@ async function estatisticasPelada(id_pelada) {
     } else {
         arrecadado.style.color = "#b40404"
     }
+
+}
+async function editarDefPelada(edicao){
+    const response = await fetch(url + 'pelada/'+pel_sel.id+"/",
+        {
+            method: "PUT",
+            body: edicao,
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
+
+    const confirmacao = document.getElementById("confirmacao-mudanca")
+    confirmacao.innerHTML = `<div class="alert alert-success" role="alert">
+                                As alterações no pagamento foram salvas
+                            </div>`
+
+}
+function editarPelada() {
+
+    //modal de mudar pelada
+    let edicao = {
+        "id_usuario": user.id,
+        "nomepelada": nome_modal.value,
+        "timea": time_a.value,
+        "timeb": time_b.value,
+        "diamaxpagamento": payday.value,
+        "valorpagamento": valormensal.value,
+        "diacriacao": pel_sel.diacriacao,
+        "mescriacao": pel_sel.mescriacao,
+        "anocriacao": pel_sel.anocriacao,
+    }
+
+    edicao = JSON.stringify(edicao);
+    console.log(edicao)
+    editarDefPelada(edicao)
 
 }
 

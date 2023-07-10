@@ -1,17 +1,17 @@
 let id_pag, ano,
-modjan, modvalor_pagjan, moddata_pagjan, 
-modfev, modvalor_pagfev, moddata_pagfev,
-modmar, modvalor_pagmar, moddata_pagmar,
-modabr, modvalor_pagabr, moddata_pagabr,
-modmai, modvalor_pagmai, moddata_pagmai,
-modjun, modvalor_pagjun, moddata_pagjun,
-modjul, modvalor_pagjul, moddata_pagjul,
-modago, modvalor_pagago, moddata_pagago,
-modset, modvalor_pagset, moddata_pagset,
-modout, modvalor_pagout, moddata_pagout,
-modnov, modvalor_pagnov, moddata_pagnov,
-moddez, modvalor_pagdez, moddata_pagdez,
-modstatus, modtotalpag
+    modjan, modvalor_pagjan, moddata_pagjan,
+    modfev, modvalor_pagfev, moddata_pagfev,
+    modmar, modvalor_pagmar, moddata_pagmar,
+    modabr, modvalor_pagabr, moddata_pagabr,
+    modmai, modvalor_pagmai, moddata_pagmai,
+    modjun, modvalor_pagjun, moddata_pagjun,
+    modjul, modvalor_pagjul, moddata_pagjul,
+    modago, modvalor_pagago, moddata_pagago,
+    modset, modvalor_pagset, moddata_pagset,
+    modout, modvalor_pagout, moddata_pagout,
+    modnov, modvalor_pagnov, moddata_pagnov,
+    moddez, modvalor_pagdez, moddata_pagdez,
+    modstatus, modtotalpag
 let totalmudpag = 0
 let valorpag // pa
 let atualizarpagamento
@@ -19,17 +19,37 @@ let quantidade_mudancas = 1
 
 const mudandoStatus = document.querySelector("#status")
 
-function faturaHtml(mes, data_pagamento, valor){
-    return `<div class="card" style="margin-top: 10px">
-                <div class="card-header text-success" >
-                    ${mes}
+function ampliar(mes) {
+    const tirar_hide = document.getElementById(mes)
+
+    tirar_hide.classList.remove('hide')
+}
+function faturaHtml(mes, data_pagamento, valor) {
+    let id_nome = String(mes).substring(0, 3)
+    return `
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${id_nome}" aria-expanded="false" aria-controls="collapseTwo">
+                    <strong class="text-success">${mes}</strong>
+                </button>
+            </h2>
+            <div id="${id_nome}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body d-flex" style="flex-direction: column">
+                    <strong >Pago em:</strong>
+                    ${data_pagamento}
+                    <br>
+                    <strong>Valor pago:</strong>
+                    R$${valor}             
+                    <br>
+                    <div class="mb-3">
+                        <strong ><label for="formFile" class="form-label">Comprovante da fatura:</label></strong>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
                 </div>
-                <div class="card-body d-flex" style="justify-content: space-between;" >
-                    Pago em ${data_pagamento}
-                <br>
-                    Valor pago: R$${valor}
-                </div>
-            </div>`
+            </div>
+        </div>
+        `
 }
 function gerandoFaturas() {
 
@@ -55,7 +75,7 @@ function gerandoFaturas() {
     ]
 
     let mes = 0;
-    pags.map((statuspag)=>{
+    pags.map((statuspag) => {
         mes++
         if (statuspag == 'pago') {
             ha_faturas = true
@@ -97,7 +117,7 @@ function verificarStatus(mes, diapagmaximo) {
 
     let situacao
 
-    
+
     if (anoatual > 2023) {
         situacao = 'alerta'
     } else if (mesatual > mes) {
@@ -111,7 +131,7 @@ function verificarStatus(mes, diapagmaximo) {
     }
     return situacao
 }
-async function atribuindoPagamento(jogadorId){
+async function atribuindoPagamento(jogadorId) {
     //pegando jogador
     const responseJog = await fetch(`${url}jog/${jogadorId}`)
     const jogador = await responseJog.json()
@@ -190,180 +210,180 @@ async function editPag(mes) {
     if (mes == "janeiro") {
         const icon = document.getElementById("jan");
         modjan = modPag(icon, 1, diapagmaximo, valorpag)
-        if(modjan == 'pago'){
+        if (modjan == 'pago') {
             modvalor_pagjan = parseFloat(valorpag)
-            moddata_pagjan = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagjan = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modjan == 'alerta'){
+        } else if (modjan == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagjan = 0
             moddata_pagjan = 'não pago'
-        }else if(modjan != 'pago'){
+        } else if (modjan != 'pago') {
             modvalor_pagjan = 0
             moddata_pagjan = 'não pago'
         }
     } else if (mes == "fevereiro") {
         const icon = document.getElementById("fev");
         modfev = modPag(icon, 2, diapagmaximo, valorpag)
-        if(modfev == 'pago'){
+        if (modfev == 'pago') {
             modvalor_pagfev = parseFloat(valorpag)
-            moddata_pagfev = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagfev = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modfev == 'alerta'){
+        } else if (modfev == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagfev = 0
             moddata_pagfev = 'não pago'
-        }else if(modfev != 'pago'){
+        } else if (modfev != 'pago') {
             modvalor_pagfev = 0
             moddata_pagfev = 'não pago'
         }
     } else if (mes == "março") {
         const icon = document.getElementById("mar");
         modmar = modPag(icon, 3, diapagmaximo, valorpag)
-        if(modmar == 'pago'){
+        if (modmar == 'pago') {
             modvalor_pagmar = parseFloat(valorpag)
-            moddata_pagmar = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagmar = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modmar == 'alerta'){
+        } else if (modmar == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagmar = 0
-            moddata_pagmar = 'não pago'       
-        }else if(modmai != 'pago'){
+            moddata_pagmar = 'não pago'
+        } else if (modmai != 'pago') {
             modvalor_pagmar = 0
             moddata_pagmar = 'não pago'
         }
     } else if (mes == "abril") {
         const icon = document.getElementById("abr");
         modabr = modPag(icon, 4, diapagmaximo, valorpag)
-        if(modabr == 'pago'){
+        if (modabr == 'pago') {
             modvalor_pagabr = parseFloat(valorpag)
-            moddata_pagabr = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagabr = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modabr == 'alerta'){
+        } else if (modabr == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagabr = 0
             moddata_pagabr = 'não pago'
-        }else if(modabr != 'pago'){
+        } else if (modabr != 'pago') {
             modvalor_pagabr = 0
             moddata_pagabr = 'não pago'
         }
     } else if (mes == "maio") {
         const icon = document.getElementById("mai");
         modmai = modPag(icon, 5, diapagmaximo, valorpag)
-        if(modmai == 'pago'){
+        if (modmai == 'pago') {
             modvalor_pagmai = parseFloat(valorpag)
-            moddata_pagmai = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagmai = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modmai == 'alerta'){
+        } else if (modmai == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagmai = 0
             moddata_pagmai = 'não pago'
-        }else if(modmai != 'pago'){
+        } else if (modmai != 'pago') {
             modvalor_pagmai = 0
             moddata_pagmai = 'não pago'
         }
     } else if (mes == "junho") {
         const icon = document.getElementById("jun");
         modjun = modPag(icon, 6, diapagmaximo, valorpag)
-        if(modjun == 'pago'){
+        if (modjun == 'pago') {
             modvalor_pagjun = parseFloat(valorpag)
-            moddata_pagjun = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagjun = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modjun == 'alerta'){
+        } else if (modjun == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagjun = 0
             moddata_pagjun = 'não pago'
-        }else if(modjun != 'pago'){
+        } else if (modjun != 'pago') {
             modvalor_pagjun = 0
             moddata_pagjun = 'não pago'
         }
     } else if (mes == "julho") {
         const icon = document.getElementById("jul");
         modjul = modPag(icon, 7, diapagmaximo, valorpag)
-        if(modjul == 'pago'){
+        if (modjul == 'pago') {
             modvalor_pagjul = parseFloat(valorpag)
-            moddata_pagjul = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagjul = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modjul == 'alerta'){
+        } else if (modjul == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagjul = 0
             moddata_pagjul = 'não pago'
-        }else if(modjul != 'pago'){
+        } else if (modjul != 'pago') {
             modvalor_pagjul = 0
             moddata_pagjul = 'não pago'
         }
     } else if (mes == "agosto") {
         const icon = document.getElementById("ago");
         modago = modPag(icon, 8, diapagmaximo, valorpag)
-        if(modago == 'pago'){
+        if (modago == 'pago') {
             modvalor_pagago = parseFloat(valorpag)
-            moddata_pagago = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagago = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modago == 'alerta'){
+        } else if (modago == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagago = 0
             moddata_pagago = 'não pago'
-        }else if(modago != 'pago'){
+        } else if (modago != 'pago') {
             modvalor_pagago = 0
             moddata_pagago = 'não pago'
         }
     } else if (mes == "setembro") {
         const icon = document.getElementById("set");
         modset = modPag(icon, 9, diapagmaximo, valorpag)
-        if(modset == 'pago'){
+        if (modset == 'pago') {
             modvalor_pagset = parseFloat(valorpag)
-            moddata_pagset = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagset = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modset == 'alerta'){
+        } else if (modset == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagset = 0
             moddata_pagset = 'não pago'
-        }else if(modset != 'pago'){
+        } else if (modset != 'pago') {
             modvalor_pagset = 0
             moddata_pagset = 'não pago'
         }
     } else if (mes == "outubro") {
         const icon = document.getElementById("out");
         modout = modPag(icon, 10, diapagmaximo, valorpag)
-        if(modout == 'pago'){
+        if (modout == 'pago') {
             modvalor_pagout = parseFloat(valorpag)
-            moddata_pagout = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagout = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modout == 'alerta'){
+        } else if (modout == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagout = 0
             moddata_pagout = 'não pago'
-        }else if(modout != 'pago'){
+        } else if (modout != 'pago') {
             modvalor_pagout = 0
             moddata_pagout = 'não pago'
         }
     } else if (mes == "novembro") {
         const icon = document.getElementById("nov");
         modnov = modPag(icon, 11, diapagmaximo, valorpag)
-        if(modnov == 'pago'){
+        if (modnov == 'pago') {
             modvalor_pagnov = parseFloat(valorpag)
-            moddata_pagnov = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagnov = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(modnov == 'alerta'){
+        } else if (modnov == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagnov = 0
             moddata_pagnov = 'não pago'
-        }else if(modnov != 'pago'){
+        } else if (modnov != 'pago') {
             modvalor_pagnov = 0
             moddata_pagnov = 'não pago'
         }
     } else if (mes == "dezembro") {
         const icon = document.getElementById("dez");
         moddez = modPag(icon, 12, diapagmaximo, valorpag)
-        if(moddez == 'pago'){
+        if (moddez == 'pago') {
             modvalor_pagdez = parseFloat(valorpag)
-            moddata_pagdez = diaatual+"/"+mesatual+"/"+anoatual
+            moddata_pagdez = diaatual + "/" + mesatual + "/" + anoatual
             modstatus = 'apto'
-        }else if(moddez == 'alerta'){
+        } else if (moddez == 'alerta') {
             modstatus = 'inapto'
             modvalor_pagdez = 0
             moddata_pagdez = 'não pago'
-        }else if(moddez != 'pago'){
+        } else if (moddez != 'pago') {
             modvalor_pagdez = 0
             moddata_pagdez = 'não pago'
         }
@@ -404,8 +424,8 @@ function modPag(icon, mes, diapagmaximo, valorpag) {
     }
 }
 
-async function confirmandoPagamento(novopagamento){
-    const response = await fetch(url + 'pag/'+ id_pag+'/',
+async function confirmandoPagamento(novopagamento) {
+    const response = await fetch(url + 'pag/' + id_pag + '/',
         {
             method: "PUT",
             body: novopagamento,
@@ -413,23 +433,23 @@ async function confirmandoPagamento(novopagamento){
                 "Content-type": "application/json",
             },
         });
-        
-        getPagJog(jogadorId, 2023)
 
-        const confirmacao = document.getElementById('confirmacao')
-        if(quantidade_mudancas == 1){
-            confirmacao.innerHTML =  `<div class="alert alert-success" role="alert">
+    getPagJog(jogadorId, 2023)
+
+    const confirmacao = document.getElementById('confirmacao')
+    if (quantidade_mudancas == 1) {
+        confirmacao.innerHTML = `<div class="alert alert-success" role="alert">
                                         As alterações no pagamento foram salvas
                                     </div>`
-        }else{
-            confirmacao.innerHTML =  `<div class="alert alert-success" role="alert">
+    } else {
+        confirmacao.innerHTML = `<div class="alert alert-success" role="alert">
                                         As alterações no pagamento foram salvas (${quantidade_mudancas})
                                     </div>`
-        }
-        
-        quantidade_mudancas++
+    }
+
+    quantidade_mudancas++
 }
-async function mudandoPagamento(){
+async function mudandoPagamento() {
     atualizarpagamento = {
         "id_jogador": jogadorId,
         "anoatual": ano,
@@ -469,21 +489,21 @@ async function mudandoPagamento(){
         "pagdez": moddez,
         "valor_pagdez": modvalor_pagdez,
         "data_pagdez": moddata_pagdez,
-        "totalpag": modtotalpag+totalmudpag,
+        "totalpag": modtotalpag + totalmudpag,
         "status": modstatus
     };
 
-    mudandoStatus.innerHTML = "O peladeiro está "+ modstatus+ " a jogar"
+    mudandoStatus.innerHTML = "O peladeiro está " + modstatus + " a jogar"
 
     novopagamento = JSON.stringify(atualizarpagamento);
     console.log(novopagamento)
-    
+
     confirmandoPagamento(novopagamento)
     gerandoFaturas()
 }
 
-window.onload = function(){
-    
+window.onload = function () {
+
     //nome da pelada no sidebar
     const sidebar_nome = document.querySelector('#peladanome-sel');
 

@@ -1,9 +1,5 @@
 const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/"
 
-//carregamento
-const loading = document.querySelector("#loading")
-const conteudo = document.querySelector("#conteudo")
-
 //lista de jogadores
 const pagmes = document.querySelector("#pagmesespecifico");
 const lista_jogadores = []
@@ -19,13 +15,10 @@ const jogadorId = urlsearchParams.get("id")
 const cardsreceitas = document.querySelector('#cardreceita')
 const cardsdespesas = document.querySelector('#carddespesa')
 
-let pagina_mes =  ''
+let pagina_mes = ''
 async function getPagMes(mes) { //async - vou usar await para esperar as requisições
     const response = await fetch(url + 'jog/')
     const jogadores = await response.json()
-
-    loading.classList.add("hide")
-    conteudo.classList.remove("hide")
 
     await jogadores.map((jogador) => {
         if (jogador.id_pelada == id_pelada) {
@@ -152,7 +145,7 @@ async function getPagJog(id, ano, mes) {
                 case 6:
                     situacao = pagamento.pagjul;
                     valor = pagamento.valor_pagjul
-                    ;
+                        ;
 
                     if (pagamento.pagjul == 'pago') {
                         pagmes = `<i class="fa-solid fa-circle-check" style="color: #03ad00;"></i></td>`
@@ -275,7 +268,7 @@ function addFinancaMes(tipo) {
         validar = 'Insira um valor'
     } else if (dia == '') {
         var diaatual = data.getDate();
-        dia = "0" + String(diaatual);
+        dia = String(diaatual);
     }
 
     if (validar == 'ok') {
@@ -285,7 +278,7 @@ function addFinancaMes(tipo) {
             "nome": nome,
             "tipo": tipo,
             "dia": dia,
-            "mes": pagina_mes+1,
+            "mes": pagina_mes + 1,
             "ano": '2023',
             "valor": valor
         };
@@ -316,13 +309,15 @@ async function addRecOuDesp(roudnovo) {
         cardsreceitas.innerHTML = addHtmlRouC(receita_adicionada.id, receita_adicionada.nome, receita_adicionada.dia, receita_adicionada.mes, receita_adicionada.ano, receita_adicionada.valor, receita_adicionada.tipo) + cardsreceitas.innerHTML
     }
 
+    estatisticaMes(pagina_mes)
+
 }
 async function percorreRecouDesp(mes) {
     const response = await fetch(url + 'receitas/')
     const receitas = await response.json()
 
     await receitas.map((receita) => {
-        if (receita.id_pelada == id_pelada && parseInt(receita.mes) == (mes+1) ) {
+        if (receita.id_pelada == id_pelada && parseInt(receita.mes) == (mes + 1)) {
             if (receita.tipo == 'despesa') {
                 cardsdespesas.innerHTML = addHtmlRouC(receita.id, receita.nome, receita.dia, receita.mes, receita.ano, receita.valor, receita.tipo) + cardsdespesas.innerHTML
             } else {
@@ -340,6 +335,9 @@ async function deletarRouC(id) {
         {
             method: "DELETE",
         });
+
+    estatisticaMes(pagina_mes)
+
 }
 function addHtmlRouC(id, nome, dia, mes, ano, valor, tipo) {
     if (tipo == 'despesa') {
@@ -381,7 +379,7 @@ function addHtmlRouC(id, nome, dia, mes, ano, valor, tipo) {
     }
 }
 async function personalizando() {
-    
+
     //nome da pelada no sidebar
     const sidebar_nome = document.querySelector('#peladanome-sel');
 

@@ -8,6 +8,10 @@ despesas_data = [] //soma das despesas em cada mes
 faturamento_mes = [] //receitas - despesas em cada mês
 faturamento_anual = [] //soma do faturamento a cada mês
 
+//carregamento
+const loading = document.querySelector("#loading")
+const conteudo = document.querySelector("#conteudo")
+
 
 async function porcPagamento(mes) {
   const responsePag = await fetch(`${url}pag/`)
@@ -197,16 +201,18 @@ function dadosEspecificos(mes) {
 
   //CARD LUCRO
 
+  console.log(faturamento_mes[mes])
+
   const lucro = document.getElementById('lucro')
   const comparar = document.getElementById('faturamento-despesas')
 
-  let cor = 'success'
+  let cor_lucro = 'success'
   if (faturamento_mes[mes] <= 0) {
-    cor = 'danger'
+    cor_lucro = 'danger'
   }
   lucro.innerHTML = 'R$' + faturamento_mes[mes]
   lucro.classList.remove('text-gray-800')
-  lucro.classList.add('text-' + cor)
+  lucro.classList.add('text-' + cor_lucro)
 
   let somas = receitas_data[mes] + despesas_data[mes]
   let perc_receitas = ((receitas_data[mes] / somas) * 100).toFixed(2)
@@ -224,7 +230,7 @@ function dadosEspecificos(mes) {
                         </div>
                         <h4 class="small font-weight-bold text-danger">
                           Despesas
-                          <span class="float-right">${despesas_data[mes]}</span>
+                          <span class="float-right">R$${despesas_data[mes]}</span>
                         </h4>
                         <div class="progress">
                           <div class="progress-bar bg-danger" role="progressbar" 
@@ -237,7 +243,7 @@ function dadosEspecificos(mes) {
 
   const valor_receitas = document.getElementById('so-receitas')
   total_receitas = receitas_data[mes]
-  valor_receitas.innerHTML = total_receitas
+  valor_receitas.innerHTML = 'R$'+total_receitas
 
   let valor_jogadores = total_receitas - receitas_separadas[mes]
 
@@ -267,6 +273,11 @@ function dadosEspecificos(mes) {
 
   // CARD % DE PAGAMENTO
   porcPagamento(mes)
+
+  //tirando de carregando
+
+  loading.classList.add("hide")
+  conteudo.classList.remove("hide")
 
 }
 function grafico1() {

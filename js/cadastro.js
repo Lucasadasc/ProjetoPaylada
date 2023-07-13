@@ -42,7 +42,8 @@ async function cadastrar(){
     let nome = nomerec.value;
     let sobrenome = sobrenomerec.value;
     let email = emailrec.value;
-    let login = loginrec.value;
+    let login_bruto = (loginrec.value);
+    let login = (login_bruto.trim()).toLowerCase()
     let senha = senharec.value;
     let senha_confirmada = senha_confirmadarec.value;
 

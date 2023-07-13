@@ -32,16 +32,16 @@ async function guardandoUsuarios(){
 }
 
 function logar(){
-    const login = document.querySelector('#login-usuario')
+    const login_bruto = document.querySelector('#login-usuario').value
     const senha = document.querySelector('#senha')
 
     let validar = 'invalido'
     let id = ''
 
-    console.log(lista_usuarios)
+    let login = login_bruto.trim()
 
     lista_usuarios.forEach(function(user){
-        if(user.usuario == login.value && user.senha == senha.value){
+        if(user.usuario == login.toLowerCase() && user.senha == senha.value){
             validar = 'logado'
             id = user.id
         }

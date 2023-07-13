@@ -1,4 +1,6 @@
-const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/"
+const url = "https://web-production-5bb0.up.railway.app/paylada/";
+
+// const url = "https://api-paylada-b70863bb5798.herokuapp.com/paylada/"
 
 //carregamento
 const loading = document.querySelector("#loading")

@@ -46,7 +46,7 @@
                 <div class="card-header" id="h1"><img src="../img/def/paylada_topbar.svg" alt=""></div>
                 <div class="card-header" id="h2"><strong></strong></div>
                 <div class="card-body" id="corpo-login" style="color: black;">
-                    <strong>Escolha uma pelada:</strong>
+                    <strong id="escolher-pelada" style="margin-bottom: 10px;">Escolha uma pelada:</strong>
                     <div id="peladas">
                         <!-- Aqui ficarão todas as peladas-->
                     </div>
@@ -64,12 +64,11 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                
+                            <div class="modal-body">    
                                     <div id="editefoto">
                                         <div id="edicoes">
                                             <div class="form-group">
-                                                <strong><label for="nome-pelada">Nome da pelada</label></strong>
+                                                <strong><label for="nome-pelada">Nome da pelada*</label></strong>
                                                 <input type="text" class="form-control" id="nome-pelada"
                                                     placeholder="Nome da pelada" required>
                                             </div>
@@ -96,14 +95,17 @@
                                     <div id="financas">
                                         <div id="payday" class="form-group">
                                             <strong><label for="paydayv">Pagamento máx.</label></strong>
-                                            <input type="text" class="form-control" id="pay-day"
-                                                placeholder="Dia máximo do pagamento" required>
+                                            <input type="text" class="form-control mask-sonumeros" id="pay-day"
+                                                placeholder="Dia máximo do pagamento" maxlength="2" required>
                                         </div>
                                         <div id="valor" class="form-group">
-                                            <strong><label for="valormensal">Valor mensal (R$)</label></strong>
-                                            <input type="text" class="form-control" id="valor-mensal"
-                                                placeholder="Valor mensal em R$">
+                                            <strong><label for="valormensal">Valor mensal (R$)*</label></strong>
+                                            <input type="text" class="form-control mask-sonumeros-2" id="valor-mensal"
+                                                placeholder="Valor mensal em R$" maxlength="5" required>
                                         </div>
+                                    </div>
+                                    <div id="erro_pelada">
+                        
                                     </div>
                             </div>
                             <div class="modal-footer">
@@ -123,5 +125,6 @@
     </div>
     <script src="../js/logar.js"></script>
     <script src="../js/peladas.js"></script>
+    <script src="../js/mascaras.js"></script>
 </body>
 </html>

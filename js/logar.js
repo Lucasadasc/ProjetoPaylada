@@ -75,8 +75,11 @@ async function minhasPeladas(){
         }
     })
 
+    let num_peladas = 0
     peladas.map((pelada)=>{
         if(pelada.id_usuario == userId){
+
+            num_peladas++
 
             let quantJogadores = 0
             jogadores.map((jogador)=>{
@@ -88,6 +91,14 @@ async function minhasPeladas(){
             divpeladas.innerHTML += addCardPelada(pelada.id, pelada.logopelada, pelada.nomepelada, pelada.diacriacao, pelada.mescriacao, pelada.anocriacao, quantJogadores)
         }
     })
+    if(num_peladas == 0){
+        let sem_peladas = document.getElementById('escolher-pelada')
+        
+        sem_peladas.innerHTML = `<div class="alert alert-warning d-flex" role="alert" style="justify-content: center; align-items: center">
+                                    Você ainda não gerencia nenhuma pelada
+                                    <i class="fa-solid fa-face-meh ml-2"></i>
+                                </div>`
+    }
 
     loading.classList.remove("spinner-border")
     conteudo.classList.remove("hide")
